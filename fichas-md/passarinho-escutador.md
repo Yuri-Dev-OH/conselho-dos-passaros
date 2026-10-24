@@ -6,9 +6,9 @@
 
 > “Eu ouvi... mas tenho certeza que ele não quis dizer isso.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 2 · Genial, mas confia em todo mundo | Suporte | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Herói | Grau 2 · Genial, mas confia em todo mundo | Suporte | Temporada 1 |
 
 ## Atributos
 

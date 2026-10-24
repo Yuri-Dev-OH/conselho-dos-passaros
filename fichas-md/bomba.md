@@ -6,9 +6,9 @@
 
 > “Pode bater. Eu devolvo com juros.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 1 · Mais perigoso quanto mais apanha | Linha de frente | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Herói | Grau 1 · Mais perigoso quanto mais apanha | Linha de frente | Temporada 1 |
 
 ## Atributos
 

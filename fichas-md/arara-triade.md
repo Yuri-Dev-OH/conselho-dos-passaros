@@ -6,9 +6,9 @@
 
 > “Fogo, raio, gelo. Quem sou eu hoje?”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Especial · Fora da Tríade: Grau 1 | Elemental | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Vilão | Especial · Fora da Tríade: Grau 1 | Elemental | Temporada 1 |
 
 ## Atributos
 

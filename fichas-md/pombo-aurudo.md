@@ -6,9 +6,9 @@
 
 > “Alexa, ligar aura.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Especial · Sem a manopla: Grau 3 | Mercenário | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Herói | Especial · Sem a manopla: Grau 3 | Mercenário | Temporada 1 |
 
 ## Atributos
 

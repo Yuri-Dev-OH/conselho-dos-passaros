@@ -6,9 +6,9 @@
 
 > “Estou rindo?”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 1 · Quem o encara já está dentro | Assassino | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Vilão | Grau 1 · Quem o encara já está dentro | Assassino | Temporada 1 |
 
 ## Atributos
 

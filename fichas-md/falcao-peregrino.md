@@ -6,9 +6,9 @@
 
 > “Dom é desculpa. Eu treinei.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 1 · Sem energia: ninguém o mede | Rival | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Neutro | Grau 1 · Sem energia: ninguém o mede | Rival | Temporada 1 |
 
 ## Atributos
 

@@ -6,9 +6,9 @@
 
 > “Vai dar errado. Sempre dá.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 1 · Cada palavra dele vale como ordem | Controlador | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Herói | Grau 1 · Cada palavra dele vale como ordem | Controlador | Temporada 1 |
 
 ## Atributos
 

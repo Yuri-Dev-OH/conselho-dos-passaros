@@ -6,9 +6,9 @@
 
 > “Fique à vontade. Eu espero.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 1 · Quanto mais mortos por perto, mais forte | Coveiro | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Neutro | Grau 1 · Quanto mais mortos por perto, mais forte | Coveiro | Temporada 1 |
 
 ## Atributos
 

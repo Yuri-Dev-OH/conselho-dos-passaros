@@ -14,6 +14,8 @@ const path = require("path");
 const RAIZ = path.join(__dirname, "..");
 const SAIDA = path.join(RAIZ, "fichas-md");
 const GRAUS = ["Grau 4", "Grau 3", "Grau 2", "Grau 1", "Especial"];
+const LADOS = { heroi: "Herói", vilao: "Vilão", neutro: "Neutro" };
+const PLURAL = { heroi: "Heróis", vilao: "Vilões", neutro: "Neutros" };
 
 /** Escapa caracteres que quebram células de tabela. */
 const cel = (s) => String(s ?? "").replace(/\|/g, "\\|").replace(/\r?\n/g, " ");
@@ -36,8 +38,8 @@ function ficha(c) {
   if (c.quote) out.push("> “" + c.quote + "”", "");
   if (c.audio) out.push("🔊 [Ouvir a fala](" + midia(c.audio) + ")", "");
 
-  out.push("| Classificação | Função | Série |", "|---|---|---|",
-    "| " + cel(GRAUS[(c.grade || 1) - 1] + (c.gradeNote ? " · " + c.gradeNote : "")) + " | " + cel(c.role) + " | " + cel(c.series) + " |", "");
+  out.push("| Lado | Classificação | Função | Série |", "|---|---|---|---|",
+    "| " + cel(LADOS[c.side] || "—") + " | " + cel(GRAUS[(c.grade || 1) - 1] + (c.gradeNote ? " · " + c.gradeNote : "")) + " | " + cel(c.role) + " | " + cel(c.series) + " |", "");
 
   if (c.stats && c.stats.length) {
     const comBase = !!c.legend && c.stats.every((s) => s.base != null);
@@ -65,9 +67,14 @@ function main() {
   const lista = (dados.characters || []).slice().sort((a, b) => a.name.localeCompare(b.name, "pt"));
   fs.mkdirSync(SAIDA, { recursive: true });
   for (const c of lista) fs.writeFileSync(path.join(SAIDA, c.id + ".md"), ficha(c));
-  const indice = ["# Conselho dos Pássaros", "", lista.length + " fichas.", "",
-    "| Personagem | Subtítulo | Classificação |", "|---|---|---|",
-    ...lista.map((c) => "| [" + cel(c.name) + "](" + c.id + ".md) | " + cel(c.subtitle) + " | " + cel(GRAUS[(c.grade || 1) - 1]) + " |"), ""];
+  const indice = ["# Conselho dos Pássaros", "", lista.length + " fichas.", ""];
+  const grupos = [...Object.keys(LADOS), ""].map((k) => [k, lista.filter((c) => (LADOS[c.side] ? c.side : "") === k)]);
+  for (const [k, membros] of grupos) {
+    if (!membros.length) continue;
+    indice.push("## " + (k ? PLURAL[k] : "Sem lado definido") + " (" + membros.length + ")", "",
+      "| Personagem | Subtítulo | Classificação |", "|---|---|---|",
+      ...membros.map((c) => "| [" + cel(c.name) + "](" + c.id + ".md) | " + cel(c.subtitle) + " | " + cel(GRAUS[(c.grade || 1) - 1]) + " |"), "");
+  }
   fs.writeFileSync(path.join(SAIDA, "README.md"), indice.join("\n"));
   console.log(lista.length + " fichas geradas em " + SAIDA);
 }

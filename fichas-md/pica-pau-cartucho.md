@@ -6,9 +6,9 @@
 
 > “Pode vir. Eu não paro de bater!”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 1 · Cada golpe o deixa mais perigoso | Parceiro | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Vilão | Grau 1 · Cada golpe o deixa mais perigoso | Parceiro | Temporada 1 |
 
 ## Atributos
 

@@ -6,9 +6,9 @@
 
 > “Respira fundo. Eu cuido de você.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Especial · Não gosta de lutar, mas ninguém a vence | Médica | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Herói | Especial · Não gosta de lutar, mas ninguém a vence | Médica | Temporada 1 |
 
 ## Atributos
 

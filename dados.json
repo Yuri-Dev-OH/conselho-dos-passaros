@@ -147,6 +147,7 @@
    "gradeNote": "",
    "role": "Herói supremo",
    "series": "Temporada 1",
+   "side": "heroi",
    "theme": {
     "canvas": "#080b12",
     "surface": "#0e1420",
@@ -351,6 +352,7 @@
    "gradeNote": "Fora da Tríade: Grau 1",
    "role": "Elemental",
    "series": "Temporada 1",
+   "side": "vilao",
    "theme": {
     "canvas": "#0a0a0d",
     "surface": "#121217",
@@ -686,6 +688,7 @@
    "gradeNote": "Quem o encara já está dentro",
    "role": "Assassino",
    "series": "Temporada 1",
+   "side": "vilao",
    "theme": {
     "canvas": "#070a08",
     "surface": "#0e1410",
@@ -852,6 +855,7 @@
    "gradeNote": "Mais perigoso quanto mais apanha",
    "role": "Linha de frente",
    "series": "Temporada 1",
+   "side": "heroi",
    "theme": {
     "canvas": "#0b0807",
     "surface": "#150e0c",
@@ -1025,6 +1029,7 @@
    "gradeNote": "",
    "role": "Ataque",
    "series": "Temporada 1",
+   "side": "heroi",
    "theme": {
     "canvas": "#080a0f",
     "surface": "#0f131b",
@@ -1225,6 +1230,7 @@
    "gradeNote": "Cada palavra dele vale como ordem",
    "role": "Controlador",
    "series": "Temporada 1",
+   "side": "heroi",
    "theme": {
     "canvas": "#0d0a08",
     "surface": "#17120e",
@@ -1398,6 +1404,7 @@
    "gradeNote": "Sem energia: ninguém o mede",
    "role": "Rival",
    "series": "Temporada 1",
+   "side": "neutro",
    "theme": {
     "canvas": "#0a0b0c",
     "surface": "#111314",
@@ -1611,6 +1618,7 @@
    "gradeNote": "Genial, mas confia em todo mundo",
    "role": "Suporte",
    "series": "Temporada 1",
+   "side": "heroi",
    "theme": {
     "canvas": "#09080d",
     "surface": "#110f17",
@@ -1777,6 +1785,7 @@
    "gradeNote": "",
    "role": "Vilão supremo",
    "series": "Temporada 1",
+   "side": "vilao",
    "theme": {
     "canvas": "#080b12",
     "surface": "#0e1420",
@@ -1943,6 +1952,7 @@
    "gradeNote": "Cada golpe o deixa mais perigoso",
    "role": "Parceiro",
    "series": "Temporada 1",
+   "side": "vilao",
    "theme": {
     "canvas": "#090b06",
     "surface": "#11150b",
@@ -2161,6 +2171,7 @@
    "gradeNote": "Não gosta de lutar, mas ninguém a vence",
    "role": "Médica",
    "series": "Temporada 1",
+   "side": "heroi",
    "theme": {
     "canvas": "#060b0c",
     "surface": "#0d1517",
@@ -2320,6 +2331,7 @@
    "gradeNote": "Sem a manopla: Grau 3",
    "role": "Mercenário",
    "series": "Temporada 1",
+   "side": "heroi",
    "theme": {
     "canvas": "#0b0906",
     "surface": "#15100b",
@@ -2569,6 +2581,7 @@
    "gradeNote": "Quanto mais mortos por perto, mais forte",
    "role": "Coveiro",
    "series": "Temporada 1",
+   "side": "neutro",
    "theme": {
     "canvas": "#0c080a",
     "surface": "#150e11",

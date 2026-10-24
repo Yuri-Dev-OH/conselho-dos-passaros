@@ -6,9 +6,9 @@
 
 > “Ataque!”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Grau 1 | Ataque | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Herói | Grau 1 | Ataque | Temporada 1 |
 
 ## Atributos
 

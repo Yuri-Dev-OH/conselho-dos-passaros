@@ -6,9 +6,9 @@
 
 > “Eu escrevo as regras depois que você perde.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Especial | Vilão supremo | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Vilão | Especial | Vilão supremo | Temporada 1 |
 
 ## Atributos
 

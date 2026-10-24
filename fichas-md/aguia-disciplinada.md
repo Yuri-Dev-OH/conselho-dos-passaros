@@ -6,9 +6,9 @@
 
 > “Disciplina é escolher de novo, todo dia.”
 
-| Classificação | Função | Série |
-|---|---|---|
-| Especial | Herói supremo | Temporada 1 |
+| Lado | Classificação | Função | Série |
+|---|---|---|---|
+| Herói | Especial | Herói supremo | Temporada 1 |
 
 ## Atributos
 
