@@ -131,7 +131,8 @@
   "terminal": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M7 10l3 2-3 2M12 15h5\"/>",
   "claw-pinguim-lenda": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
   "key": "<circle cx=\"8\" cy=\"12\" r=\"4\"/><path d=\"M12 12h9M18 12v4M15 12v3\"/>",
-  "eye-pinguim-lenda": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>"
+  "eye-pinguim-lenda": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "moon-morcego-barao": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>"
  },
  "characters": [
   {
@@ -3504,6 +3505,261 @@
        "label": "Custo",
        "value": "Sobreaquecimento",
        "desc": "Controlar vários mechas, perder máquinas e abrir o domínio esgota a energia e o deixa sem resposta por um tempo.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "morcego-barao",
+   "name": "Morcego Barão",
+   "subtitle": "Herdeiro da Mineração, Fanático por Sangue Puro",
+   "quote": "Ninguém entra na minha caverna sem convite.",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "midia/morcego-barao/logo.jpg",
+   "logoAlt": "Morcego de capacete de mineração dourado, com presas, olhos vermelhos e asas abertas, em uma caverna com cristais",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 4,
+   "gradeNote": "Gigante: Especial",
+   "role": "Neutro · Caverna",
+   "series": "Temporada 1",
+   "side": "neutro",
+   "theme": {
+    "canvas": "#0a0710",
+    "surface": "#120c1a",
+    "raised": "#1a1226",
+    "line": "rgba(192, 102, 255, 0.13)",
+    "lineStrong": "rgba(192, 102, 255, 0.24)",
+    "accent": "#c066ff",
+    "warn": "#f2b632",
+    "ink": "#f3ecfa",
+    "muted": "#a597b8",
+    "photoBg": "#0c0814"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "forms": [
+    {
+     "chip": "Normal",
+     "name": "Forma normal",
+     "values": [
+      3,
+      4,
+      4,
+      3,
+      4,
+      3,
+      4
+     ]
+    },
+    {
+     "chip": "Morcego Gigante",
+     "name": "Morcego Gigante",
+     "values": [
+      5,
+      3,
+      2,
+      5,
+      4,
+      5,
+      4
+     ]
+    }
+   ],
+   "startForm": 0,
+   "groups": [
+    {
+     "title": "Quem ele é",
+     "rows": [
+      {
+       "icon": "crystal",
+       "label": "Inata",
+       "value": "Herdeiro da Mineração",
+       "desc": "Herdeiro do império de mineração da família. Tem dinheiro, equipamentos, minas, túneis e uma caverna cheia de súditos.",
+       "weak": false
+      },
+      {
+       "icon": "mark",
+       "label": "Inata",
+       "value": "Fanático por Sangue Puro",
+       "desc": "Acredita que só o sangue puro merece respeito. Despreza quem é impuro e trata todo mundo como inferior até provar o contrário.",
+       "weak": false
+      },
+      {
+       "icon": "moon-morcego-barao",
+       "label": "Inata",
+       "value": "Noturno",
+       "desc": "Só sai à noite. Odeia visitas indesejadas na caverna dele e ataca quem entra sem convite.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Sangue",
+     "rows": [
+      {
+       "icon": "scan",
+       "label": "Técnica",
+       "value": "Julgamento de Sangue",
+       "desc": "Ao beber o sangue do alvo, descobre se ele é de sangue puro ou impuro.",
+       "weak": false
+      },
+      {
+       "icon": "drop",
+       "label": "Técnica",
+       "value": "Manipulação de Sangue",
+       "desc": "Controla o sangue de quem for impuro: trava membros, estanca o movimento ou faz o alvo sangrar. Em quem é puro, não funciona.",
+       "weak": false
+      },
+      {
+       "icon": "soul",
+       "label": "Transformação",
+       "value": "Morcego Gigante",
+       "desc": "Ao beber sangue puro, vira um morcego gigante. Ganha muita resistência e força, mas perde inteligência e age mais por instinto.",
+       "weak": false
+      },
+      {
+       "icon": "heal",
+       "label": "Sugestão",
+       "value": "Mordida Drenante",
+       "desc": "Cada mordida faz ele beber o sangue do alvo e recuperar vida. Contra sangue puro, cura mais e alimenta a transformação.",
+       "weak": false
+      },
+      {
+       "icon": "cut",
+       "label": "Sugestão",
+       "value": "Lâmina de Sangue",
+       "desc": "Molda o sangue de um alvo impuro em lâminas e agulhas e as dispara de volta contra ele.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Caverna",
+     "rows": [
+      {
+       "icon": "echo",
+       "label": "Técnica",
+       "value": "Grito de Ecolocalização",
+       "desc": "Um grito agudo que mapeia o ambiente e mostra a posição de todos, mesmo no escuro. Sem som, sem esconderijo.",
+       "weak": false
+      },
+      {
+       "icon": "fly",
+       "label": "Território",
+       "value": "Chamado da Família",
+       "desc": "Dentro do território dele, a caverna, chama centenas de morcegos da família. Eles atacam, cercam e tapam a visão, mas não têm os poderes dele.",
+       "weak": false
+      },
+      {
+       "icon": "mute",
+       "label": "Sugestão",
+       "value": "Voo Silencioso",
+       "desc": "Voa sem fazer barulho nenhum. Ataca pelas costas e some na escuridão antes de ser ouvido.",
+       "weak": false
+      },
+      {
+       "icon": "crack",
+       "label": "Sugestão",
+       "value": "Desabamento",
+       "desc": "Faz o teto da caverna desabar sobre quem estiver dentro, usando o conhecimento de mineração. Os morcegos da família escapam.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Sugestão · Domínio",
+       "value": "Galeria Ancestral",
+       "desc": "Expansão de domínio: toda a mina da família com ele como dono. Dentro, o Julgamento de Sangue acontece sozinho em todos, o grito mostra tudo, e o Chamado da Família não tem limite.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "sun",
+       "label": "Fraqueza",
+       "value": "Luz e Dia",
+       "desc": "Luz forte e sol o cegam e o enfraquecem. De dia ele evita lutar e fica na caverna.",
+       "weak": true
+      },
+      {
+       "icon": "drop",
+       "label": "Limitação",
+       "value": "Precisa do Sangue",
+       "desc": "Sem beber o sangue do alvo, não faz o Julgamento. Tem que ferir o alvo antes, e quem não deixa ele chegar perto não é julgado.",
+       "weak": true
+      },
+      {
+       "icon": "mark",
+       "label": "Limitação",
+       "value": "Só no Impuro",
+       "desc": "A Manipulação de Sangue só funciona em sangue impuro. Contra quem tem sangue puro, ele luta no braço.",
+       "weak": true
+      },
+      {
+       "icon": "eyeoff",
+       "label": "Fraqueza",
+       "value": "Gigante Burro",
+       "desc": "Na forma gigante perde inteligência e cai em armadilha. Precisa de sangue puro para transformar e não tem como fazer isso sem uma vítima assim.",
+       "weak": true
+      },
+      {
+       "icon": "echo",
+       "label": "Limitação",
+       "value": "Longe de Casa",
+       "desc": "Fora da caverna, o Chamado da Família não funciona. Quem luta com ele longe de casa enfrenta só ele.",
+       "weak": true
+      },
+      {
+       "icon": "fail",
+       "label": "Fraqueza",
+       "value": "Orgulho do Sangue",
+       "desc": "Subestima quem acha impuro e cai em provocação sobre a pureza dele. Perde a calma quando ofendem a família.",
        "weak": true
       }
      ]
