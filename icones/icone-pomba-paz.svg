@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86e3dc"/><stop offset="1" stop-color="#1a636b"/></linearGradient>
+    <radialGradient id="vig" cx="50%" cy="55%" r="72%"><stop offset="0.55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.4"/></radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="23"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"/></filter>
+    <clipPath id="inner"><rect x="34" y="34" width="444" height="444"/></clipPath>
+  </defs>
+  <rect x="14" y="14" width="484" height="484" fill="#fff"/>
+  <rect x="26" y="26" width="460" height="460" fill="#14171a"/>
+  <g clip-path="url(#inner)">
+    <rect x="34" y="34" width="444" height="444" fill="url(#bg)"/>
+    <path d="M34 478 L34 410 L100 478 Z" fill="#14171a" opacity="0.5"/>
+    <path d="M478 478 L478 410 L412 478 Z" fill="#14171a" opacity="0.5"/>
+    <rect x="34" y="34" width="444" height="444" fill="url(#vig)"/>
+    
+    <g fill="none" stroke="#fff"><circle cx="256" cy="270" r="170" stroke-opacity="0.18" stroke-width="8"/><circle cx="256" cy="270" r="215" stroke-opacity="0.12" stroke-width="8"/></g>
+    <path d="M232 60 h48 v66 h66 v48 h-66 v66 h-48 v-66 h-66 v-48 h66z" fill="#fff" fill-opacity="0.14" transform="translate(0 20)"/>
+    <ellipse cx="256" cy="408" rx="158" ry="92" fill="#e4eaec" stroke="#111" stroke-width="12"/>
+    <ellipse cx="256" cy="262" rx="124" ry="114" fill="#f8fafa" stroke="#111" stroke-width="12"/>
+    <!-- coroa de concha -->
+    <path d="M194 170 A62 62 0 0 1 318 170 Z" fill="#f3d9c2" stroke="#111" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M256 170 L202.3 139.0" stroke="#111" stroke-width="5" stroke-linecap="round"/><path d="M256 170 L225.0 116.3" stroke="#111" stroke-width="5" stroke-linecap="round"/><path d="M256 170 L256.0 108.0" stroke="#111" stroke-width="5" stroke-linecap="round"/><path d="M256 170 L287.0 116.3" stroke="#111" stroke-width="5" stroke-linecap="round"/><path d="M256 170 L309.7 139.0" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+    <rect x="186" y="168" width="140" height="20" rx="8" fill="#f3d9c2" stroke="#111" stroke-width="8"/>
+    <circle cx="222" cy="178" r="4" fill="#fff"/><circle cx="256" cy="178" r="4" fill="#fff"/><circle cx="290" cy="178" r="4" fill="#fff"/>
+    <!-- olhos calmos -->
+    <ellipse cx="206" cy="258" rx="15" ry="19" fill="#111"/><ellipse cx="306" cy="258" rx="15" ry="19" fill="#111"/>
+    <circle cx="211" cy="251" r="5" fill="#fff"/><circle cx="311" cy="251" r="5" fill="#fff"/>
+    <path d="M178 244 Q206 224 234 244 M278 244 Q306 224 334 244" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="170" cy="296" r="15" fill="#f4a6b4" fill-opacity="0.75"/><circle cx="342" cy="296" r="15" fill="#f4a6b4" fill-opacity="0.75"/>
+    <!-- bico -->
+    <path d="M236 288 L276 288 L256 322 Z" fill="#e8a08a" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <ellipse cx="256" cy="286" rx="16" ry="11" fill="#fff" stroke="#111" stroke-width="5"/>
+    <!-- cruz médica -->
+    <circle cx="256" cy="414" r="46" fill="#fff" stroke="#111" stroke-width="9"/>
+    <path d="M244 384 h24 v18 h18 v24 h-18 v18 h-24 v-18 h-18 v-24 h18z" fill="#e0443f" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+
+    <rect x="34" y="34" width="444" height="444" filter="url(#grain)" opacity="0.8"/>
+  </g>
+  <path d="M14 14 H498 V498 H14 Z M26 26 V486 H486 V26 Z" fill="#fff" fill-rule="evenodd"/>
+</svg>

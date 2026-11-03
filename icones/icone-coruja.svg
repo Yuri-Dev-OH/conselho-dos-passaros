@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0b98f"/><stop offset="1" stop-color="#7a5232"/></linearGradient>
+    <radialGradient id="vig" cx="50%" cy="55%" r="72%"><stop offset="0.55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.42"/></radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="17"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"/></filter>
+    <clipPath id="inner"><rect x="34" y="34" width="444" height="444"/></clipPath>
+  </defs>
+  <rect x="14" y="14" width="484" height="484" fill="#fff"/>
+  <rect x="26" y="26" width="460" height="460" fill="#14171a"/>
+  <g clip-path="url(#inner)">
+    <rect x="34" y="34" width="444" height="444" fill="url(#bg)"/>
+    <path d="M34 478 L34 410 L100 478 Z" fill="#14171a" opacity="0.5"/>
+    <path d="M478 478 L478 410 L412 478 Z" fill="#14171a" opacity="0.5"/>
+    <rect x="34" y="34" width="444" height="444" fill="url(#vig)"/>
+    
+    <g fill="#fff" fill-opacity="0.12"><circle cx="256" cy="300" r="190"/><circle cx="256" cy="300" r="140"/></g>
+    <ellipse cx="256" cy="306" rx="132" ry="124" fill="#d8c9b4" stroke="#111" stroke-width="12"/>
+    <g fill="#9a8a74"><circle cx="150" cy="350" r="9"/><circle cx="362" cy="350" r="9"/><circle cx="176" cy="392" r="8"/><circle cx="338" cy="392" r="8"/><circle cx="256" cy="420" r="8"/></g>
+    <g stroke="#111" stroke-width="8"><circle cx="204" cy="318" r="40" fill="#f6f1e8"/><circle cx="308" cy="318" r="40" fill="#f6f1e8"/></g>
+    <circle cx="204" cy="330" r="17" fill="#111"/><circle cx="308" cy="330" r="17" fill="#111"/>
+    <path d="M164 318 A40 40 0 0 1 244 318 Z" fill="#d8c9b4" stroke="#111" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M268 318 A40 40 0 0 1 348 318 Z" fill="#d8c9b4" stroke="#111" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M158 300 L238 272" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+    <path d="M354 300 L274 272" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+    <path d="M238 352 L274 352 L256 386 Z" fill="#e59a2a" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M222 414 Q256 394 290 414" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+    <!-- chapéu -->
+    <path d="M62 262 C70 152 172 112 256 112 C340 112 442 152 450 262 C404 224 332 208 256 208 C180 208 108 224 62 262 Z" fill="#a4502b" stroke="#111" stroke-width="11" stroke-linejoin="round"/>
+    <g stroke="#111" stroke-width="6">
+      <circle cx="120" cy="196" r="30" fill="#f6f1e8"/><circle cx="392" cy="196" r="30" fill="#f6f1e8"/>
+      <circle cx="204" cy="150" r="19" fill="#c9ced4"/><circle cx="256" cy="140" r="19" fill="#f2c230"/><circle cx="308" cy="150" r="19" fill="#c9ced4"/>
+    </g>
+    <path d="M120 180 L134 196 L120 212 L106 196Z M392 180 L406 196 L392 212 L378 196Z" fill="#c43a2a" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+    <!-- balão: vai dar errado -->
+    <path d="M338 372 H452 V450 H382 L360 474 L362 450 H338 Z" fill="#fff" stroke="#111" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M370 392 L420 430 M420 392 L370 430" stroke="#c43a2a" stroke-width="12" stroke-linecap="round"/>
+
+    <rect x="34" y="34" width="444" height="444" filter="url(#grain)" opacity="0.8"/>
+  </g>
+  <path d="M14 14 H498 V498 H14 Z M26 26 V486 H486 V26 Z" fill="#fff" fill-rule="evenodd"/>
+</svg>

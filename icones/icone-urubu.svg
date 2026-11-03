@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d98aae"/><stop offset="1" stop-color="#4a1c35"/></linearGradient>
+    <radialGradient id="vig" cx="50%" cy="55%" r="72%"><stop offset="0.55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.42"/></radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="29"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"/></filter>
+    <clipPath id="inner"><rect x="34" y="34" width="444" height="444"/></clipPath>
+  </defs>
+  <rect x="14" y="14" width="484" height="484" fill="#fff"/>
+  <rect x="26" y="26" width="460" height="460" fill="#14171a"/>
+  <g clip-path="url(#inner)">
+    <rect x="34" y="34" width="444" height="444" fill="url(#bg)"/>
+    <path d="M34 478 L34 410 L100 478 Z" fill="#14171a" opacity="0.5"/>
+    <path d="M478 478 L478 410 L412 478 Z" fill="#14171a" opacity="0.5"/>
+    
+    <circle cx="396" cy="118" r="52" fill="#fff" fill-opacity="0.3"/>
+    <g fill="#1a0c14" fill-opacity="0.65" stroke="#1a0c14" stroke-width="2">
+      <path d="M40 478 V400 a26 26 0 0 1 52 0 V478z"/>
+      <path d="M400 478 V420 a24 24 0 0 1 48 0 V478z"/>
+      <path d="M92 478 V430 h-14 v-16 h14 v-14 h16 v14 h14 v16 h-14 v48z" transform="translate(300 -4)"/>
+    </g>
+    <path d="M96 478 C108 410 170 384 256 384 C342 384 404 410 416 478 Z" fill="#2c2833" stroke="#111" stroke-width="12" stroke-linejoin="round"/>
+    <path d="M178 330 C168 262 164 192 212 160 C246 140 292 142 316 172 C324 182 328 192 330 202 C356 206 380 226 374 264 C362 254 348 248 334 248 C334 272 324 294 314 314 C330 346 330 380 322 400 L194 400 C200 370 188 354 178 330 Z" fill="#7f7788" stroke="#111" stroke-width="12" stroke-linejoin="round"/>
+    <g fill="none" stroke="#4b4455" stroke-width="6" stroke-linecap="round">
+      <path d="M200 200 q18 -10 36 -2"/><path d="M196 236 q20 -8 40 2"/><path d="M204 272 q16 -6 32 2"/><path d="M262 168 q14 8 30 4"/>
+    </g>
+    <path d="M330 202 C356 206 380 226 374 264 C362 254 348 248 334 248 Z" fill="#e8e0cf" stroke="#111" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M360 232 C372 240 378 252 374 264" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="346" cy="222" r="4.5" fill="#111"/>
+    <circle cx="298" cy="214" r="20" fill="#e9d98a" stroke="#111" stroke-width="8"/>
+    <circle cx="302" cy="220" r="8" fill="#111"/>
+    <path d="M276 214 H320" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+    <path d="M272 196 L326 208" stroke="#111" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="176" cy="356" r="27" fill="#eee9e1" stroke="#111" stroke-width="7"/><circle cx="212" cy="372" r="27" fill="#eee9e1" stroke="#111" stroke-width="7"/><circle cx="256" cy="378" r="27" fill="#eee9e1" stroke="#111" stroke-width="7"/><circle cx="300" cy="372" r="27" fill="#eee9e1" stroke="#111" stroke-width="7"/><circle cx="336" cy="356" r="27" fill="#eee9e1" stroke="#111" stroke-width="7"/>
+    <!-- cartola -->
+    <g transform="rotate(-12 252 150)">
+      <rect x="208" y="66" width="88" height="76" rx="8" fill="#3b3742" stroke="#111" stroke-width="9"/>
+      <rect x="208" y="112" width="88" height="20" fill="#c8668f" stroke="#111" stroke-width="7"/>
+      <ellipse cx="252" cy="144" rx="62" ry="13" fill="#3b3742" stroke="#111" stroke-width="9"/>
+    </g>
+
+    <rect x="34" y="34" width="444" height="444" fill="url(#vig)"/>
+    <rect x="34" y="34" width="444" height="444" filter="url(#grain)" opacity="0.8"/>
+  </g>
+  <path d="M14 14 H498 V498 H14 Z M26 26 V486 H486 V26 Z" fill="#fff" fill-rule="evenodd"/>
+</svg>

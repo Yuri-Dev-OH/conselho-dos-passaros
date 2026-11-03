@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6b46"/><stop offset="1" stop-color="#8d1d10"/></linearGradient>
+    <radialGradient id="vig" cx="50%" cy="55%" r="72%"><stop offset="0.55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.42"/></radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"/></filter>
+    <clipPath id="inner"><rect x="34" y="34" width="444" height="444"/></clipPath>
+  </defs>
+  <rect x="14" y="14" width="484" height="484" fill="#fff"/>
+  <rect x="26" y="26" width="460" height="460" fill="#14171a"/>
+  <g clip-path="url(#inner)">
+    <rect x="34" y="34" width="444" height="444" fill="url(#bg)"/>
+    <polygon points="256.0,36.0 289.4,121.8 356.7,59.0 349.5,150.7 437.4,123.4 391.1,202.9 482.2,216.4 406.0,268.0 482.2,319.6 391.1,333.1 437.4,412.6 349.5,385.3 356.7,477.0 289.4,414.2 256.0,500.0 222.6,414.2 155.3,477.0 162.5,385.3 74.6,412.6 120.9,333.1 29.8,319.6 106.0,268.0 29.8,216.4 120.9,202.9 74.6,123.4 162.5,150.7 155.3,59.0 222.6,121.8" fill="#ffb02e" stroke="#111" stroke-width="8" stroke-linejoin="round"/>
+    <polygon points="276.0,69.0 297.4,144.8 360.3,97.4 346.8,175.0 424.0,159.5 378.2,223.6 454.5,243.2 385.4,281.0 445.6,331.7 366.9,335.8 399.1,407.7 326.5,377.2 324.4,456.0 272.1,397.0 236.0,467.0 214.6,391.2 151.7,438.6 165.2,361.0 88.0,376.5 133.8,312.4 57.5,292.8 126.6,255.0 66.4,204.3 145.1,200.2 112.9,128.3 185.5,158.8 187.6,80.0 239.9,139.0" fill="#ffe08a"/>
+    <path d="M34 478 L34 410 L100 478 Z" fill="#14171a" opacity="0.5"/>
+    <path d="M478 478 L478 410 L412 478 Z" fill="#14171a" opacity="0.5"/>
+    <!-- corpo-bomba -->
+    <circle cx="256" cy="292" r="132" fill="#2a2e34" stroke="#111" stroke-width="13"/>
+    <path d="M160 250 A110 110 0 0 1 232 178" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="12" stroke-linecap="round"/>
+    <!-- rachaduras em brasa -->
+    <g stroke="#ff8a3a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M150 340 l22 14 -12 20 20 12"/>
+      <path d="M362 340 l-22 14 12 20 -20 12"/>
+      <path d="M232 398 l10 -14 14 12 14 -12 10 14"/>
+    </g>
+    <!-- pavio -->
+    <rect x="234" y="150" width="44" height="30" rx="6" fill="#4a4f57" stroke="#111" stroke-width="8"/>
+    <path d="M256 150 Q248 112 292 94" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+    <path d="M256 150 Q248 112 292 94" fill="none" stroke="#e8d3a0" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="318.0,92.0 300.7,97.0 305.0,114.5 292.0,102.0 279.0,114.5 283.3,97.0 266.0,92.0 283.3,87.0 279.0,69.5 292.0,82.0 305.0,69.5 300.7,87.0" fill="#fff6c8" stroke="#111" stroke-width="5" stroke-linejoin="round" transform="translate(6 -4)"/>
+    <circle cx="334" cy="70" r="5" fill="#ffe08a"/><circle cx="268" cy="62" r="4" fill="#ffe08a"/><circle cx="350" cy="112" r="4" fill="#fff"/>
+    <!-- olhos furiosos -->
+    <path d="M168 246 L240 272 L234 304 C214 312 190 306 176 290 Z" fill="#fff" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M344 246 L272 272 L278 304 C298 312 322 306 336 290 Z" fill="#fff" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="216" cy="290" r="12" fill="#111"/><circle cx="296" cy="290" r="12" fill="#111"/>
+    <!-- bico gritando -->
+    <path d="M226 318 L286 318 L278 358 L234 358 Z" fill="#5a0f0a" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M216 312 L296 312 L256 340 Z" fill="#f2a02a" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M232 362 L280 362 L256 384 Z" fill="#e0861a" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <rect x="34" y="34" width="444" height="444" fill="url(#vig)"/>
+    <rect x="34" y="34" width="444" height="444" filter="url(#grain)" opacity="0.8"/>
+  </g>
+  <path d="M14 14 H498 V498 H14 Z M26 26 V486 H486 V26 Z" fill="#fff" fill-rule="evenodd"/>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fcdff"/>
+      <stop offset="1" stop-color="#1a638c"/>
+    </linearGradient>
+    <radialGradient id="vig" cx="50%" cy="55%" r="72%">
+      <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.42"/>
+    </radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+    <clipPath id="inner"><rect x="34" y="34" width="444" height="444"/></clipPath>
+    <path id="grin" d="M138 282 Q256 420 374 282 Q256 350 138 282 Z"/>
+    <clipPath id="grinclip"><use href="#grin"/></clipPath>
+    <g id="eye">
+      <path d="M170 200 L240 222 L232 246 C212 250 188 244 176 230 Z" fill="#111"/>
+      <circle cx="214" cy="228" r="6" fill="#fff"/>
+      <path d="M156 186 L250 214" stroke="#111" stroke-width="13" stroke-linecap="round"/>
+      <path d="M186 254 L212 262 M182 266 L206 274" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  <g id="face"><g id="base">
+      <!-- tufos -->
+      <g fill="#f6f4ee" stroke="#111" stroke-width="11" stroke-linejoin="round">
+        <path d="M222 118 L206 58 L254 104 Z"/>
+        <path d="M290 118 L306 58 L258 104 Z"/>
+        <path d="M256 112 L256 44 L282 112 Z"/>
+      </g>
+      <!-- cabeça -->
+      <ellipse cx="256" cy="244" rx="152" ry="138" fill="#f6f4ee" stroke="#111" stroke-width="12"/>
+      </g><g id="fmid"><use href="#eye"/>
+      <use href="#eye" transform="translate(512 0) scale(-1 1)"/>
+      <!-- bico -->
+      <path d="M232 246 L280 246 L256 284 Z" fill="#f2c230" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+      <!-- sorriso -->
+      <use href="#grin" fill="#111" stroke="#111" stroke-width="16" stroke-linejoin="round"/>
+      <g clip-path="url(#grinclip)">
+        <rect x="130" y="270" width="250" height="130" fill="#fff"/>
+        <g stroke="#111" stroke-width="5">
+          <path d="M160 270 V400 M186 270 V400 M212 270 V400 M238 270 V400 M264 270 V400 M290 270 V400 M316 270 V400 M342 270 V400"/>
+        </g>
+        <path d="M130 288 Q256 372 380 288" stroke="#111" stroke-width="6" fill="none"/>
+      </g>
+      <use href="#grin" fill="none" stroke="#111" stroke-width="8" stroke-linejoin="round"/>
+      <!-- cantos do sorriso -->
+      <path d="M138 282 L124 262 M374 282 L388 262" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+    </g><g id="fcalm">
+      <path d="M172 236 Q206 208 242 236 M270 236 Q306 208 340 236" stroke="#111" stroke-width="11" fill="none" stroke-linecap="round"/>
+      <path d="M232 246 L280 246 L256 284 Z" fill="#f2c230" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M186 304 Q256 356 326 304" stroke="#111" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M176 262 l16 4 M168 276 l16 4 M336 262 l-16 4 M344 276 l-16 4" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+</g><g id="fcrazy">
+      <circle cx="204" cy="226" r="30" fill="#fff" stroke="#111" stroke-width="9"/>
+      <circle cx="308" cy="226" r="30" fill="#fff" stroke="#111" stroke-width="9"/>
+      <circle cx="212" cy="236" r="9" fill="#111"/>
+      <circle cx="298" cy="214" r="9" fill="#111"/>
+      <path d="M232 250 L280 250 L256 286 Z" fill="#f2c230" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M156 290 Q256 410 356 290 Z" fill="#111" stroke="#111" stroke-width="12" stroke-linejoin="round"/>
+      <polygon points="166,292 184,320 202,292 220,320 238,292 256,320 274,292 292,320 310,292 328,320 346,292" fill="#fff" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M196 350 Q256 330 316 350 Q256 392 196 350 Z" fill="#e8667a" stroke="#111" stroke-width="4"/>
+</g></g>
+  </defs>
+
+  <rect x="14" y="14" width="484" height="484" fill="#fff"/>
+  <rect x="26" y="26" width="460" height="460" fill="#14171a"/>
+  <g clip-path="url(#inner)">
+    <rect x="34" y="34" width="444" height="444" fill="url(#bg)"/>
+    <!-- rachaduras: regras quebradas -->
+    <g fill="none" stroke="#fff" stroke-opacity="0.55" stroke-linejoin="miter">
+      <polyline points="34,120 90,150 70,196 130,226" stroke-width="7"/>
+      <polyline points="478,100 430,140 450,186 396,214" stroke-width="7"/>
+      <polyline points="60,478 100,430 76,396 130,360" stroke-width="6"/>
+      <polyline points="470,478 424,440 452,404 402,372" stroke-width="6"/>
+      <polyline points="256,34 240,70 270,92 250,126" stroke-width="5"/>
+    </g>
+    <path d="M34 478 L34 410 L100 478 Z" fill="#14171a" opacity="0.5"/>
+    <path d="M478 478 L478 410 L412 478 Z" fill="#14171a" opacity="0.5"/>
+    <rect x="34" y="34" width="444" height="444" fill="url(#vig)"/>
+
+    <!-- rosto de trás, à esquerda: sereno -->
+    <g style="filter:brightness(.72)" transform="translate(-132 -34) translate(256 260) scale(.6) rotate(-12) translate(-256 -260)"><use href="#base"/><use href="#fcalm"/></g>
+    <!-- rosto de trás, à direita: louco -->
+    <g style="filter:brightness(.72)" transform="translate(132 -34) translate(256 260) scale(.6) rotate(12) translate(-256 -260)"><use href="#base"/><use href="#fcrazy"/></g>
+    <!-- rosto do meio: sorriso -->
+    <g transform="translate(0 46) translate(256 260) scale(.78) translate(-256 -260)"><use href="#base"/><use href="#fmid"/></g>
+    <rect x="34" y="34" width="444" height="444" filter="url(#grain)" opacity="0.8"/>
+  </g>
+  <path d="M14 14 H498 V498 H14 Z M26 26 V486 H486 V26 Z" fill="#fff" fill-rule="evenodd"/>
+</svg>

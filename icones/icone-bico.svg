@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#66c78e"/><stop offset="1" stop-color="#0f3f2a"/></linearGradient>
+    <radialGradient id="vig" cx="50%" cy="55%" r="72%"><stop offset="0.55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.42"/></radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="19"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"/></filter>
+    <clipPath id="inner"><rect x="34" y="34" width="444" height="444"/></clipPath>
+  </defs>
+  <rect x="14" y="14" width="484" height="484" fill="#fff"/>
+  <rect x="26" y="26" width="460" height="460" fill="#14171a"/>
+  <g clip-path="url(#inner)">
+    <rect x="34" y="34" width="444" height="444" fill="url(#bg)"/>
+    <path d="M34 478 L34 410 L100 478 Z" fill="#14171a" opacity="0.5"/>
+    <path d="M478 478 L478 410 L412 478 Z" fill="#14171a" opacity="0.5"/>
+    <rect x="34" y="34" width="444" height="444" fill="url(#vig)"/>
+    
+    <circle cx="384" cy="126" r="54" fill="#e8f1ea" fill-opacity="0.35"/>
+    <g fill="none" stroke="#06150e" stroke-opacity="0.55" stroke-linecap="round">
+      <path d="M40 420 C110 380 130 450 200 420 S300 400 330 440" stroke-width="22"/>
+      <path d="M200 478 C260 440 330 470 400 430 S470 450 480 420" stroke-width="26"/>
+      <path d="M40 300 C80 270 70 230 40 200" stroke-width="16"/>
+      <path d="M472 330 C440 300 460 260 478 240" stroke-width="16"/>
+    </g>
+    <path d="M150 218 C150 130 200 98 256 98 C312 98 362 130 362 218 C362 250 340 262 320 262 L192 262 C172 262 150 250 150 218 Z" fill="#6c7a8c" stroke="#111" stroke-width="12" stroke-linejoin="round"/>
+    <path d="M168 150 C150 120 160 86 190 72 C190 100 208 118 226 126 Z" fill="#6c7a8c" stroke="#111" stroke-width="8" stroke-linejoin="round"/>
+    <ellipse cx="196" cy="206" rx="26" ry="20" fill="#e9d98a" stroke="#111" stroke-width="8"/>
+    <ellipse cx="316" cy="206" rx="26" ry="20" fill="#e9d98a" stroke="#111" stroke-width="8"/>
+    <rect x="190" y="190" width="12" height="32" rx="6" fill="#111"/><rect x="310" y="190" width="12" height="32" rx="6" fill="#111"/>
+    <path d="M162 178 L226 198" stroke="#111" stroke-width="13" stroke-linecap="round"/>
+    <path d="M350 178 L286 198" stroke="#111" stroke-width="13" stroke-linecap="round"/>
+    <path d="M192 252 C192 228 320 228 320 252 C336 322 326 392 296 424 C278 446 234 446 216 424 C186 392 176 322 192 252 Z" fill="#b8a47a" stroke="#111" stroke-width="12" stroke-linejoin="round"/>
+    <path d="M256 238 V420" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+    <path d="M238 420 L274 420 L256 450 Z" fill="#3a3326" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="232" cy="268" r="6" fill="#111"/><circle cx="280" cy="268" r="6" fill="#111"/>
+    <g stroke="#8f7c56" stroke-width="5" stroke-linecap="round"><path d="M210 318 H240 M272 318 H302 M206 352 H238 M274 352 H306"/></g>
+
+    <rect x="34" y="34" width="444" height="444" filter="url(#grain)" opacity="0.8"/>
+  </g>
+  <path d="M14 14 H498 V498 H14 Z M26 26 V486 H486 V26 Z" fill="#fff" fill-rule="evenodd"/>
+</svg>

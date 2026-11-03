@@ -1,0 +1,1621 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Conselho dos Pássaros</title>
+<meta name="theme-color" content="#0b0b0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Barlow+Semi+Condensed:wght@400;500;600&display=swap">
+<style>
+  /* ===== Hub: cromo neutro. A ficha recebe a paleta própria de cada personagem. ===== */
+  :root {
+    --bg: #0b0b0d;
+    --panel: #111114;
+    --hair: rgba(255, 255, 255, 0.07);
+    --hair-2: rgba(255, 255, 255, 0.12);
+    --ink: #ececf1;
+    --muted: #8c8c97;
+    --hover: rgba(255, 255, 255, 0.045);
+    --sel: rgba(255, 255, 255, 0.075);
+    --danger: #ff6b6b;
+    --stage: #0b0b0d;
+    --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --font-body: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; min-height: 100vh;
+    background: var(--stage); color: var(--ink);
+    font-family: var(--font-body); font-size: 15px; line-height: 1.45;
+    transition: background-color 0.35s ease;
+  }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:disabled { opacity: 0.35; cursor: default; }
+  :focus-visible { outline: 2px solid rgba(255, 255, 255, 0.55); outline-offset: 2px; }
+
+  svg.ui { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .ic { display: inline-grid; place-items: center; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: 38px; padding: 0 14px; border-radius: 10px;
+    border: 1px solid var(--hair-2); background: transparent;
+    font-size: 15px; font-weight: 500; white-space: nowrap;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+  .btn:hover:not(:disabled) { background: var(--hover); border-color: rgba(255, 255, 255, 0.2); }
+  .btn.primary { background: var(--ink); color: #0b0b0d; border-color: transparent; font-weight: 600; }
+  .btn.primary:hover { background: #fff; }
+  .btn.ghost { border-color: transparent; }
+  .btn.danger { color: var(--danger); }
+  .btn.sm { height: 32px; padding: 0 10px; font-size: 14px; }
+  .icon-btn {
+    width: 38px; height: 38px; flex: none; display: grid; place-items: center;
+    border: 0; border-radius: 10px; background: transparent;
+  }
+  .icon-btn:hover:not(:disabled) { background: var(--hover); }
+  .icon-btn.sm { width: 32px; height: 32px; }
+  .icon-btn.sm svg.ui { width: 18px; height: 18px; }
+
+  .brand b { display: block; font-family: var(--font-display); font-size: 21px; letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.05; }
+  .brand small { display: block; color: var(--muted); font-size: 13px; }
+
+  /* ===== Layout celular (base) ===== */
+  .side {
+    position: fixed; inset: 0 auto 0 0; z-index: 40;
+    width: min(340px, 88vw); background: var(--panel); border-right: 1px solid var(--hair);
+    display: flex; flex-direction: column;
+    transform: translateX(-100%); transition: transform 0.25s ease;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .app.drawer-open .side { transform: none; }
+  .scrim { position: fixed; inset: 0; z-index: 39; background: rgba(0, 0, 0, 0.55); opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .app.drawer-open .scrim { opacity: 1; pointer-events: auto; }
+
+  .side-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 20px 14px 14px 20px; }
+  .search { position: relative; margin: 0 14px 10px; display: block; }
+  .search svg.ui { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); width: 18px; height: 18px; }
+  .search input {
+    width: 100%; height: 40px; padding: 0 12px 0 36px; border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04); border: 1px solid var(--hair);
+    color: var(--ink); font: inherit; font-size: 16px;
+  }
+  .search input:focus { outline: none; border-color: rgba(255, 255, 255, 0.28); }
+  .list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 4px 10px 12px; display: grid; align-content: start; gap: 2px; }
+  .item {
+    position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; align-items: center;
+    padding: 8px 10px; border-radius: 12px; color: inherit; text-decoration: none;
+    transition: background-color 0.15s;
+  }
+  .item:hover { background: var(--hover); }
+  .item.on { background: var(--sel); }
+  .item.on::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 3px; background: var(--acc); }
+  .thumb { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; display: block; background: var(--tbg, #1a1a1f); border: 1px solid var(--hair); }
+  .thumb.blank { display: grid; place-items: center; color: var(--muted); }
+  .item b { display: block; font-size: 15.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .item small { display: block; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .list-empty { padding: 24px 12px; color: var(--muted); text-align: center; font-size: 14px; }
+  .side-foot { display: flex; gap: 8px; padding: 12px 14px calc(14px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--hair); }
+  .side-foot .btn.primary { flex: 1; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; gap: 4px;
+    padding: env(safe-area-inset-top, 0px) 8px 0 8px; height: calc(56px + env(safe-area-inset-top, 0px));
+    background: color-mix(in srgb, var(--stage) 84%, transparent);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--hair);
+    transition: background-color 0.35s ease;
+  }
+  .topbar .brand { flex: 1; min-width: 0; padding-left: 4px; }
+  .topbar .brand b { font-size: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .strip { display: flex; gap: 10px; overflow-x: auto; padding: 14px 16px 4px; scrollbar-width: none; scroll-padding-inline: 16px; }
+  .strip::-webkit-scrollbar { display: none; }
+  .chip { flex: none; width: 62px; display: grid; justify-items: center; gap: 6px; text-decoration: none; color: var(--muted); font-size: 12px; line-height: 1.2; }
+  .chip .thumb { width: 54px; height: 54px; border-radius: 16px; transition: box-shadow 0.2s; }
+  .chip.on { color: var(--ink); }
+  .chip.on .thumb { box-shadow: 0 0 0 2px var(--stage), 0 0 0 4px var(--acc); }
+  .chip span { max-width: 62px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .stage { padding: 16px 16px calc(40px + env(safe-area-inset-bottom, 0px)); transition: background-color 0.35s ease; }
+  .toolbar { display: none; }
+
+  .empty { max-width: 360px; margin: 12vh auto 0; text-align: center; color: var(--muted); display: grid; gap: 14px; justify-items: center; }
+  .empty h2 { margin: 0; color: var(--ink); font-family: var(--font-display); text-transform: uppercase; font-size: 30px; }
+  .empty p { margin: 0; }
+
+  .preview-pill {
+    position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 45;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  .app:not(.previewing) .preview-pill { display: none; }
+  .app.is-editing .topbar .icon-btn { visibility: hidden; }
+  .app.locked [data-need="edit"], .app:not(.locked) [data-need="lock"] { display: none !important; }
+  .side-foot .btn[data-act="login"] { flex: 1; }
+  dialog.confirm .in { margin-top: 4px; }
+  .login-err { color: var(--danger); font-size: 14px; min-height: 20px; margin: 8px 0 12px !important; }
+
+  /* ===== Layout PC ===== */
+  @media (min-width: 1024px) {
+    body { overflow: hidden; }
+    .app { display: grid; grid-template-columns: 300px minmax(0, 1fr); height: 100vh; }
+    .app { grid-template-rows: 100vh; }
+    .side { position: relative; inset: auto; width: auto; height: 100vh; min-height: 0; transform: none; transition: none; z-index: auto; padding-top: 0; }
+    .topbar, .strip, .scrim, .side-close, .preview-pill { display: none !important; }
+    .stage { height: 100vh; overflow-y: auto; padding: 0 36px 56px; }
+    .toolbar {
+      position: sticky; top: 0; z-index: 5;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      height: 64px; margin: 0 -36px 12px; padding: 0 36px;
+      background: color-mix(in srgb, var(--stage) 82%, transparent);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      transition: background-color 0.35s ease;
+    }
+    .toolbar .nav, .toolbar .tools { display: flex; align-items: center; gap: 6px; }
+    .toolbar .pos { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; margin-left: 6px; }
+    .toolbar .editing-label { color: var(--muted); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .app.is-editing { grid-template-columns: minmax(0, 1fr) 500px; }
+    .app.is-editing .side { display: none; }
+  }
+
+  /* ===== Ficha (porta fiel do modelo original, escopada em .sheet) ===== */
+  .sheet { container-type: inline-size; color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+  .sheet.enter { animation: enter 0.28s ease both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .sheet.enter { animation: none; } * { transition-duration: 0s !important; } }
+
+  .card {
+    width: min(460px, 100%); margin: 0 auto;
+    background: var(--surface); border: 1px solid var(--line-strong); border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 24px 60px rgba(0, 0, 0, 0.5);
+    overflow: clip;
+  }
+  .photo { position: relative; aspect-ratio: 744 / 500; background: var(--photo-bg); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .photo img { width: 100%; height: 100%; display: block; }
+  .ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .ph svg.ui { width: 34px; height: 34px; stroke-width: 1.4; }
+  .quote {
+    position: absolute; left: 16px; bottom: 16px; right: 16px;
+    background: var(--quote-bg); border: 1px solid var(--line-strong); border-radius: 10px;
+    padding: 10px 14px; font-size: 16px; font-weight: 500; font-style: italic; line-height: 1.35; text-wrap: balance;
+  }
+  .quote::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--accent); border-radius: 2px; }
+  .quote span { padding-left: 4px; display: block; }
+
+  .panel { padding: 20px 20px 0; display: grid; gap: 18px; }
+  .detail { padding: 18px 20px 4px; }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+  .sheet h1 {
+    margin: 0; font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(34px, 9.4cqi, 44px); line-height: 1.05; letter-spacing: 0.01em; text-transform: uppercase; text-wrap: balance;
+  }
+  .sub { margin: 2px 0 0; font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  .grade { display: flex; align-items: flex-end; gap: 12px; }
+  .grade .txt { display: grid; text-align: right; line-height: 1.25; }
+  .grade .lbl { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .grade .val { font-size: 16px; font-weight: 600; }
+  .grade .note { font-size: 12px; color: var(--muted); }
+  .bars { display: flex; align-items: flex-end; gap: 3px; height: 30px; }
+  .bars i { display: block; width: 6px; border-radius: 1.5px; background: color-mix(in srgb, var(--ink) 16%, transparent); }
+  .bars i.on { background: var(--accent); }
+
+  .section-label { margin: 0 0 4px; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .radar-box { border: 1px solid var(--line); border-radius: 12px; background: var(--raised); padding: 12px 8px 4px; }
+  .radar-box .section-label { padding-left: 8px; }
+  .radar-empty { padding: 12px 8px 14px; color: var(--muted); font-size: 14px; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; padding: 2px 8px 0; font-size: 12px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 14px; height: 0; display: inline-block; border-top: 2px solid var(--accent); }
+  .legend i.base { border-top: 2px dashed var(--muted); }
+  .radar { width: 100%; height: auto; display: block; }
+  .radar .ring { fill: none; stroke: var(--line-strong); stroke-opacity: 0.66; }
+  .radar .spoke { stroke: var(--line); }
+  .radar .name { font-family: var(--font-body); font-size: 12px; font-weight: 500; fill: var(--muted); }
+  .radar .val { font-family: var(--font-body); font-size: 14px; font-weight: 600; fill: var(--ink); font-variant-numeric: tabular-nums; }
+
+  .groups { display: grid; gap: 20px; }
+  .group .section-label { margin: 0 0 8px; font-weight: 500; }
+  .rows { margin: 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .row { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; align-items: center; padding: 12px 14px; }
+  .row + .row { border-top: 1px solid var(--line); }
+  .ico { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--raised); color: var(--ic, var(--accent)); }
+  .row.weak .ico { color: var(--ic, var(--warn)); }
+  .ico svg, .glyph svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .row .k { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); line-height: 1.3; }
+  .row .v { display: block; font-size: 16px; font-weight: 600; line-height: 1.3; }
+  .row .d { display: block; font-size: 14px; color: var(--muted); line-height: 1.4; margin-top: 1px; }
+  .row .k:empty, .row .d:empty { display: none; }
+  .foot { padding: 14px 20px 18px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; }
+
+  /* Ficha larga (PC): foto, cabeçalho e radar à esquerda; técnicas à direita. */
+  @container (min-width: 860px) {
+    .card { width: min(1160px, 100%); display: grid; grid-template-columns: minmax(380px, 0.92fr) minmax(0, 1.08fr); }
+    .card.solo { width: min(560px, 100%); display: block; }
+    .lead { border-right: 1px solid var(--line); }
+    .card.solo .lead { border-right: 0; }
+    .panel { padding: 24px 28px 28px; gap: 22px; }
+    .detail { padding: 28px 28px 12px; }
+    .groups { gap: 26px; }
+    .sheet h1 { font-size: 48px; }
+    .foot { grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 14px 28px; }
+  }
+
+  /* ===== Editor ===== */
+  .editor { position: fixed; inset: 0; z-index: 50; background: var(--panel); display: flex; flex-direction: column; }
+  .ed-head {
+    display: flex; align-items: center; gap: 6px;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; border-bottom: 1px solid var(--hair);
+  }
+  .ed-title { flex: 1; font-size: 16px; font-weight: 600; text-align: center; }
+  .ed-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 0 18px calc(48px + env(safe-area-inset-bottom, 0px)); }
+  .ed-sec { padding: 22px 0; border-bottom: 1px solid var(--hair); display: grid; gap: 14px; }
+  .ed-sec:last-child { border-bottom: 0; }
+  .ed-sec > h3 { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .ed-sec > .hint { margin-top: -8px; }
+  .field { display: grid; gap: 6px; min-width: 0; }
+  .field > .lbl { font-size: 13px; color: var(--muted); }
+  .hint { font-size: 13px; color: var(--muted); margin: 0; }
+  .in {
+    width: 100%; min-width: 0; background: rgba(255, 255, 255, 0.035); border: 1px solid var(--hair-2); border-radius: 10px;
+    padding: 8px 11px; color: var(--ink); font: inherit; font-size: 16px; line-height: 1.35;
+  }
+  .in:focus { outline: none; border-color: rgba(255, 255, 255, 0.34); background: rgba(255, 255, 255, 0.055); }
+  .in::placeholder { color: #5f5f69; }
+  textarea.in { resize: vertical; min-height: 64px; }
+  .in.num { text-align: center; padding-inline: 4px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .seg { display: flex; gap: 2px; padding: 3px; border: 1px solid var(--hair-2); border-radius: 11px; background: rgba(255, 255, 255, 0.03); }
+  .seg button { flex: 1; min-width: 0; height: 34px; border: 0; border-radius: 8px; background: transparent; color: var(--muted); font-size: 14px; font-weight: 500; white-space: nowrap; }
+  .seg button[aria-pressed="true"] { background: rgba(255, 255, 255, 0.11); color: var(--ink); }
+  .check { display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; cursor: pointer; user-select: none; }
+  .check input { width: 18px; height: 18px; accent-color: #ececf1; margin: 0; }
+  .range { width: 100%; accent-color: #ececf1; }
+
+  .img-row { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 14px; align-items: center; }
+  .img-prev { position: relative; aspect-ratio: 744 / 500; border-radius: 10px; overflow: hidden; border: 1px solid var(--hair-2); background: #18181c; display: grid; place-items: center; color: var(--muted); }
+  .img-prev img { width: 100%; height: 100%; display: block; position: absolute; inset: 0; }
+  .img-actions { display: grid; gap: 8px; justify-items: start; }
+
+  .color-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .swatch { display: flex; align-items: center; gap: 10px; padding: 6px; border: 1px solid var(--hair-2); border-radius: 10px; background: rgba(255, 255, 255, 0.035); }
+  .swatch input[type="color"] { width: 34px; height: 30px; border: 0; padding: 0; background: none; border-radius: 6px; cursor: pointer; flex: none; }
+  .swatch code { font-size: 14px; color: var(--muted); font-family: ui-monospace, Consolas, monospace; }
+
+  .stat-head, .stat { display: grid; grid-template-columns: minmax(0, 1fr) 64px 32px; gap: 8px; align-items: center; }
+  .stats.has-base .stat-head, .stats.has-base .stat { grid-template-columns: minmax(0, 1fr) 64px 64px 32px; }
+  .stat-head span { font-size: 12px; color: var(--muted); text-align: center; }
+  .stat-head span:first-child { text-align: left; }
+  .stats { display: grid; gap: 8px; }
+
+  .g-card { border: 1px solid var(--hair-2); border-radius: 14px; overflow: hidden; }
+  .g-head { display: flex; align-items: center; gap: 4px; padding: 8px 8px 8px 10px; background: rgba(255, 255, 255, 0.025); border-bottom: 1px solid var(--hair); }
+  .g-head .in { font-weight: 600; background: transparent; border-color: transparent; padding-inline: 6px; }
+  .g-head .in:focus { border-color: var(--hair-2); }
+  .r-ed { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 14px 12px; }
+  .r-ed + .r-ed { border-top: 1px solid var(--hair); }
+  .r-fields { display: grid; gap: 8px; min-width: 0; }
+  .r-top { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 8px; }
+  .r-ctrl { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .r-ctrl .spacer { flex: 1; }
+  .glyph {
+    width: 44px; height: 44px; display: grid; place-items: center; padding: 0;
+    border: 1px solid var(--hair-2); border-radius: 10px; background: rgba(255, 255, 255, 0.03); color: var(--glyph, var(--ink));
+  }
+  .glyph:hover { border-color: rgba(255, 255, 255, 0.3); }
+  .mini-color { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); padding: 0 6px; }
+  .mini-color input { width: 26px; height: 24px; border: 0; padding: 0; background: none; cursor: pointer; }
+  .g-add { padding: 8px 12px 12px; }
+  .ed-add { justify-self: start; }
+
+  /* seletor de ícones */
+  .ip { position: fixed; inset: 0; z-index: 70; background: rgba(0, 0, 0, 0.6); display: grid; place-items: center; padding: 16px; }
+  .ip-panel { width: min(560px, 100%); max-height: min(640px, 88vh); display: flex; flex-direction: column; gap: 12px; background: var(--panel); border: 1px solid var(--hair-2); border-radius: 16px; padding: 14px; }
+  .ip-head { display: flex; align-items: center; justify-content: space-between; padding-left: 4px; }
+  .ip-grid { overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 6px; }
+  .ip-grid .glyph { width: 100%; height: 50px; }
+  .ip-grid .glyph.on { border-color: var(--ink); background: rgba(255, 255, 255, 0.1); }
+
+  /* menu, diálogo, aviso */
+  .menu {
+    position: fixed; z-index: 80; min-width: 220px; padding: 6px;
+    background: #18181c; border: 1px solid var(--hair-2); border-radius: 12px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  }
+  .menu button { width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 10px; border: 0; border-radius: 8px; background: none; text-align: left; font-size: 15px; }
+  .menu button:hover, .menu button:focus-visible { background: var(--hover); outline: none; }
+  .menu button svg.ui { width: 18px; height: 18px; color: var(--muted); }
+  .menu button.danger, .menu button.danger svg.ui { color: var(--danger); }
+  .menu hr { border: 0; border-top: 1px solid var(--hair); margin: 6px 4px; }
+
+  dialog.confirm {
+    width: min(400px, calc(100% - 32px)); padding: 22px; border: 1px solid var(--hair-2); border-radius: 16px;
+    background: var(--panel); color: var(--ink); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  }
+  dialog.confirm::backdrop { background: rgba(0, 0, 0, 0.6); }
+  dialog.confirm h2 { margin: 0 0 6px; font-size: 19px; font-weight: 600; }
+  dialog.confirm p { margin: 0 0 20px; color: var(--muted); }
+  dialog.confirm .acts { display: flex; justify-content: flex-end; gap: 8px; }
+  dialog.confirm .btn.danger-fill { background: var(--danger); color: #1a0606; border-color: transparent; font-weight: 600; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 90;
+    transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+    padding: 10px 16px; border-radius: 999px; background: #f0f0f4; color: #0b0b0d; font-weight: 500; font-size: 14.5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); transition: opacity 0.2s, transform 0.2s;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 1023px) {
+    html.lock, html.lock body { overflow: hidden; }
+    .app.previewing .editor { display: none; }
+  }
+  @media (min-width: 1024px) {
+    .editor { position: relative; inset: auto; z-index: auto; height: 100vh; border-left: 1px solid var(--hair); }
+    .ed-head { padding-top: 12px; }
+    .ed-prev { display: none; }
+  }
+  @media (max-width: 420px) {
+    .img-row { grid-template-columns: 1fr; }
+    .r-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="app locked" id="app">
+  <aside class="side" id="side" aria-label="Personagens">
+    <div class="side-head">
+      <div class="brand"><b>Conselho dos Pássaros</b><small id="count"></small></div>
+      <button class="icon-btn side-close" data-act="close-drawer" aria-label="Fechar lista"></button>
+    </div>
+    <label class="search"><input id="q" type="search" placeholder="Buscar personagem" autocomplete="off" aria-label="Buscar personagem"></label>
+    <nav class="list" id="list"></nav>
+    <div class="side-foot">
+      <button class="btn primary" data-act="new" data-need="edit"></button>
+      <button class="icon-btn" data-act="menu" data-ctx="side" data-need="edit" aria-label="Mais opções"></button>
+      <button class="btn" data-act="login" data-need="lock"></button>
+    </div>
+  </aside>
+  <div class="scrim" data-act="close-drawer"></div>
+
+  <header class="topbar">
+    <button class="icon-btn" data-act="drawer" aria-label="Lista de personagens"></button>
+    <div class="brand"><b>Conselho dos Pássaros</b></div>
+    <button class="icon-btn" data-act="edit" data-need="edit" aria-label="Editar ficha"></button>
+    <button class="icon-btn" data-act="new" data-need="edit" aria-label="Novo personagem"></button>
+    <button class="icon-btn" data-act="menu" data-ctx="top" data-need="edit" aria-label="Mais opções"></button>
+    <button class="icon-btn" data-act="login" data-need="lock" aria-label="Entrar para editar"></button>
+  </header>
+
+  <main class="stage" id="stage">
+    <div class="toolbar" id="toolbar">
+      <div class="nav">
+        <button class="icon-btn" data-act="prev" aria-label="Anterior (seta esquerda)"></button>
+        <button class="icon-btn" data-act="next" aria-label="Próximo (seta direita)"></button>
+        <span class="pos" id="pos"></span>
+        <span class="editing-label" id="editingLabel" hidden>Pré-visualização</span>
+      </div>
+      <div class="tools" id="tools" data-need="edit">
+        <button class="btn" data-act="edit"></button>
+        <button class="btn danger" data-act="delete"></button>
+      </div>
+    </div>
+    <nav class="strip" id="strip" aria-label="Troca rápida"></nav>
+    <div id="host"></div>
+  </main>
+
+  <section class="editor" id="editor" hidden aria-label="Editor de ficha"></section>
+  <button class="btn primary preview-pill" data-act="preview">Voltar à edição</button>
+</div>
+
+<div class="menu" id="menu" role="menu" hidden></div>
+<dialog class="confirm" id="confirm">
+  <form method="dialog">
+    <h2 id="cfTitle"></h2>
+    <p id="cfMsg"></p>
+    <div class="acts">
+      <button class="btn ghost" value="cancel">Cancelar</button>
+      <button class="btn" id="cfOk" value="ok"></button>
+    </div>
+  </form>
+</dialog>
+<dialog class="confirm" id="login">
+  <form id="loginForm">
+    <h2>Modo edição</h2>
+    <p id="loginMsg"></p>
+    <input class="in" id="loginPw" type="password" autocomplete="current-password" aria-label="Senha">
+    <p class="login-err" id="loginErr" role="alert"></p>
+    <div class="acts">
+      <button class="btn ghost" type="button" id="loginCancel">Cancelar</button>
+      <button class="btn primary" type="submit" id="loginOk">Entrar</button>
+    </div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<input type="file" id="importFile" accept="application/json,.json" hidden>
+
+<script src="dados.js"></script>
+<script>
+(() => {
+  "use strict";
+
+  /* ===== Constantes ===== */
+  const SEED = window.FICHAS_SEED || { version: 1, icons: {}, characters: [] };
+  const ICONS = SEED.icons;
+  const GRADES = ["Grau 4", "Grau 3", "Grau 2", "Grau 1", "Especial"];
+  /* Senha do modo edição: só o hash PBKDF2-SHA256. Gere com "node ferramentas/definir-senha.js"; nunca escreva a senha aqui. */
+  const SENHA = /*SENHA*/ { salt: "", hash: "", iter: 210000 } /*FIM-SENHA*/;
+  const SESSION_KEY = "fichas-modo-edicao";
+  const DEFAULT_STATS = ["Força", "Velocidade", "Inteligência", "Resistência", "Energia", "Destruição", "Potencial"];
+  const UI = {
+    search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    more: '<circle cx="5.5" cy="12" r="1.1"/><circle cx="12" cy="12" r="1.1"/><circle cx="18.5" cy="12" r="1.1"/>',
+    edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>',
+    trash: '<path d="M4.5 7h15M10 4h4M6.5 7l1 13h9l1-13"/><path d="M10 11v5.5M14 11v5.5"/>',
+    left: '<path d="M14.5 5.5L8 12l6.5 6.5"/>',
+    right: '<path d="M9.5 5.5L16 12l-6.5 6.5"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>',
+    up: '<path d="M6 14.5l6-6 6 6"/>',
+    down: '<path d="M6 9.5l6 6 6-6"/>',
+    image: '<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-9 8.5"/>',
+    download: '<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14"/>',
+    upload: '<path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 19.5h14"/>',
+    restore: '<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v3.5H8"/>',
+    menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    lock: '<rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/>',
+    logout: '<path d="M14 4.5h4.5a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14"/><path d="M10 8l-4 4 4 4M6 12h9"/>',
+    publish: '<path d="M7 18.5a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9.5"/><path d="M12 20v-8M9 14.5l3-3 3 3"/>',
+  };
+
+  /* ===== Utilitários de DOM ===== */
+  const $ = (id) => document.getElementById(id);
+  const PROPS = new Set(["value", "checked", "disabled", "hidden", "min", "max", "step"]);
+
+  /**
+   * Cria um elemento com atributos, eventos e filhos.
+   *
+   * @param {string} tag Nome da tag.
+   * @param {?Object} props Atributos; "on*" vira listener, "text"/"html" definem conteúdo, "css" define variáveis.
+   * @param {...(Node|string|null|false)} kids Filhos.
+   * @return {!HTMLElement} O elemento criado.
+   */
+  function h(tag, props, ...kids) {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(props || {})) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v;
+      else if (k === "text") el.textContent = v;
+      else if (k === "html") el.innerHTML = v;
+      else if (k === "css") for (const [p, val] of Object.entries(v)) { if (val != null) el.style.setProperty(p, val); }
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else if (PROPS.has(k)) el[k] = v;
+      else el.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid);
+    return el;
+  }
+
+  /** Ícone de interface (traço) como string SVG. */
+  const svg = (name) => '<svg class="ui" viewBox="0 0 24 24" aria-hidden="true">' + UI[name] + "</svg>";
+  /** Ícone de interface como elemento. */
+  const ic = (name) => h("span", { class: "ic", html: svg(name) });
+  /** Ícone da ficha (ICONS) como string SVG. */
+  const glyph = (key) => '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[key] || ICONS.spark || "") + "</svg>";
+
+  const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const slug = (s) => norm(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const clone = (o) => (typeof structuredClone === "function" ? structuredClone(o) : JSON.parse(JSON.stringify(o)));
+
+  /* ===== Cores ===== */
+  /**
+   * Converte "#rgb"/"#rrggbb" em [r, g, b].
+   *
+   * @param {string} hex Cor hexadecimal.
+   * @return {?Array<number>} Componentes ou null se inválida.
+   */
+  function hexToRgb(hex) {
+    const m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(String(hex || "").trim());
+    if (!m) return null;
+    let s = m[1];
+    if (s.length === 3) s = s.split("").map((c) => c + c).join("");
+    const n = parseInt(s, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  const toHex = (rgb) => "#" + rgb.map((v) => Math.round(v).toString(16).padStart(2, "0")).join("");
+  function rgbToHsl([r, g, b]) {
+    r /= 255; g /= 255; b /= 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, d = max - min;
+    if (!d) return [0, 0, l];
+    const s = d / (1 - Math.abs(2 * l - 1));
+    let hue = max === r ? ((g - b) / d) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    return [(hue * 60 + 360) % 360, s, l];
+  }
+  function hslToRgb(hh, s, l) {
+    const c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs(((hh / 60) % 2) - 1)), m = l - c / 2;
+    const [r, g, b] = hh < 60 ? [c, x, 0] : hh < 120 ? [x, c, 0] : hh < 180 ? [0, c, x] : hh < 240 ? [0, x, c] : hh < 300 ? [x, 0, c] : [c, 0, x];
+    return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
+  }
+  const hsl = (hh, s, l) => toHex(hslToRgb(hh, s, l));
+  const rgba = (rgb, a) => "rgba(" + rgb.map(Math.round).join(", ") + ", " + a + ")";
+  /** Normaliza uma cor para "#rrggbb" (exigido por input[type=color]). */
+  const hex6 = (c, fallback) => { const rgb = hexToRgb(c); return rgb ? toHex(rgb) : fallback; };
+
+  /**
+   * Gera a paleta escura da ficha a partir da cor de destaque, no mesmo espírito das fichas originais.
+   *
+   * @param {string} accent Cor de destaque.
+   * @param {string=} warn Cor das fraquezas.
+   * @return {!Object} Tema completo.
+   */
+  function deriveTheme(accent, warn) {
+    const acc = hex6(accent, "#4cc2ff");
+    const [hh, s] = rgbToHsl(hexToRgb(acc));
+    const bs = Math.min(0.3, s * 0.45);
+    const lineRgb = hslToRgb(hh, Math.max(0.25, Math.min(0.75, s)), 0.78);
+    return {
+      canvas: hsl(hh, bs, 0.04), surface: hsl(hh, bs, 0.07), raised: hsl(hh, bs, 0.105),
+      line: rgba(lineRgb, 0.13), lineStrong: rgba(lineRgb, 0.24),
+      accent: acc, warn: hex6(warn, "#ffb04c"),
+      ink: hsl(hh, Math.min(0.4, s * 0.5), 0.93), muted: hsl(hh, Math.min(0.14, s * 0.2), 0.62),
+      photoBg: hsl(hh, bs, 0.06),
+    };
+  }
+
+  /** Aplica o tema como variáveis CSS no elemento. */
+  function applyTheme(el, t) {
+    const canvas = hexToRgb(t.canvas) || [11, 11, 13];
+    const vars = {
+      "--canvas": t.canvas, "--surface": t.surface, "--raised": t.raised, "--line": t.line, "--line-strong": t.lineStrong,
+      "--accent": t.accent, "--warn": t.warn, "--ink": t.ink, "--muted": t.muted,
+      "--photo-bg": t.photoBg || t.raised, "--quote-bg": rgba(canvas, 0.92),
+    };
+    for (const [k, v] of Object.entries(vars)) if (v) el.style.setProperty(k, v);
+  }
+
+  /* ===== Modelo ===== */
+  /** Cria uma ficha vazia pronta para edição. */
+  function blankChar() {
+    return {
+      id: "", name: "", subtitle: "", quote: "", grade: 1, gradeNote: "", role: "", series: "Temporada 1",
+      photo: "", photoAlt: "", photoFit: "cover", photoPos: "50% 0%", photoPad: "",
+      theme: deriveTheme("#4cc2ff", "#ffb04c"),
+      stats: DEFAULT_STATS.map((label) => ({ label, value: 3, base: null })),
+      legend: null,
+      groups: [{ title: "Técnicas", rows: [] }, { title: "Pontos fracos", rows: [] }],
+    };
+  }
+
+  /**
+   * Valida e completa uma ficha vinda de importação.
+   *
+   * @param {*} raw Objeto lido do JSON.
+   * @return {?Object} Ficha normalizada ou null se inválida.
+   */
+  function normalize(raw) {
+    if (!raw || typeof raw !== "object" || typeof raw.name !== "string" || !raw.name.trim()) return null;
+    const str = (v) => (typeof v === "string" ? v : "");
+    const base = blankChar();
+    const accent = hex6(raw.theme && raw.theme.accent, base.theme.accent);
+    const theme = Object.assign(deriveTheme(accent, raw.theme && raw.theme.warn), raw.theme && typeof raw.theme === "object" ? raw.theme : {});
+    for (const k of Object.keys(theme)) if (typeof theme[k] !== "string") delete theme[k];
+    const num = (v) => (typeof v === "number" && isFinite(v) ? clamp(v, 0, 5) : null);
+    return {
+      id: slug(str(raw.id) || raw.name) || "personagem",
+      name: raw.name.trim(), subtitle: str(raw.subtitle), quote: str(raw.quote),
+      grade: clamp(Math.round(Number(raw.grade) || 1), 1, 5), gradeNote: str(raw.gradeNote),
+      role: str(raw.role), series: str(raw.series),
+      photo: /^(data:image\/|https?:|\.{0,2}\/?[\w-])/i.test(str(raw.photo)) ? str(raw.photo) : "",
+      photoAlt: str(raw.photoAlt), photoFit: raw.photoFit === "contain" ? "contain" : "cover",
+      photoPos: str(raw.photoPos) || "50% 0%", photoPad: str(raw.photoPad),
+      theme,
+      stats: (Array.isArray(raw.stats) ? raw.stats : []).filter((s) => s && typeof s === "object")
+        .map((s) => ({ label: str(s.label), value: num(s.value) ?? 0, base: num(s.base) })),
+      legend: Array.isArray(raw.legend) && raw.legend.length === 2 ? raw.legend.map(str) : null,
+      groups: (Array.isArray(raw.groups) ? raw.groups : []).filter((g) => g && typeof g === "object").map((g) => ({
+        title: str(g.title),
+        rows: (Array.isArray(g.rows) ? g.rows : []).filter((r) => r && typeof r === "object").map((r) => {
+          const row = { icon: str(r.icon) || "spark", label: str(r.label), value: str(r.value), desc: str(r.desc), weak: !!r.weak };
+          if (hexToRgb(r.color)) row.color = r.color;
+          return row;
+        }),
+      })),
+    };
+  }
+
+  /* ===== Armazenamento (IndexedDB, com fallback em memória) ===== */
+  const DB = (() => {
+    const mem = { chars: new Map(), meta: new Map() };
+    let dbp = null;
+    let volatile = false;
+
+    /** Abre (uma vez) o banco local. Resolve null quando indisponível. */
+    function open() {
+      if (dbp) return dbp;
+      dbp = new Promise((resolve) => {
+        try {
+          const rq = indexedDB.open("conselho-dos-passaros", 1);
+          rq.onupgradeneeded = () => {
+            rq.result.createObjectStore("chars", { keyPath: "id" });
+            rq.result.createObjectStore("meta", { keyPath: "k" });
+          };
+          rq.onsuccess = () => resolve(rq.result);
+          rq.onerror = () => { volatile = true; resolve(null); };
+          rq.onblocked = () => { volatile = true; resolve(null); };
+        } catch (e) {
+          volatile = true;
+          resolve(null);
+        }
+      });
+      return dbp;
+    }
+
+    /** Executa operações numa transação e espera concluir. */
+    async function run(store, mode, fn) {
+      const db = await open();
+      if (!db) {
+        const out = fn(null, mem[store]);
+        return out && typeof out === "object" && !Array.isArray(out) && "result" in out ? out.result : out;
+      }
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(store, mode);
+        const out = fn(tx.objectStore(store));
+        tx.oncomplete = () => resolve(out && typeof out === "object" && "result" in out ? out.result : out);
+        tx.onerror = tx.onabort = () => reject(tx.error);
+      });
+    }
+
+    return {
+      get volatile() { return volatile; },
+      all: () => run("chars", "readonly", (s, m) => (s ? s.getAll() : [...m.values()].map(clone))),
+      putMany: (list) => run("chars", "readwrite", (s, m) => { for (const c of list) s ? s.put(c) : m.set(c.id, clone(c)); }),
+      put: (c) => DB.putMany([c]),
+      clear: () => run("chars", "readwrite", (s, m) => (s ? s.clear() : m.clear())),
+      del: (id) => run("chars", "readwrite", (s, m) => (s ? s.delete(id) : m.delete(id))),
+      getMeta: (k) => run("meta", "readonly", (s, m) => (s ? s.get(k) : { result: m.get(k) })).then((r) => (r && r.v !== undefined ? r.v : r)),
+      setMeta: (k, v) => run("meta", "readwrite", (s, m) => (s ? s.put({ k, v }) : m.set(k, { k, v }))),
+    };
+  })();
+
+  /* ===== Estado ===== */
+  const state = { chars: [], currentId: null, query: "", editing: null, unlocked: false, dirty: false };
+  const app = $("app"), host = $("host"), stage = $("stage"), editorEl = $("editor");
+
+  const byId = (id) => state.chars.find((c) => c.id === id) || null;
+  const current = () => byId(state.currentId);
+  const sortChars = () => state.chars.sort((a, b) => a.name.localeCompare(b.name, "pt", { sensitivity: "base" }));
+  const isDesktop = () => matchMedia("(min-width: 1024px)").matches;
+
+  /** Gera um id único a partir de uma base. */
+  function uniqueId(base) {
+    const b = base || "personagem";
+    let id = b, n = 2;
+    while (byId(id)) id = b + "-" + n++;
+    return id;
+  }
+
+  /* ===== Renderização da ficha ===== */
+  /**
+   * Monta o radar de atributos (N vértices = N atributos).
+   *
+   * @param {!Object} c Ficha.
+   * @param {boolean} withBase Se desenha a segunda forma tracejada.
+   * @return {!SVGElement} O SVG.
+   */
+  function radar(c, withBase) {
+    const NS = "http://www.w3.org/2000/svg";
+    const svgEl = document.createElementNS(NS, "svg");
+    svgEl.setAttribute("viewBox", "0 0 340 248");
+    svgEl.setAttribute("class", "radar");
+    svgEl.setAttribute("role", "img");
+    const n = c.stats.length, max = 5, cx = 170, cy = 124, R = 80;
+    const ang = (i) => ((-90 + (360 / n) * i) * Math.PI) / 180;
+    const pt = (i, r) => [cx + r * Math.cos(ang(i)), cy + r * Math.sin(ang(i))];
+    const el = (tag, a, text) => {
+      const e = document.createElementNS(NS, tag);
+      for (const k in a) e.setAttribute(k, a[k]);
+      if (text !== undefined) e.textContent = text;
+      svgEl.appendChild(e);
+      return e;
+    };
+    const poly = (vals) => vals.map((v, i) => pt(i, (R * clamp(v, 0, max)) / max).map((q) => q.toFixed(1)).join(",")).join(" ");
+    for (let l = 1; l <= max; l++) el("polygon", { points: poly(c.stats.map(() => l)), class: "ring", "stroke-width": l === max ? 1.2 : 1 });
+    c.stats.forEach((_, i) => {
+      const [x, y] = pt(i, R);
+      el("line", { x1: cx, y1: cy, x2: x.toFixed(1), y2: y.toFixed(1), class: "spoke", "stroke-width": 1 });
+    });
+    const vals = c.stats.map((s) => Number(s.value) || 0);
+    el("polygon", { points: poly(vals), fill: c.theme.accent, "fill-opacity": 0.2, stroke: c.theme.accent, "stroke-width": 1.8, "stroke-linejoin": "round" });
+    if (withBase) {
+      el("polygon", { points: poly(c.stats.map((s) => Number(s.base) || 0)), fill: c.theme.muted, "fill-opacity": 0.14, stroke: c.theme.muted, "stroke-width": 1.6, "stroke-dasharray": "4 3", "stroke-linejoin": "round" });
+    }
+    vals.forEach((v, i) => {
+      const [x, y] = pt(i, (R * clamp(v, 0, max)) / max);
+      el("circle", { cx: x.toFixed(1), cy: y.toFixed(1), r: 3, fill: c.theme.accent, stroke: c.theme.raised, "stroke-width": 1.5 });
+    });
+    c.stats.forEach((s, i) => {
+      const [x, y] = pt(i, R + 18), co = Math.cos(ang(i)), si = Math.sin(ang(i));
+      const anchor = co > 0.25 ? "start" : co < -0.25 ? "end" : "middle";
+      const dy = si < -0.5 ? -10 : si > 0.5 ? 4 : -4;
+      el("text", { x: x.toFixed(1), y: (y + dy).toFixed(1), "text-anchor": anchor, class: "name" }, s.label);
+      el("text", { x: x.toFixed(1), y: (y + dy + 15).toFixed(1), "text-anchor": anchor, class: "val" }, String(s.value));
+    });
+    svgEl.setAttribute("aria-label", "Atributos: " + c.stats.map((s) => s.label + " " + s.value).join(", ") +
+      (withBase ? ". " + c.legend[1] + ": " + c.stats.map((s) => s.label + " " + s.base).join(", ") : ""));
+    return svgEl;
+  }
+
+  /**
+   * Monta a ficha completa de um personagem.
+   *
+   * @param {!Object} c Ficha.
+   * @return {!HTMLElement} Elemento article.sheet.
+   */
+  function renderSheet(c) {
+    const sheet = h("article", { class: "sheet", "aria-label": "Ficha de " + (c.name || "personagem") });
+    applyTheme(sheet, c.theme);
+    const grade = clamp(c.grade || 1, 1, 5), gradeLabel = GRADES[grade - 1];
+
+    const photo = h("div", { class: "photo" });
+    if (c.photo) {
+      const contain = c.photoFit === "contain";
+      photo.append(h("img", {
+        src: c.photo, alt: c.photoAlt || "", decoding: "async",
+        css: { "object-fit": contain ? "contain" : "cover", "object-position": c.photoPos || "50% 0%", padding: contain ? c.photoPad || null : null },
+      }));
+    } else {
+      photo.append(h("div", { class: "ph" }, ic("image"), "Sem imagem"));
+    }
+    if (c.quote) photo.append(h("div", { class: "quote" }, h("span", { text: "“" + c.quote + "”" })));
+
+    const bars = h("div", { class: "bars", role: "img", "aria-label": "Classificação: " + gradeLabel });
+    for (let i = 0; i < 5; i++) bars.append(h("i", { class: i < grade ? "on" : null, css: { height: 10 + i * 5 + "px" } }));
+
+    const head = h("div", { class: "head" },
+      h("div", null, h("h1", { text: c.name || "Sem nome" }), c.subtitle && h("p", { class: "sub", text: c.subtitle })),
+      h("div", { class: "grade" },
+        h("div", { class: "txt" },
+          h("span", { class: "lbl", text: "Classificação" }),
+          h("span", { class: "val", text: gradeLabel }),
+          c.gradeNote && h("span", { class: "note", text: c.gradeNote })),
+        bars));
+
+    const withBase = !!c.legend && c.stats.length > 0 && c.stats.every((s) => s.base != null);
+    const radarBox = h("div", { class: "radar-box" }, h("p", { class: "section-label", text: "Atributos · escala de 0 a 5" }));
+    if (withBase) {
+      radarBox.append(h("div", { class: "legend" },
+        h("span", null, h("i"), c.legend[0]),
+        h("span", null, h("i", { class: "base" }), c.legend[1])));
+    }
+    radarBox.append(c.stats.length >= 3 ? radar(c, withBase) : h("p", { class: "radar-empty", text: "Adicione ao menos 3 atributos para formar o gráfico." }));
+
+    const lead = h("div", { class: "lead" }, photo, h("section", { class: "panel" }, head, radarBox));
+
+    const groups = c.groups.filter((g) => g.rows.length);
+    const card = h("div", { class: "card" + (groups.length ? "" : " solo") }, lead);
+    if (groups.length) {
+      const wrap = h("div", { class: "groups" });
+      for (const g of groups) {
+        const ul = h("ul", { class: "rows" });
+        for (const r of g.rows) {
+          ul.append(h("li", { class: "row" + (r.weak ? " weak" : ""), css: { "--ic": r.color || null } },
+            h("span", { class: "ico", html: glyph(r.icon) }),
+            h("span", null,
+              h("span", { class: "k", text: r.label || "" }),
+              h("span", { class: "v", text: r.value || "" }),
+              h("span", { class: "d", text: r.desc || "" }))));
+        }
+        wrap.append(h("section", { class: "group" }, h("h2", { class: "section-label", text: g.title }), ul));
+      }
+      card.append(h("div", { class: "detail" }, wrap));
+    }
+    card.append(h("div", { class: "foot" }, h("span", { text: c.role || "" }), h("span", { text: c.series || "" })));
+    sheet.append(card);
+    return sheet;
+  }
+
+  /* ===== Renderização do hub ===== */
+  /** Miniatura do personagem (foto recortada ou marcador). */
+  function thumb(c) {
+    if (!c.photo) return h("span", { class: "thumb blank", html: svg("image"), css: { "--tbg": c.theme.raised } });
+    return h("img", {
+      class: "thumb", src: c.photo, alt: "", loading: "lazy", decoding: "async",
+      css: { "--tbg": c.theme.photoBg && c.theme.photoBg.startsWith("#") ? c.theme.photoBg : c.theme.raised, "object-position": c.photoFit === "contain" ? "50% 40%" : c.photoPos || "50% 0%" },
+    });
+  }
+
+  function renderList() {
+    const q = norm(state.query.trim());
+    const list = state.chars.filter((c) => !q || norm(c.name + " " + c.subtitle + " " + c.role).includes(q));
+    $("list").replaceChildren(...(list.length ? list.map((c) => h("a", {
+      class: "item" + (c.id === state.currentId ? " on" : ""), href: "#" + c.id,
+      "aria-current": c.id === state.currentId ? "true" : null, css: { "--acc": c.theme.accent },
+    }, thumb(c), h("span", null, h("b", { text: c.name }), h("small", { text: c.subtitle || GRADES[c.grade - 1] })))) :
+      [h("p", { class: "list-empty", text: state.chars.length ? "Nenhum personagem encontrado." : "Nenhuma ficha ainda." })]));
+    $("count").textContent = (state.chars.length === 1 ? "1 ficha" : state.chars.length + " fichas") +
+      (state.unlocked ? (state.dirty ? " · alterações não publicadas" : " · modo edição") : "");
+  }
+
+  function renderStrip() {
+    const strip = $("strip");
+    strip.replaceChildren(...state.chars.map((c) => h("a", {
+      class: "chip" + (c.id === state.currentId ? " on" : ""), href: "#" + c.id,
+      "aria-label": c.name, "aria-current": c.id === state.currentId ? "true" : null, css: { "--acc": c.theme.accent },
+    }, thumb(c), h("span", { text: c.name.split(" ")[0] }))));
+    strip.hidden = state.chars.length === 0 || !!state.editing;
+    const on = strip.querySelector(".chip.on");
+    if (on) strip.scrollTo({ left: on.offsetLeft - strip.clientWidth / 2 + on.offsetWidth / 2 });
+  }
+
+  /**
+   * Desenha a área principal: a ficha atual ou o rascunho em edição.
+   *
+   * @param {boolean=} animate Se aplica a animação de entrada.
+   */
+  function renderStage(animate) {
+    const c = state.editing ? state.editing.draft : current();
+    const idx = state.chars.findIndex((x) => x.id === state.currentId);
+    $("pos").textContent = state.chars.length ? idx + 1 + " de " + state.chars.length : "";
+    for (const b of document.querySelectorAll('[data-act="prev"], [data-act="next"]')) b.disabled = state.chars.length < 2;
+    for (const b of document.querySelectorAll('[data-act="edit"], [data-act="delete"]')) b.disabled = !current();
+    $("tools").hidden = !!state.editing;
+    $("pos").hidden = !!state.editing;
+    $("editingLabel").hidden = !state.editing;
+    for (const b of document.querySelectorAll('.toolbar .nav .icon-btn')) b.hidden = !!state.editing;
+
+    if (!c) {
+      document.documentElement.style.setProperty("--stage", "#0b0b0d");
+      host.replaceChildren(h("div", { class: "empty" },
+        h("h2", { text: "Nenhuma ficha" }),
+        h("p", { text: "Crie um personagem novo ou restaure as fichas originais." }),
+        h("div", { class: "two" },
+          h("button", { class: "btn primary", "data-act": "new", "data-need": "edit" }, ic("plus"), "Novo personagem"),
+          h("button", { class: "btn", "data-act": "restore", "data-need": "edit" }, ic("restore"), "Restaurar"))));
+      return;
+    }
+    document.documentElement.style.setProperty("--stage", c.theme.canvas);
+    const sheet = renderSheet(c);
+    if (animate) sheet.classList.add("enter");
+    host.replaceChildren(sheet);
+  }
+
+  function renderAll(animate) {
+    renderList();
+    renderStrip();
+    renderStage(animate);
+  }
+
+  /**
+   * Seleciona um personagem e atualiza a URL (#id).
+   *
+   * @param {?string} id Id desejado; cai no primeiro se não existir.
+   * @param {boolean=} animate Se anima a troca.
+   */
+  function select(id, animate = true) {
+    const c = byId(id) || state.chars[0] || null;
+    const changed = (c && c.id) !== state.currentId;
+    state.currentId = c ? c.id : null;
+    const hash = c ? "#" + c.id : "";
+    if (location.hash !== hash) history.replaceState(null, "", hash || location.pathname + location.search);
+    renderAll(animate && changed);
+    if (changed) {
+      stage.scrollTop = 0;
+      if (!isDesktop()) window.scrollTo(0, 0);
+    }
+  }
+
+  function step(dir) {
+    if (state.chars.length < 2 || state.editing) return;
+    const i = state.chars.findIndex((c) => c.id === state.currentId);
+    select(state.chars[(i + dir + state.chars.length) % state.chars.length].id);
+  }
+
+  /* ===== Avisos, menu e confirmação ===== */
+  let toastTimer = 0;
+  function toast(msg) {
+    const t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+  }
+
+  /**
+   * Abre o diálogo de confirmação.
+   *
+   * @param {{title: string, message: string, ok: string, danger: (boolean|undefined)}} opts Textos.
+   * @return {!Promise<boolean>} true se confirmado.
+   */
+  function confirmBox(opts) {
+    const dlg = $("confirm");
+    $("cfTitle").textContent = opts.title;
+    $("cfMsg").textContent = opts.message;
+    const ok = $("cfOk");
+    ok.textContent = opts.ok;
+    ok.className = "btn " + (opts.danger ? "danger-fill" : "primary");
+    dlg.returnValue = "";
+    return new Promise((resolve) => {
+      dlg.addEventListener("close", () => resolve(dlg.returnValue === "ok"), { once: true });
+      dlg.showModal();
+      ok.focus();
+    });
+  }
+
+  const menu = $("menu");
+  let menuAnchor = null;
+  function openMenu(anchor, items) {
+    menu.replaceChildren(...items.map((it) => (it === "-" ? h("hr") : h("button", {
+      role: "menuitem", class: it.danger ? "danger" : null, disabled: it.disabled,
+      onclick: () => { closeMenu(); it.run(); },
+    }, ic(it.icon), it.label))));
+    menu.hidden = false;
+    menuAnchor = anchor;
+    const r = anchor.getBoundingClientRect();
+    const left = clamp(r.right - menu.offsetWidth, 8, innerWidth - menu.offsetWidth - 8);
+    let top = r.bottom + 6;
+    if (top + menu.offsetHeight > innerHeight - 8) top = r.top - menu.offsetHeight - 6;
+    menu.style.left = left + "px";
+    menu.style.top = Math.max(8, top) + "px";
+    const first = menu.querySelector("button:not(:disabled)");
+    if (first) first.focus();
+  }
+  function closeMenu() {
+    menu.hidden = true;
+    menuAnchor = null;
+  }
+  function menuItems(ctx) {
+    const data = [
+      { icon: "publish", label: "Publicar (baixar dados.js)", run: publish, disabled: !state.chars.length },
+      { icon: "download", label: "Exportar backup (.json)", run: exportAll, disabled: !state.chars.length },
+      { icon: "upload", label: "Importar backup", run: () => $("importFile").click() },
+      { icon: "restore", label: "Voltar à versão publicada", run: restoreOriginals },
+      "-",
+      { icon: "logout", label: "Sair do modo edição", run: logout },
+    ];
+    if (ctx !== "top") return data;
+    return [
+      { icon: "edit", label: "Editar ficha", run: ACTIONS.edit, disabled: !current() },
+      { icon: "trash", label: "Excluir ficha", run: ACTIONS.delete, danger: true, disabled: !current() },
+      "-", ...data,
+    ];
+  }
+
+  /* ===== CRUD ===== */
+  async function removeCurrent() {
+    const c = current();
+    if (!c) return;
+    const ok = await confirmBox({
+      title: "Excluir " + c.name + "?",
+      message: "A ficha sai do seu rascunho. Seus amigos só deixam de vê-la depois que você publicar.",
+      ok: "Excluir", danger: true,
+    });
+    if (!ok) return;
+    const i = state.chars.indexOf(c);
+    await DB.del(c.id);
+    markDirty();
+    state.chars.splice(i, 1);
+    select((state.chars[Math.min(i, state.chars.length - 1)] || {}).id);
+    toast(c.name + " excluído");
+  }
+
+  async function restoreOriginals() {
+    const ok = await confirmBox({
+      title: "Voltar à versão publicada?",
+      message: "As alterações feitas neste navegador e ainda não publicadas serão descartadas.",
+      ok: "Descartar e voltar", danger: true,
+    });
+    if (!ok) return;
+    state.chars = await replaceWorkspace();
+    sortChars();
+    select(state.currentId, false);
+    toast("Versão publicada restaurada");
+  }
+
+  /** Baixa um arquivo gerado no navegador. */
+  function download(name, content, type) {
+    const url = URL.createObjectURL(new Blob([content], { type }));
+    const a = h("a", { href: url, download: name });
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function exportAll() {
+    const data = { app: "conselho-dos-passaros", version: 1, exportedAt: new Date().toISOString(), characters: state.chars };
+    download("fichas-backup-" + new Date().toISOString().slice(0, 10) + ".json", JSON.stringify(data), "application/json");
+  }
+
+  /** Gera o dados.js com o rascunho atual; substituí-lo no repositório atualiza o site. */
+  async function publish() {
+    const version = Date.now();
+    download("dados.js", "/* Dados publicados pelo hub. Para atualizar o site, substitua este arquivo no repositório. */\n" +
+      "window.FICHAS_SEED = " + JSON.stringify({ version, icons: ICONS, characters: state.chars }) + ";\n", "text/javascript");
+    await DB.setMeta("base", version);
+    await DB.setMeta("dirty", false);
+    state.dirty = false;
+    renderList();
+    toast("dados.js baixado. Envie ao GitHub para publicar.");
+  }
+
+  /* ===== Modo leitura × modo edição ===== */
+  function markDirty() {
+    state.dirty = true;
+    DB.setMeta("dirty", true).catch(() => {});
+  }
+
+  /** Substitui o rascunho local pela versão publicada (dados.js). */
+  async function replaceWorkspace() {
+    const seed = SEED.characters.map(clone);
+    await DB.clear();
+    await DB.putMany(seed);
+    await DB.setMeta("base", SEED.version || 1);
+    await DB.setMeta("dirty", false);
+    state.dirty = false;
+    return seed;
+  }
+
+  /**
+   * Carrega o rascunho local. Se o site publicou uma versão mais nova, adota-a
+   * (pedindo confirmação quando há alterações locais não publicadas).
+   *
+   * @return {!Promise<!Array<!Object>>} Fichas do rascunho.
+   */
+  async function loadWorkspace() {
+    const ver = SEED.version || 1;
+    try {
+      let base = await DB.getMeta("base");
+      if (base == null && (await DB.getMeta("seeded"))) {
+        base = 1;  // rascunho criado antes do modo senha: preserva
+        await DB.setMeta("base", 1);
+        await DB.setMeta("dirty", true);
+      }
+      if (base == null) return await replaceWorkspace();
+      state.dirty = !!(await DB.getMeta("dirty"));
+      if (ver > base) {
+        const take = !state.dirty || await confirmBox({
+          title: "O site tem uma versão mais nova",
+          message: "Ela foi publicada depois das suas alterações locais. Usar a versão publicada descarta o que não foi publicado neste navegador.",
+          ok: "Usar a publicada", danger: true,
+        });
+        if (take) return await replaceWorkspace();
+        await DB.setMeta("base", ver);
+      }
+      return await DB.all();
+    } catch (e) {
+      return SEED.characters.map(clone);
+    }
+  }
+
+  function showPublished() {
+    state.unlocked = false;
+    state.dirty = false;
+    app.classList.add("locked");
+    state.chars = SEED.characters.map(clone);
+    sortChars();
+  }
+
+  async function enterEditMode() {
+    state.unlocked = true;
+    app.classList.remove("locked");
+    state.chars = await loadWorkspace();
+    sortChars();
+    if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+    if (DB.volatile) toast("Armazenamento local indisponível: alterações não serão mantidas");
+  }
+
+  function logout() {
+    if (state.editing) closeEditor();
+    try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
+    showPublished();
+    select(state.currentId, false);
+    toast("Modo leitura");
+  }
+
+  const hexBytes = (hx) => new Uint8Array(hx.match(/../g).map((b) => parseInt(b, 16)));
+
+  /**
+   * Confere a senha contra o hash PBKDF2-SHA256 configurado.
+   *
+   * @param {string} pw Senha digitada.
+   * @return {!Promise<boolean>} true se confere.
+   */
+  async function checkPassword(pw) {
+    const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
+    const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: hexBytes(SENHA.salt), iterations: SENHA.iter }, key, 256);
+    return [...new Uint8Array(bits)].map((b) => b.toString(16).padStart(2, "0")).join("") === SENHA.hash;
+  }
+
+  function openLogin() {
+    const configured = !!SENHA.hash;
+    $("loginMsg").textContent = configured ? "Digite a senha para criar, editar e excluir fichas." :
+      "A senha ainda não foi configurada. No PC, rode: node ferramentas/definir-senha.js";
+    $("loginPw").hidden = $("loginOk").hidden = !configured;
+    $("loginPw").value = "";
+    $("loginErr").textContent = "";
+    $("login").showModal();
+    if (configured) $("loginPw").focus();
+  }
+
+  async function submitLogin(e) {
+    e.preventDefault();
+    const btn = $("loginOk");
+    btn.disabled = true;
+    try {
+      if (!(await checkPassword($("loginPw").value))) {
+        $("loginErr").textContent = "Senha incorreta.";
+        $("loginPw").select();
+        return;
+      }
+      try { sessionStorage.setItem(SESSION_KEY, "1"); } catch (err) {}
+      $("login").close();
+      await enterEditMode();
+      select(state.currentId, false);
+      toast("Modo edição ativo");
+    } catch (err) {
+      $("loginErr").textContent = "Este navegador não permite verificar a senha (abra pelo link https).";
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  async function importFrom(file) {
+    try {
+      const data = JSON.parse(await file.text());
+      const list = (Array.isArray(data) ? data : data && data.characters || []).map(normalize).filter(Boolean);
+      if (!list.length) throw new Error("vazio");
+      await DB.putMany(list);
+      markDirty();
+      for (const c of list) {
+        const i = state.chars.findIndex((x) => x.id === c.id);
+        i >= 0 ? (state.chars[i] = c) : state.chars.push(c);
+      }
+      sortChars();
+      select(state.currentId || list[0].id, false);
+      toast(list.length + (list.length === 1 ? " ficha importada" : " fichas importadas"));
+    } catch (e) {
+      toast("Arquivo inválido para importação");
+    }
+  }
+
+  /**
+   * Lê uma imagem enviada e a reduz (máx. 1200 px de largura) para caber no armazenamento local.
+   *
+   * @param {!File} file Arquivo de imagem.
+   * @return {!Promise<string>} Data URL.
+   */
+  async function readImage(file) {
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await new Promise((resolve, reject) => {
+        const i = new Image();
+        i.onload = () => resolve(i);
+        i.onerror = reject;
+        i.src = url;
+      });
+      const scale = Math.min(1, 1200 / img.naturalWidth);
+      const cv = document.createElement("canvas");
+      cv.width = Math.round(img.naturalWidth * scale);
+      cv.height = Math.round(img.naturalHeight * scale);
+      cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
+      return file.type === "image/png" || file.type === "image/webp" ? cv.toDataURL("image/webp", 0.9) : cv.toDataURL("image/jpeg", 0.86);
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  }
+
+  /* ===== Editor ===== */
+  let previewQueued = false;
+  function changed() {
+    if (!state.editing) return;
+    state.editing.dirty = true;
+    if (previewQueued) return;
+    previewQueued = true;
+    requestAnimationFrame(() => { previewQueued = false; if (state.editing) renderStage(false); });
+  }
+
+  function openEditor(c, isNew) {
+    closeMenu();
+    closeDrawer();
+    state.editing = { draft: clone(c), isNew, dirty: false };
+    app.classList.add("is-editing");
+    document.documentElement.classList.add("lock");
+    editorEl.hidden = false;
+    buildEditor();
+    renderAll(false);
+    stage.scrollTop = 0;
+    const first = editorEl.querySelector("input.in");
+    if (first && isDesktop()) first.focus();
+  }
+
+  function closeEditor() {
+    state.editing = null;
+    app.classList.remove("is-editing", "previewing");
+    document.documentElement.classList.remove("lock");
+    editorEl.hidden = true;
+    editorEl.replaceChildren();
+    renderAll(false);
+  }
+
+  async function cancelEditor() {
+    if (state.editing && state.editing.dirty) {
+      const ok = await confirmBox({ title: "Descartar alterações?", message: "As mudanças feitas nesta ficha serão perdidas.", ok: "Descartar", danger: true });
+      if (!ok) return;
+    }
+    closeEditor();
+  }
+
+  async function saveEditor() {
+    const ed = state.editing;
+    const d = ed.draft;
+    d.name = d.name.trim();
+    if (!d.name) {
+      app.classList.remove("previewing");
+      document.documentElement.classList.add("lock");
+      toast("Dê um nome ao personagem");
+      const nameInput = editorEl.querySelector("[data-field=name]");
+      if (nameInput) nameInput.focus();
+      return;
+    }
+    if (ed.isNew) d.id = uniqueId(slug(d.name));
+    d.stats = d.stats.filter((s) => s.label.trim());
+    try {
+      await DB.put(d);
+      markDirty();
+    } catch (e) {
+      toast("Não foi possível salvar (armazenamento cheio?)");
+      return;
+    }
+    const i = state.chars.findIndex((x) => x.id === d.id);
+    i >= 0 ? (state.chars[i] = d) : state.chars.push(d);
+    sortChars();
+    state.currentId = d.id;
+    closeEditor();
+    select(d.id, false);
+    toast(ed.isNew ? "Personagem criado" : "Ficha salva");
+  }
+
+  /** Recria o formulário preservando a rolagem (após mudanças estruturais). */
+  function rebuild() {
+    const body = editorEl.querySelector(".ed-body");
+    const top = body ? body.scrollTop : 0;
+    buildEditor();
+    editorEl.querySelector(".ed-body").scrollTop = top;
+  }
+
+  const field = (label, ...control) => h(control.length === 1 && /^(INPUT|TEXTAREA)$/.test(control[0].tagName) ? "label" : "div", { class: "field" }, h("span", { class: "lbl", text: label }), ...control);
+  const textIn = (obj, key, attrs = {}) => h("input", Object.assign({
+    class: "in", type: "text", value: obj[key] || "", oninput: (e) => { obj[key] = e.target.value; changed(); },
+  }, attrs));
+  const areaIn = (obj, key, attrs = {}) => {
+    const t = h("textarea", Object.assign({ class: "in", rows: 2, oninput: (e) => { obj[key] = e.target.value; changed(); } }, attrs));
+    t.value = obj[key] || "";
+    return t;
+  };
+  const numIn = (obj, key, label) => h("input", {
+    class: "in num", type: "number", min: 0, max: 5, step: 0.5, inputmode: "decimal", "aria-label": label, value: obj[key] ?? "",
+    oninput: (e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) { obj[key] = clamp(v, 0, 5); changed(); } },
+    onchange: (e) => { e.target.value = obj[key]; },
+  });
+  const seg = (options, value, onPick, label) => h("div", { class: "seg", role: "group", "aria-label": label },
+    ...options.map(([v, text]) => h("button", { type: "button", "aria-pressed": String(v === value), onclick: () => onPick(v) }, text)));
+  const tinyBtn = (icon, label, onclick, disabled) => h("button", { type: "button", class: "icon-btn sm", "aria-label": label, title: label, disabled, onclick }, ic(icon));
+  const move = (arr, i, d) => { const j = i + d; if (j < 0 || j >= arr.length) return; [arr[i], arr[j]] = [arr[j], arr[i]]; changed(); rebuild(); };
+
+  function buildEditor() {
+    const ed = state.editing, d = ed.draft;
+    const head = h("div", { class: "ed-head" },
+      h("button", { class: "btn ghost", "data-act": "cancel" }, "Cancelar"),
+      h("strong", { class: "ed-title", text: ed.isNew ? "Nova ficha" : "Editar ficha" }),
+      h("button", { class: "btn ghost ed-prev", "data-act": "preview" }, "Prévia"),
+      h("button", { class: "btn primary", "data-act": "save" }, "Salvar"));
+    const body = h("div", { class: "ed-body" },
+      secIdentity(d), secImage(d), secGrade(d), secColors(d), secStats(d), secGroups(d));
+    editorEl.replaceChildren(head, body);
+  }
+
+  function secIdentity(d) {
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Identidade" }),
+      field("Nome", textIn(d, "name", { placeholder: "Ex.: Bomba", "data-field": "name", required: true })),
+      field("Subtítulo", textIn(d, "subtitle", { placeholder: "Ex.: Tanque Explosivo de Grau 1" })),
+      field("Frase", areaIn(d, "quote", { placeholder: "Uma fala marcante do personagem" })),
+      h("div", { class: "two" },
+        field("Função", textIn(d, "role", { placeholder: "Linha de frente" })),
+        field("Série", textIn(d, "series", { placeholder: "Temporada 1" }))));
+  }
+
+  function secImage(d) {
+    const prev = h("div", { class: "img-prev" });
+    const paint = () => {
+      prev.replaceChildren(d.photo ? h("img", { src: d.photo, alt: "", css: { "object-fit": d.photoFit, "object-position": d.photoPos } }) : ic("image"));
+    };
+    paint();
+    const file = h("input", {
+      type: "file", accept: "image/*", hidden: true,
+      onchange: async (e) => {
+        const f = e.target.files[0];
+        if (!f) return;
+        try {
+          d.photo = await readImage(f);
+          changed();
+          rebuild();
+        } catch (err) {
+          toast("Não foi possível ler a imagem");
+        }
+      },
+    });
+    const posY = parseFloat(String(d.photoPos || "50% 0%").split(/\s+/)[1]) || 0;
+    const range = h("input", {
+      class: "range", type: "range", min: 0, max: 100, step: 1, value: posY, "aria-label": "Enquadramento vertical",
+      oninput: (e) => { d.photoPos = "50% " + e.target.value + "%"; paint(); changed(); },
+    });
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Imagem" }),
+      h("div", { class: "img-row" }, prev, h("div", { class: "img-actions" },
+        h("button", { type: "button", class: "btn sm", onclick: () => file.click() }, ic("upload"), d.photo ? "Trocar imagem" : "Enviar imagem"),
+        d.photo && h("button", { type: "button", class: "btn sm ghost danger", onclick: () => { d.photo = ""; changed(); rebuild(); } }, ic("trash"), "Remover"),
+        file)),
+      d.photo && field("Ajuste", seg([["cover", "Preencher"], ["contain", "Imagem inteira"]], d.photoFit, (v) => { d.photoFit = v; changed(); rebuild(); }, "Ajuste da imagem")),
+      d.photo && d.photoFit === "cover" && field("Enquadramento vertical", range),
+      d.photo && field("Descrição da imagem", textIn(d, "photoAlt", { placeholder: "Para leitores de tela" })));
+  }
+
+  function secGrade(d) {
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Classificação" }),
+      seg(GRADES.map((g, i) => [i + 1, g]), d.grade, (v) => { d.grade = v; changed(); rebuild(); }, "Grau"),
+      field("Observação", textIn(d, "gradeNote", { placeholder: "Ex.: Mais perigoso quanto mais apanha" })));
+  }
+
+  function secColors(d) {
+    const swatch = (label, value, onInput) => {
+      const code = h("code", { text: value });
+      return field(label, h("div", { class: "swatch" },
+        h("input", { type: "color", value, "aria-label": label, oninput: (e) => { code.textContent = e.target.value; onInput(e.target.value); } }), code));
+    };
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Cores" }),
+      h("p", { class: "hint", text: "Trocar o destaque recalcula o fundo da ficha no mesmo tom." }),
+      h("div", { class: "color-row" },
+        swatch("Destaque", hex6(d.theme.accent, "#4cc2ff"), (v) => { d.theme = deriveTheme(v, d.theme.warn); changed(); }),
+        swatch("Fraquezas", hex6(d.theme.warn, "#ffb04c"), (v) => { d.theme.warn = v; changed(); })));
+  }
+
+  function secStats(d) {
+    const hasBase = !!d.legend;
+    const toggle = h("label", { class: "check" }, h("input", {
+      type: "checkbox", checked: hasBase,
+      onchange: (e) => {
+        if (e.target.checked) {
+          d.legend = ["Forma completa", "Forma base"];
+          d.stats.forEach((s) => { if (s.base == null) s.base = s.value; });
+        } else {
+          d.legend = null;
+          d.stats.forEach((s) => { s.base = null; });
+        }
+        changed();
+        rebuild();
+      },
+    }), "Comparar duas formas no gráfico");
+
+    const list = h("div", { class: "stats" + (hasBase ? " has-base" : "") },
+      h("div", { class: "stat-head" }, h("span", { text: "Atributo" }), h("span", { text: hasBase ? d.legend[0] : "Valor" }), hasBase && h("span", { text: d.legend[1] }), h("span")),
+      ...d.stats.map((s, i) => h("div", { class: "stat" },
+        textIn(s, "label", { placeholder: "Atributo", "aria-label": "Nome do atributo" }),
+        numIn(s, "value", "Valor de " + (s.label || "atributo")),
+        hasBase && numIn(s, "base", "Valor base de " + (s.label || "atributo")),
+        tinyBtn("close", "Remover atributo", () => { d.stats.splice(i, 1); changed(); rebuild(); }, d.stats.length <= 3))));
+
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Atributos · 0 a 5" }),
+      toggle,
+      hasBase && h("div", { class: "two" },
+        field("Legenda da forma principal", textIn(d.legend, 0)),
+        field("Legenda da forma tracejada", textIn(d.legend, 1))),
+      list,
+      h("button", {
+        type: "button", class: "btn sm ed-add", disabled: d.stats.length >= 10,
+        onclick: () => { d.stats.push({ label: "", value: 3, base: hasBase ? 3 : null }); changed(); rebuild(); },
+      }, ic("plus"), "Atributo"));
+  }
+
+  function rowEditor(d, g, ri) {
+    const r = g.rows[ri];
+    const tone = r.color || (r.weak ? d.theme.warn : d.theme.accent);
+    const pick = h("button", {
+      type: "button", class: "glyph", "aria-label": "Trocar ícone", title: "Trocar ícone", css: { "--glyph": tone }, html: glyph(r.icon),
+      onclick: () => openIconPicker(r.icon, (key) => { r.icon = key; changed(); rebuild(); }),
+    });
+    return h("div", { class: "r-ed" }, pick, h("div", { class: "r-fields" },
+      h("div", { class: "r-top" },
+        textIn(r, "label", { placeholder: "Tipo (ex.: Passiva)", "aria-label": "Tipo" }),
+        textIn(r, "value", { placeholder: "Nome", "aria-label": "Nome" })),
+      areaIn(r, "desc", { placeholder: "Descrição", "aria-label": "Descrição" }),
+      h("div", { class: "r-ctrl" },
+        h("label", { class: "check" }, h("input", { type: "checkbox", checked: r.weak, onchange: (e) => { r.weak = e.target.checked; changed(); rebuild(); } }), "Fraqueza"),
+        h("label", { class: "mini-color", title: "Cor do ícone" },
+          h("input", { type: "color", value: hex6(tone, "#ffffff"), "aria-label": "Cor do ícone", oninput: (e) => { r.color = e.target.value; pick.style.setProperty("--glyph", r.color); changed(); } }),
+          r.color ? h("button", { type: "button", class: "btn sm ghost", onclick: (e) => { e.preventDefault(); delete r.color; changed(); rebuild(); } }, "Auto") : "Cor"),
+        h("span", { class: "spacer" }),
+        tinyBtn("up", "Mover para cima", () => move(g.rows, ri, -1), ri === 0),
+        tinyBtn("down", "Mover para baixo", () => move(g.rows, ri, 1), ri === g.rows.length - 1),
+        tinyBtn("trash", "Remover linha", () => { g.rows.splice(ri, 1); changed(); rebuild(); }))));
+  }
+
+  function secGroups(d) {
+    const cards = d.groups.map((g, gi) => h("div", { class: "g-card" },
+      h("div", { class: "g-head" },
+        textIn(g, "title", { placeholder: "Título do grupo", "aria-label": "Título do grupo" }),
+        tinyBtn("up", "Mover grupo para cima", () => move(d.groups, gi, -1), gi === 0),
+        tinyBtn("down", "Mover grupo para baixo", () => move(d.groups, gi, 1), gi === d.groups.length - 1),
+        tinyBtn("trash", "Remover grupo", async () => {
+          if (g.rows.length && !(await confirmBox({ title: "Remover “" + (g.title || "grupo") + "”?", message: "As " + g.rows.length + " linhas deste grupo serão removidas.", ok: "Remover", danger: true }))) return;
+          d.groups.splice(gi, 1);
+          changed();
+          rebuild();
+        })),
+      ...g.rows.map((_, ri) => rowEditor(d, g, ri)),
+      h("div", { class: "g-add" }, h("button", {
+        type: "button", class: "btn sm",
+        onclick: () => { g.rows.push({ icon: "spark", label: "", value: "", desc: "", weak: /fraq|fraco|fraca/i.test(norm(g.title)) }); changed(); rebuild(); },
+      }, ic("plus"), "Linha"))));
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Técnicas e pontos fracos" }),
+      ...cards,
+      h("button", { type: "button", class: "btn sm ed-add", onclick: () => { d.groups.push({ title: "Novo grupo", rows: [] }); changed(); rebuild(); } }, ic("plus"), "Grupo"));
+  }
+
+  /**
+   * Abre o seletor de ícones.
+   *
+   * @param {string} currentKey Ícone atual.
+   * @param {function(string)} onPick Callback com a chave escolhida.
+   */
+  function openIconPicker(currentKey, onPick) {
+    const keys = Object.keys(ICONS).sort();
+    const grid = h("div", { class: "ip-grid" });
+    const paint = (q) => grid.replaceChildren(...keys.filter((k) => k.includes(q)).map((k) => h("button", {
+      type: "button", class: "glyph" + (k === currentKey ? " on" : ""), title: k, "aria-label": k, html: glyph(k),
+      onclick: () => { close(); onPick(k); },
+    })));
+    const esc = (e) => { if (e.key === "Escape") { e.stopPropagation(); close(); } };
+    const wrap = h("div", { class: "ip", onclick: (e) => { if (e.target === wrap) close(); } },
+      h("div", { class: "ip-panel", role: "dialog", "aria-modal": "true", "aria-label": "Escolher ícone" },
+        h("div", { class: "ip-head" }, h("strong", { text: "Escolher ícone" }), tinyBtn("close", "Fechar", () => close())),
+        h("input", { class: "in", type: "search", placeholder: "Filtrar por nome", "aria-label": "Filtrar ícones", oninput: (e) => paint(norm(e.target.value.trim())) }),
+        grid));
+    function close() {
+      wrap.remove();
+      document.removeEventListener("keydown", esc, true);
+    }
+    document.addEventListener("keydown", esc, true);
+    paint("");
+    document.body.append(wrap);
+    if (isDesktop()) wrap.querySelector("input").focus();
+  }
+
+  /* ===== Gaveta (celular) ===== */
+  function openDrawer(focusSearch) {
+    app.classList.add("drawer-open");
+    if (focusSearch) setTimeout(() => $("q").focus(), 50);
+  }
+  function closeDrawer() {
+    app.classList.remove("drawer-open");
+  }
+
+  /* ===== Ações ===== */
+  const ACTIONS = {
+    new: () => { if (state.unlocked && !state.editing) openEditor(blankChar(), true); },
+    edit: () => { const c = current(); if (c && state.unlocked && !state.editing) openEditor(c, false); },
+    delete: () => { if (state.unlocked) removeCurrent(); },
+    login: openLogin,
+    prev: () => step(-1),
+    next: () => step(1),
+    menu: (el) => (menuAnchor === el ? closeMenu() : openMenu(el, menuItems(el.dataset.ctx))),
+    drawer: () => openDrawer(true),
+    "close-drawer": closeDrawer,
+    cancel: cancelEditor,
+    save: saveEditor,
+    restore: () => { if (state.unlocked) restoreOriginals(); },
+    preview: () => {
+      const on = app.classList.toggle("previewing");
+      document.documentElement.classList.toggle("lock", !on);
+      window.scrollTo(0, 0);
+    },
+  };
+
+  function wire() {
+    // ícones dos botões estáticos
+    document.querySelectorAll('[data-act="close-drawer"].icon-btn').forEach((b) => b.append(ic("close")));
+    document.querySelectorAll('.topbar [data-act="drawer"]').forEach((b) => b.append(ic("menu")));
+    document.querySelectorAll('.topbar [data-act="edit"]').forEach((b) => b.append(ic("edit")));
+    document.querySelectorAll('.topbar [data-act="new"]').forEach((b) => b.append(ic("plus")));
+    document.querySelectorAll('[data-act="menu"]').forEach((b) => b.append(ic("more")));
+    document.querySelector('[data-act="prev"]').append(ic("left"));
+    document.querySelector('[data-act="next"]').append(ic("right"));
+    document.querySelector('.tools [data-act="edit"]').append(ic("edit"), "Editar");
+    document.querySelector('.tools [data-act="delete"]').append(ic("trash"), "Excluir");
+    document.querySelector('.side-foot [data-act="new"]').append(ic("plus"), "Novo personagem");
+    document.querySelector('.side-foot [data-act="login"]').append(ic("lock"), "Entrar para editar");
+    document.querySelector('.topbar [data-act="login"]').append(ic("lock"));
+    $("loginForm").addEventListener("submit", submitLogin);
+    $("loginCancel").addEventListener("click", () => $("login").close());
+    document.querySelector(".search").prepend(h("span", { class: "ic", html: svg("search") }).firstChild);
+
+    document.addEventListener("click", (e) => {
+      const el = e.target.closest("[data-act]");
+      if (el && !el.disabled && ACTIONS[el.dataset.act]) {
+        e.preventDefault();
+        ACTIONS[el.dataset.act](el);
+        return;
+      }
+      const link = e.target.closest("a.item, a.chip");
+      if (link) {
+        e.preventDefault();
+        closeDrawer();
+        select(link.getAttribute("href").slice(1));
+      }
+    });
+    document.addEventListener("pointerdown", (e) => {
+      if (!menu.hidden && !menu.contains(e.target) && !(menuAnchor && menuAnchor.contains(e.target))) closeMenu();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (!menu.hidden) return closeMenu();
+        if (app.classList.contains("drawer-open")) return closeDrawer();
+        if (state.editing && !$("confirm").open && !$("login").open) return cancelEditor();
+      }
+      const typing = e.target.closest && e.target.closest("input, textarea, select, [contenteditable]");
+      if (typing || state.editing || e.altKey || e.ctrlKey || e.metaKey) return;
+      if (e.key === "ArrowLeft") step(-1);
+      else if (e.key === "ArrowRight") step(1);
+    });
+    window.addEventListener("hashchange", () => {
+      if (!state.editing) select(decodeURIComponent(location.hash.slice(1)));
+    });
+    $("strip").addEventListener("wheel", (e) => {
+      const strip = e.currentTarget;
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || strip.scrollWidth <= strip.clientWidth) return;
+      e.preventDefault();
+      strip.scrollLeft += e.deltaY;
+    }, { passive: false });
+    $("q").addEventListener("input", (e) => { state.query = e.target.value; renderList(); });
+    $("importFile").addEventListener("change", (e) => {
+      const f = e.target.files[0];
+      e.target.value = "";
+      if (f) importFrom(f);
+    });
+
+    // deslizar para trocar de personagem (celular)
+    let sx = null, sy = 0, st = 0;
+    host.addEventListener("touchstart", (e) => {
+      if (state.editing || e.touches.length > 1) return;
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
+    }, { passive: true });
+    host.addEventListener("touchend", (e) => {
+      if (sx == null) return;
+      const t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      sx = null;
+      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 2 && Date.now() - st < 700) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    window.addEventListener("beforeunload", (e) => {
+      if (state.editing && state.editing.dirty) { e.preventDefault(); e.returnValue = ""; }
+    });
+  }
+
+  async function init() {
+    wire();
+    let wantsEdit = false;
+    try { wantsEdit = sessionStorage.getItem(SESSION_KEY) === "1"; } catch (e) {}
+    if (wantsEdit && SENHA.hash) await enterEditMode();
+    else showPublished();
+    select(decodeURIComponent(location.hash.slice(1)), false);
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
