@@ -1,0 +1,2713 @@
+{
+ "icons": {
+  "shield": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\"/><path d=\"M8.8 11.8l2.2 2.2 4.2-4.4\"/>",
+  "eye": "<path d=\"M2.5 12c3-4.5 6.2-6.5 9.5-6.5s6.5 2 9.5 6.5c-3 4.5-6.2 6.5-9.5 6.5S5.5 16.5 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M4 6l4.5 1.6M20 6l-4.5 1.6\"/>",
+  "glasses": "<path d=\"M3 9.2h8.2l-.9 5a2.6 2.6 0 0 1-2.6 2.1H6a2.6 2.6 0 0 1-2.5-2z\"/><path d=\"M12.8 9.2H21l-.5 4.9a2.6 2.6 0 0 1-2.5 2.1h-1.7a2.6 2.6 0 0 1-2.6-2.1z\"/><path d=\"M11.2 10.4c.5-.5 1.1-.5 1.6 0M3 9.2L2 7M21 9.2l1-2.2\"/>",
+  "dive": "<path d=\"M6 5.5l11.5 11.5\"/><path d=\"M17.8 10.4v6.8h-6.8\"/><path d=\"M3.5 9.5l3-.8M9.5 3.5l-.8 3M3 14l2.6-.6\"/>",
+  "rhythm": "<path d=\"M20 11a8 8 0 0 0-14.3-4.2M4.2 4.6v3.9h3.9\"/><path d=\"M4 13a8 8 0 0 0 14.3 4.2M19.8 19.4v-3.9h-3.9\"/>",
+  "claw": "<path d=\"M6.5 3.5c3.1 4.3 4.2 9.3 2.6 16.5\"/><path d=\"M11.8 3.5c3.1 4.3 4.2 9.3 2.6 16.5\"/><path d=\"M17 3.5c2.7 4.1 3.7 8.6 2.3 14.6\"/>",
+  "word": "<path d=\"M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H12l-4.5 4v-4h-1A2.5 2.5 0 0 1 4 13.5z\"/><path d=\"M8.6 9.4l2.4 2.4 4.4-4.5\"/>",
+  "pull": "<circle cx=\"12\" cy=\"12\" r=\"1.8\"/><path d=\"M4 4l5 5M9 5.6V9H5.6M20 4l-5 5M15 5.6V9h3.4M4 20l5-5M9 18.4V15H5.6M20 20l-5-5M15 18.4V15h3.4\"/>",
+  "push": "<circle cx=\"12\" cy=\"12\" r=\"1.8\"/><path d=\"M9.6 9.6L4.5 4.5M4.5 8.8V4.5h4.3M14.4 9.6l5.1-5.1M19.5 8.8V4.5h-4.3M9.6 14.4l-5.1 5.1M4.5 15.2v4.3h4.3M14.4 14.4l5.1 5.1M19.5 15.2v4.3h-4.3\"/>",
+  "path": "<path d=\"M3.5 6.5v11M7 12h13.5\"/><path d=\"M16.5 7.8l4.2 4.2-4.2 4.2\"/><path d=\"M9.5 8.8c1 .9 1 5.5 0 6.4\"/>",
+  "horizon": "<rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15\" rx=\"2.4\"/><path d=\"M3.5 9.5h17M8 2.8v4M16 2.8v4\"/><path d=\"M7 17h10M9.4 17a2.6 2.6 0 0 1 5.2 0\"/>",
+  "cracked": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\"/><path d=\"M12.6 5.2l-1.8 3.4 2.4 1.7-2 3.5 1.2 2.9\"/>",
+  "exposed": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\" stroke-dasharray=\"3.4 3.2\"/><circle cx=\"12\" cy=\"11.8\" r=\"1.6\"/>",
+  "once": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M10.2 9.8L12.6 8v8.2\"/>",
+  "fork": "<path d=\"M12 21v-7\"/><path d=\"M12 14L6 8.5V4M12 14l6-5.5V4\"/><path d=\"M4.2 6.2L6 3.8l1.8 2.4M16.2 6.2L18 3.8l1.8 2.4\"/>",
+  "hourglass": "<path d=\"M6.5 3h11M6.5 21h11\"/><path d=\"M8 3c0 5 4 6.2 4 9s-4 4-4 9M16 3c0 5-4 6.2-4 9s4 4 4 9\"/>",
+  "strain": "<path d=\"M2.5 12c3-4.5 6.2-6.5 9.5-6.5s6.5 2 9.5 6.5c-3 4.5-6.2 6.5-9.5 6.5S5.5 16.5 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "cycle": "<path d=\"M20 12a8 8 0 0 1-13.5 5.8M4 12a8 8 0 0 1 13.5-5.8\"/><path d=\"M17.5 3v3.5H14M6.5 21v-3.5H10\"/>",
+  "rings": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"5.5\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/>",
+  "skip": "<path d=\"M4 6l8 6-8 6zM12 6l8 6-8 6z\"/>",
+  "soul": "<path d=\"M12 3c1 3.4 5.2 5.8 5.2 10.4a5.2 5.2 0 0 1-10.4 0c0-2 .8-3.2 1.8-4.3.2 1.6.9 2.5 1.7 3 .2-3.1.7-6.1 1.7-9.1z\"/>",
+  "shell": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\"/><path d=\"M12 3v18M7 9l5 3 5-3\"/>",
+  "wave": "<path d=\"M2 12c1.5-5 3-5 4.5 0s3 5 4.5 0 3-5 4.5 0 3 5 4.5 0\"/>",
+  "fist": "<rect x=\"5\" y=\"10\" width=\"14\" height=\"10\" rx=\"3\"/><path d=\"M8 10V6.5M11 10V5M14 10V5M17 10V6.5\"/>",
+  "burst": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.3 5.3l2.8 2.8M15.9 15.9l2.8 2.8M18.7 5.3l-2.8 2.8M8.1 15.9l-2.8 2.8\"/>",
+  "wing": "<path d=\"M3.5 17c3-.5 6.5-3.5 7.6-8.4C13.6 8.8 17 11 19.5 16c-2.7-1.4-5.2-1.7-7.4-.7-2 .9-4.8 1.8-8.6 1.7z\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "sun": "<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1\"/>",
+  "bolt": "<path d=\"M13 2L5 14h6l-1 8 9-13h-6z\"/>",
+  "cloudbolt": "<path d=\"M7 16a4 4 0 0 1-.6-7.9A5.5 5.5 0 0 1 17 8a4 4 0 0 1 .5 8\"/><path d=\"M12 11l-2 4h3l-1 4\"/>",
+  "link": "<path d=\"M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1\"/>",
+  "dash": "<path d=\"M4 8h8M2 12h10M4 16h8M14 6l6 6-6 6\"/>",
+  "bazooka": "<path d=\"M3 9.5h13l3 2.5-3 2.5H3z\"/><path d=\"M8 14.5v5M19 12h2.5\"/>",
+  "snow": "<path d=\"M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9\"/><path d=\"M9.5 4.5L12 7l2.5-2.5M9.5 19.5L12 17l2.5 2.5\"/>",
+  "wind": "<path d=\"M3 9h11a3 3 0 1 0-3-3M3 15h15a3 3 0 1 1-3 3M3 12h8\"/>",
+  "needle": "<path d=\"M4 20L20 4M17 4h3v3M6 18l-2 2\"/>",
+  "wall": "<path d=\"M4 20V8l4-3 4 3 4-3 4 3v12z\"/><path d=\"M8 9v11M12 9v11M16 9v11\"/>",
+  "crack": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\"/><path d=\"M12 3l-1.5 5 3 3-3 3 1.5 6\"/>",
+  "eye-arara-triade": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "drop": "<path d=\"M12 3c3 4.2 6 7.2 6 11a6 6 0 0 1-12 0c0-3.8 3-6.8 6-11z\"/>",
+  "drain": "<rect x=\"3\" y=\"8\" width=\"16\" height=\"9\" rx=\"2\"/><path d=\"M21 11v3M6.5 11.5v2\"/>",
+  "pause": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M10 9v6M14 9v6\"/>",
+  "eye-bico-sombrio": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "skull": "<path d=\"M12 3a7.5 7.5 0 0 0-5 13v3.5h10V16A7.5 7.5 0 0 0 12 3z\"/><path d=\"M9.5 11v.01M14.5 11v.01M10.5 19.5v-2M13.5 19.5v-2\"/>",
+  "decoy": "<circle cx=\"9\" cy=\"12\" r=\"6\"/><circle cx=\"15\" cy=\"12\" r=\"6\"/>",
+  "fly": "<path d=\"M3 17c4 0 5-3 9-3s4 2 9 0\"/><path d=\"M5 12c3 0 4-2.5 8-2.5S17 11 21 9.5\"/>",
+  "moon": "<path d=\"M20 14.5A8.5 8.5 0 1 1 9.5 4a6.7 6.7 0 0 0 10.5 10.5z\"/>",
+  "smile": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M8.5 14.2c1 1.6 2.2 2.3 3.5 2.3s2.5-.7 3.5-2.3M9 9.5v.01M15 9.5v.01\"/>",
+  "eyeoff": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "fuse": "<path d=\"M3 20c4 0 5-4 8-4s3 3 6 0l1.5-1.5\"/><path d=\"M19 8l1.8-1.8M19 8V5.2M19 8h2.8M19 8l-2-2\"/>",
+  "egg": "<path d=\"M12 3c3.6 0 6.5 5.6 6.5 10a6.5 6.5 0 0 1-13 0C5.5 8.6 8.4 3 12 3z\"/><path d=\"M9 14l1.5 1.5L12 13.5l1.5 2L15 14\"/>",
+  "mark": "<circle cx=\"12\" cy=\"12\" r=\"7\"/><circle cx=\"12\" cy=\"12\" r=\"2.6\"/><path d=\"M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3\"/>",
+  "bomb": "<circle cx=\"10.5\" cy=\"14.5\" r=\"6.5\"/><path d=\"M15 9.8l2.6-2.6\"/><path d=\"M18 6l1.8-1.8M18 6V3.4M18 6h2.6\"/>",
+  "mines": "<circle cx=\"6\" cy=\"17\" r=\"2.5\"/><circle cx=\"12\" cy=\"17\" r=\"2.5\"/><circle cx=\"18\" cy=\"17\" r=\"2.5\"/><path d=\"M6 14.5V11M12 14.5V8M18 14.5V11M4.8 10.2l1.2.8 1.2-.8M10.8 7.2l1.2.8 1.2-.8M16.8 10.2l1.2.8 1.2-.8\"/>",
+  "alert": "<path d=\"M12 4l9 16H3z\"/><path d=\"M12 10v4.2M12 17.2v.01\"/>",
+  "smoke": "<path d=\"M7 18a4 4 0 0 1-.6-7.9A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z\"/>",
+  "meter": "<path d=\"M4.5 17a8 8 0 1 1 15 0\"/><path d=\"M12 15.5l3.4-5\"/><path d=\"M4 20.5h16\"/>",
+  "loud": "<path d=\"M4 9.5h3.5L12 5.5v13L7.5 14.5H4z\"/><path d=\"M15.5 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11\"/>",
+  "crystal": "<path d=\"M12 2.5l6 6.5-6 12.5L6 9z\"/><path d=\"M6 9h12M12 2.5v19\"/>",
+  "heal": "<path d=\"M9 3h6v6h6v6h-6v6H9v-6H3V9h6z\"/>",
+  "jump": "<path d=\"M12 20V6M6.5 11.5L12 6l5.5 5.5M7 20h10\"/>",
+  "speak": "<path d=\"M4 5h16v11H11l-4 4v-4H4z\"/><path d=\"M12 8.5v3M12 13.5v.01\"/>",
+  "mute": "<path d=\"M4 9.5h3.5L12 5.5v13L7.5 14.5H4z\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "eye-casuar-de-ataque": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "fail": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M8.5 8.5l7 7M15.5 8.5l-7 7\"/>",
+  "hat": "<path d=\"M3 17.5h18\"/><path d=\"M6.5 17.5c0-5 2-9.5 5.5-9.5s5.5 4.5 5.5 9.5\"/><path d=\"M6.5 14.2h11\"/>",
+  "help": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M9.5 9.6a2.6 2.6 0 1 1 3.5 2.4c-.7.3-1 .9-1 1.6M12 16.8v.01\"/>",
+  "force": "<path d=\"M12 2.8l1.6 5 4.8-2.2-2.2 4.8 5 1.6-5 1.6 2.2 4.8-4.8-2.2-1.6 5-1.6-5-4.8 2.2 2.2-4.8-5-1.6 5-1.6-2.2-4.8 4.8 2.2z\"/>",
+  "thermo": "<path d=\"M10 14.5V5a2 2 0 0 1 4 0v9.5a4 4 0 1 1-4 0z\"/><path d=\"M12 9v7\"/>",
+  "dive-falcao-peregrino": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
+  "eye-falcao-peregrino": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "sky": "<path d=\"M6 4v14M12 8v12M18 4v14M3.5 15.5L6 18l2.5-2.5M9.5 17.5L12 20l2.5-2.5M15.5 15.5L18 18l2.5-2.5\"/>",
+  "pistol": "<path d=\"M3 7.5h14.5v4H11l-1 4H7.5l-.8 5H4l1-9H3z\"/>",
+  "staff": "<path d=\"M4 20L20 4\"/><path d=\"M15 4h5v5M4 15v5h5\"/>",
+  "nunchaku": "<rect x=\"3.5\" y=\"3.5\" width=\"4\" height=\"9\" rx=\"1.5\" transform=\"rotate(35 5.5 8)\"/><rect x=\"16.5\" y=\"11.5\" width=\"4\" height=\"9\" rx=\"1.5\" transform=\"rotate(35 18.5 16)\"/><path d=\"M9 9.5c2.5 1 3.5 2.8 6 3.5\"/>",
+  "claw-falcao-peregrino": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
+  "lone": "<circle cx=\"12\" cy=\"8\" r=\"3.5\"/><path d=\"M5 20c.8-4 3.6-6 7-6s6.2 2 7 6\"/>",
+  "nogem": "<path d=\"M7 4h10l3.5 5.5L12 21 3.5 9.5z\"/><path d=\"M3.5 9.5h17M9.2 4L7.6 9.5 12 21M14.8 4l1.6 5.5L12 21\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "echo": "<circle cx=\"5\" cy=\"12\" r=\"1.8\"/><path d=\"M9 8a5.5 5.5 0 0 1 0 8M13 5a9.5 9.5 0 0 1 0 14M17 2.5a13 13 0 0 1 0 19\"/>",
+  "ear": "<path d=\"M7 9.5a5 5 0 0 1 10 0c0 3-2.5 3.6-2.5 6a2.8 2.8 0 0 1-5.4.9\"/><path d=\"M10 9.5a2 2 0 0 1 4 0c0 1.2-1 1.5-1.5 2.2\"/>",
+  "eye-passarinho-escutador": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "map": "<path d=\"M3 6l6-2.5 6 2.5 6-2.5v14.5l-6 2.5-6-2.5-6 2.5z\"/><path d=\"M9 3.5v14.5M15 6v14.5\"/>",
+  "grin": "<path d=\"M2.5 8.4c3.5.5 15.5.5 19 0-.8 7.3-5.4 11.3-9.5 11.3S3.3 15.7 2.5 8.4z\"/><path d=\"M7.2 8.9v7.2M12 9v10.7M16.8 8.9v7.2\"/><path d=\"M3.8 13.9c5.5 1.5 11.9 1.5 16.4 0\"/><path d=\"M3 5.2l3.6 1.3M21 5.2l-3.6 1.3\"/>",
+  "aura": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M7 7.2a7 7 0 0 0 0 9.6M17 7.2a7 7 0 0 1 0 9.6\"/><path d=\"M4.2 4.6a12 12 0 0 0 0 14.8M19.8 4.6a12 12 0 0 1 0 14.8\"/>",
+  "feather": "<path d=\"M19.6 4.4C12.6 4.2 7.2 8 7 15.2c0 .9.1 1.4.3 1.8 1.2.4 3.4.2 5.2-.7 4.6-2.1 7.1-6.2 7.1-11.9z\"/><path d=\"M4.2 19.8L14.2 9.8\"/><path d=\"M10.6 13.4h4M12.4 11.6h3.4\"/>",
+  "copy": "<path d=\"M7.5 7V6a2 2 0 0 1 2-2H18a2.5 2.5 0 0 1 2.5 2.5V15a2 2 0 0 1-2 2h-1\"/><rect x=\"3.5\" y=\"8\" width=\"13.5\" height=\"12.5\" rx=\"2.6\"/><path d=\"M7 13.4h6.5c-.4 2.4-1.7 3.4-3.2 3.4s-2.7-1-3.3-3.4z\"/>",
+  "swap": "<path d=\"M5.5 6h13M8 3.5L5.5 6 8 8.5M16 3.5l2.5 2.5-2.5 2.5\"/><circle cx=\"6\" cy=\"13.6\" r=\"2.3\"/><path d=\"M2.6 21c0-2.4 1.5-3.8 3.4-3.8s3.4 1.4 3.4 3.8\"/><circle cx=\"18\" cy=\"13.6\" r=\"2.3\"/><path d=\"M14.6 21c0-2.4 1.5-3.8 3.4-3.8s3.4 1.4 3.4 3.8\"/>",
+  "contract": "<path d=\"M7 3h7l4.5 4.5V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z\"/><path d=\"M14 3v4.5h4.5\"/><path d=\"M9 11h6M9 13.6h3.5\"/><path d=\"M9 18c1-2.2 1.6-2.2 2.1-.6s1 1.6 2.3-.4 1.6-.2 2.1.4\"/>",
+  "stage": "<rect x=\"3\" y=\"8\" width=\"18\" height=\"12.5\" rx=\"2.6\"/><path d=\"M8.2 3.4L12 8l3.8-4.6\"/><path d=\"M8 13.3h8c-.5 2.9-2.2 4-4 4s-3.5-1.1-4-4z\"/><path d=\"M10 13.3v2.4M14 13.3v2.4\"/>",
+  "say": "<path d=\"M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H12l-4.5 4v-4h-1A2.5 2.5 0 0 1 4 13.5z\"/><path d=\"M8.6 8h6.8c-.4 2.3-1.8 3.4-3.4 3.4S9 10.3 8.6 8z\"/>",
+  "grounded": "<path d=\"M19.6 4.4C12.6 4.2 7.2 8 7 15.2c0 .9.1 1.4.3 1.8 1.2.4 3.4.2 5.2-.7 4.6-2.1 7.1-6.2 7.1-11.9z\"/><path d=\"M4.2 19.8L11 13\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "loophole": "<circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"M15.3 15.3L21 21\"/><path d=\"M8.2 7.8l2.3 2.2-1.8 1.7 2.4 2.3\"/>",
+  "cracked-passarinho-sorridente": "<path d=\"M2.5 8.4c3.5.5 15.5.5 19 0-.8 7.3-5.4 11.3-9.5 11.3S3.3 15.7 2.5 8.4z\"/><path d=\"M6.8 8.9v6.6M17.2 8.9v6.6\"/><path d=\"M12.6 8.9l-2 3.1 2.6 1.7-2 3.3 1.4 2.7\"/>",
+  "shame": "<circle cx=\"11\" cy=\"13\" r=\"8.5\"/><path d=\"M7.8 11.4v.01M14.2 11.4v.01\"/><path d=\"M5.1 14.5l1.3-1.1M6.8 14.5l1.3-1.1M13.9 14.5l1.3-1.1M15.6 14.5l1.3-1.1\"/><path d=\"M7.8 17.3c.9-.9 1.7.9 3.2 0s2.3.9 3.2 0\"/><path d=\"M20 2.6c.9 1.2 1.5 2 1.5 2.7a1.5 1.5 0 0 1-3 0c0-.7.6-1.5 1.5-2.7z\"/>",
+  "gem": "<path d=\"M7 4h10l3.5 5.5L12 21 3.5 9.5z\"/><path d=\"M3.5 9.5h17M9.2 4L7.6 9.5 12 21M14.8 4l1.6 5.5L12 21\"/>",
+  "saw": "<circle cx=\"12\" cy=\"12\" r=\"6.5\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/><path d=\"M12 2.5l1.6 3M12 21.5l-1.6-3M2.5 12l3-1.6M21.5 12l-3 1.6M5.3 5.3l2.5 2M18.7 18.7l-2.5-2M18.7 5.3l-2 2.5M5.3 18.7l2-2.5\"/>",
+  "hand": "<path d=\"M8 12V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v8c0 4-2.5 7-6 7-3 0-4.5-1.8-6-4.5l-1.5-3a1.5 1.5 0 0 1 2.6-1.5L8 14\"/>",
+  "eye-pica-pau-cartucho": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "sedate": "<path d=\"M20 14.5A8.5 8.5 0 1 1 9.5 4a6.7 6.7 0 0 0 10.5 10.5z\"/>",
+  "scan": "<rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"2\"/><path d=\"M12 7v10M8.5 10h7M9 13.5h6\"/>",
+  "cut": "<path d=\"M4 20l9-9\"/><path d=\"M12 5.5c2 0 5 .8 7 4.5l-6.5 3.5z\"/>",
+  "mind": "<path d=\"M12 12.2a1.4 1.4 0 1 1 1.6 1.4 3.2 3.2 0 1 1-3.5-4.2 5.2 5.2 0 1 1 5.6 6.9\"/>",
+  "time": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3.4 2\"/>",
+  "scroll": "<path d=\"M6 4h12v16l-3-2-3 2-3-2-3 2z\"/><path d=\"M9 9h6M9 12.5h6\"/>",
+  "laser": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M2.5 12h6.5M15 12h6.5\"/><path d=\"M4.5 8.4h3.4M16.1 8.4h3.4M4.5 15.6h3.4M16.1 15.6h3.4\"/>",
+  "uturn": "<path d=\"M5 19V9a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v10\"/><path d=\"M16.5 16.5L19 19l2.5-2.5\"/>",
+  "shieldp": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\"/><path d=\"M12 8.6v5M9.5 11.1h5\"/>",
+  "space": "<ellipse cx=\"9.5\" cy=\"12\" rx=\"3.6\" ry=\"8\"/><path d=\"M13.6 12h8M18.6 8.8l3.2 3.2-3.2 3.2\"/><path d=\"M2.5 12h3.4\"/>",
+  "reality": "<path d=\"M12 3l8 4.4v9.2L12 21l-8-4.4V7.4z\"/><path d=\"M4 7.4l8 4.4 8-4.4M12 11.8V21\"/>",
+  "eatshield": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\"/><path d=\"M12 7.8v6.2M9.4 11.8l2.6 2.6 2.6-2.6\"/>",
+  "siphon": "<circle cx=\"12\" cy=\"12\" r=\"1.8\"/><path d=\"M4 4l5 5M9 5.6V9H5.6M20 4l-5 5M15 5.6V9h3.4M4 20l5-5M9 18.4V15H5.6M20 20l-5-5M15 18.4V15h3.4\"/>",
+  "give": "<path d=\"M12 20s-7.5-4.6-7.5-10a4.3 4.3 0 0 1 7.5-2.8A4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z\"/>",
+  "crumbs": "<path d=\"M6 9a4 4 0 0 1 3-6h6a4 4 0 0 1 3 6v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z\"/><path d=\"M10 12.5v0M14 15.5v0M11.6 17.6v0\"/>",
+  "weight": "<path d=\"M9 7.5a3 3 0 1 1 6 0\"/><path d=\"M7.2 9.2h9.6l2 11H5.2z\"/>",
+  "queasy": "<path d=\"M2.8 12c2-4.4 4.2-4.4 6.2 0s4.2 4.4 6.2 0 3.2-3.2 6-.4\"/><path d=\"M3 17.5h18\"/>",
+  "steal": "<circle cx=\"7.5\" cy=\"12\" r=\"3.8\"/><path d=\"M12.5 12h8.5M17.4 8.4l3.6 3.6-3.6 3.6\"/>",
+  "nose": "<path d=\"M12 3c-1 4-3 8-5 11-1 2 0 5 3 5h4c3 0 4-3 3-5-2-3-4-7-5-11z\" transform=\"translate(0 0)\"/><path d=\"M9.5 16.5v.01M14.5 16.5v.01\"/>",
+  "grave": "<path d=\"M6 21V10a6 6 0 0 1 12 0v11z\"/><path d=\"M12 8v7M9.5 11h5\"/>",
+  "eye-urubu-coveiro": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "spark": "<path d=\"M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z\"/>",
+  "sixgems": "<circle cx=\"20\" cy=\"12\" r=\"1.5\"/><circle cx=\"16\" cy=\"18.9\" r=\"1.5\"/><circle cx=\"8\" cy=\"18.9\" r=\"1.5\"/><circle cx=\"4\" cy=\"12\" r=\"1.5\"/><circle cx=\"8\" cy=\"5.1\" r=\"1.5\"/><circle cx=\"16\" cy=\"5.1\" r=\"1.5\"/><path d=\"M12 8.6l2.6 3.4-2.6 3.4-2.6-3.4z\"/>",
+  "flock": "<path d=\"M3 9.5c1.3-2 3-2 4.3 0 1.3-2 3-2 4.3 0\"/><path d=\"M12.5 6c1.1-1.7 2.5-1.7 3.6 0 1.1-1.7 2.5-1.7 3.6 0\"/><path d=\"M8 16.5c1.4-2.2 3.2-2.2 4.6 0 1.4-2.2 3.2-2.2 4.6 0\"/><path d=\"M3.5 19.5h17\"/>",
+  "plate": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.3\"/>",
+  "sofa": "<path d=\"M5.5 11V8a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v3\"/><path d=\"M3 12.5a2 2 0 0 1 4 0V15h10v-2.5a2 2 0 0 1 4 0V18H3z\"/><path d=\"M6 18v2M18 18v2\"/>",
+  "noring": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "pulse": "<path d=\"M2 12h4l2-5 3 10 2.5-7 1.5 2h7\"/>",
+  "beam": "<circle cx=\"5\" cy=\"17.5\" r=\"2.4\"/><path d=\"M7.4 16.4C13 15.2 11 7.6 19 6.4\"/><path d=\"M15.6 5l3.6 1.4-2 3.3\"/><path d=\"M2.5 12.6c1-.9 2-1.3 3-1.3\"/>"
+ },
+ "characters": [
+  {
+   "id": "aguia-disciplinada",
+   "name": "Águia Disciplinada",
+   "subtitle": "O Mais Forte dos Heróis",
+   "quote": "Disciplina é escolher de novo, todo dia.",
+   "audio": "",
+   "photo": "midia/aguia-disciplinada/foto.webp",
+   "photoAlt": "Águia de óculos escuros, retrato de perfil",
+   "photoFit": "contain",
+   "photoPos": "50% 50%",
+   "photoPad": "10px 0 58px",
+   "logo": "icones/icone-aguia.svg",
+   "logoAlt": "Logo de Águia Disciplinada",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 5,
+   "gradeNote": "",
+   "role": "Herói supremo",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#080b12",
+    "surface": "#0e1420",
+    "raised": "#141c2c",
+    "line": "rgba(160, 190, 255, 0.13)",
+    "lineStrong": "rgba(160, 190, 255, 0.24)",
+    "accent": "#e7b24a",
+    "warn": "#f0907f",
+    "ink": "#e9eef8",
+    "muted": "#8c9ab2",
+    "photoBg": "radial-gradient(60% 70% at 50% 42%, rgba(231, 178, 74, 0.13), transparent 70%), repeating-linear-gradient(0deg, transparent 0 39px, rgba(160, 190, 255, 0.06) 39px 40px), repeating-linear-gradient(90deg, transparent 0 39px, rgba(160, 190, 255, 0.06) 39px 40px), #141c2c"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 5,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "shield",
+       "label": "Inata",
+       "value": "Disciplina",
+       "desc": "Barreira que impede qualquer toque enquanto ele mantém o foco.",
+       "weak": false
+      },
+      {
+       "icon": "eye",
+       "label": "",
+       "value": "Olhos da Águia",
+       "desc": "Percepção total. Vê o fluxo de energia, mentiras e brechas. Só em plena força sem os óculos.",
+       "weak": false
+      },
+      {
+       "icon": "glasses",
+       "label": "Autolimitação",
+       "value": "Óculos Escuros",
+       "desc": "Usa o tempo todo para limitar os olhos e poupar energia. Na luta, ele os tira.",
+       "weak": false
+      },
+      {
+       "icon": "dive",
+       "label": "",
+       "value": "Voo em Picada",
+       "desc": "Mergulho em velocidade altíssima, com a barreira como escudo. Seu ataque principal.",
+       "weak": false
+      },
+      {
+       "icon": "rhythm",
+       "label": "",
+       "value": "Ritmo",
+       "desc": "Quanto mais repete uma técnica na luta, mais forte e eficiente ela fica.",
+       "weak": false
+      },
+      {
+       "icon": "claw",
+       "label": "",
+       "value": "Garra Cirúrgica",
+       "desc": "Golpe de precisão no ponto fraco que os olhos encontraram.",
+       "weak": false
+      },
+      {
+       "icon": "word",
+       "label": "",
+       "value": "Palavra Dada",
+       "desc": "Anuncia o que vai fazer. Cumprir o fortalece, falhar o enfraquece.",
+       "weak": false
+      },
+      {
+       "icon": "pull",
+       "label": "Atração",
+       "value": "Rumo",
+       "desc": "Fixa um ponto como destino e puxa tudo para ele, como garras se fechando.",
+       "weak": false,
+       "color": "#5aa9ff"
+      },
+      {
+       "icon": "push",
+       "label": "Repulsão",
+       "value": "Limite",
+       "desc": "Traça uma linha que nada pode cruzar e empurra tudo para fora dela.",
+       "weak": false,
+       "color": "#ef6a6a"
+      },
+      {
+       "icon": "path",
+       "label": "Fusão · Rumo + Limite",
+       "value": "Trajetória Perfeita",
+       "desc": "Une atração e repulsão num único caminho. Tudo na trajetória é apagado. Exige foco total.",
+       "weak": false,
+       "color": "#a98bff"
+      },
+      {
+       "icon": "horizon",
+       "label": "Domínio de expansão",
+       "value": "Horizonte do Que Poderia Ter Sido",
+       "desc": "Mostra à vítima a vida inteira e cada chance perdida. Encerra a luta pela mente, sem matar.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "cracked",
+       "label": "Limitação",
+       "value": "Disciplina Frágil",
+       "desc": "A barreira cai com distração, raiva, riso, fome ou sono.",
+       "weak": true
+      },
+      {
+       "icon": "exposed",
+       "label": "Limitação",
+       "value": "Preparo Exposto",
+       "desc": "Enquanto carrega a Trajetória Perfeita, a barreira cai e ele fica vulnerável.",
+       "weak": true
+      },
+      {
+       "icon": "once",
+       "label": "Limitação",
+       "value": "Uso Único",
+       "desc": "O domínio funciona uma única vez contra cada alvo. Quem já se arrependeu, se redimiu ou negou não é afetado de novo.",
+       "weak": true
+      },
+      {
+       "icon": "fork",
+       "label": "Limitação",
+       "value": "Resultado Incontrolável",
+       "desc": "Não controla se o domínio termina em redenção, frustração ou negação.",
+       "weak": true
+      },
+      {
+       "icon": "hourglass",
+       "label": "Consequência",
+       "value": "Esgotamento do Domínio",
+       "desc": "Depois do domínio, a barreira cai por um tempo e ele sente os arrependimentos da vítima.",
+       "weak": true
+      },
+      {
+       "icon": "strain",
+       "label": "Custo",
+       "value": "Olhos Exigentes",
+       "desc": "Sem os óculos, os olhos gastam energia e causam dor de cabeça.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "arara-triade",
+   "name": "Arara Tríade",
+   "subtitle": "Elemental Triplo de Grau Especial",
+   "quote": "Fogo, raio, gelo. Quem sou eu hoje?",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "midia/arara-triade/logo.jpg",
+   "logoAlt": "Arara de crista com três penas, uma vermelha, uma amarela e uma azul, diante de um fundo dividido em fogo, raio e gelo",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 5,
+   "gradeNote": "Fora da Tríade: Grau 1",
+   "role": "Elemental",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#0a0a0d",
+    "surface": "#121217",
+    "raised": "#1a1a21",
+    "line": "rgba(210, 215, 235, 0.13)",
+    "lineStrong": "rgba(210, 215, 235, 0.24)",
+    "accent": "#e9edf5",
+    "warn": "#ffb04c",
+    "ink": "#f1f2f6",
+    "muted": "#9a9cab",
+    "photoBg": "#0e0e12"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 4,
+     "base": 3
+    },
+    {
+     "label": "Velocidade",
+     "value": 5,
+     "base": 3
+    },
+    {
+     "label": "Inteligência",
+     "value": 3,
+     "base": 2
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": 3
+    },
+    {
+     "label": "Energia",
+     "value": 5,
+     "base": 4
+    },
+    {
+     "label": "Destruição",
+     "value": 5,
+     "base": 4
+    },
+    {
+     "label": "Potencial",
+     "value": 5,
+     "base": 5
+    }
+   ],
+   "legend": [
+    "Tríade",
+    "Uma forma só"
+   ],
+   "groups": [
+    {
+     "title": "O ciclo",
+     "rows": [
+      {
+       "icon": "cycle",
+       "label": "Inata",
+       "value": "Troca de Personalidade",
+       "desc": "Alterna sozinho entre três personalidades, cada uma com seu elemento, sempre na ordem fogo, raio, gelo. Ele não escolhe: aparece quem está na vez. Ao trocar, explode no próprio elemento.",
+       "weak": false,
+       "color": "#e9edf5"
+      },
+      {
+       "icon": "rings",
+       "label": "Depois de um ciclo",
+       "value": "Tríade",
+       "desc": "Depois de passar uma vez por cada elemento em combate, ele concilia os três ao mesmo tempo e alterna livremente os poderes de cada um por um tempo limitado. Depois disso, se esgota e recomeça o ciclo do zero.",
+       "weak": false,
+       "color": "#e9edf5"
+      },
+      {
+       "icon": "skip",
+       "label": "Reação",
+       "value": "Salto de Dor",
+       "desc": "Se levar dano demais em uma forma, pula para a próxima. Levou dano no fogo, pula o raio e vai direto para o gelo. A forma pulada não conta para o ciclo.",
+       "weak": false,
+       "color": "#e9edf5"
+      }
+     ]
+    },
+    {
+     "title": "Fogo · Estressado",
+     "rows": [
+      {
+       "icon": "soul",
+       "label": "Personalidade",
+       "value": "Fogo",
+       "desc": "Estressado, ignorante e orgulhoso. Não escuta conselho, acha que sabe tudo e briga por qualquer coisa.",
+       "weak": false,
+       "color": "#ff6a3a"
+      },
+      {
+       "icon": "shell",
+       "label": "Armadura",
+       "value": "Armadura de Fogo",
+       "desc": "Ao transformar, explode em fogo. A armadura só causa dano em quem bater nela de perto, queimando o atacante. Projéteis que possam queimar viram cinzas em um instante ao tocar nela.",
+       "weak": false,
+       "color": "#ff6a3a"
+      },
+      {
+       "icon": "wave",
+       "label": "Campo",
+       "value": "Fornalha",
+       "desc": "Cria um campo de calor em volta dela. Quem estiver dentro sofre dano passivo com o passar do tempo, e quem voa se cansa mais rápido.",
+       "weak": false,
+       "color": "#ff6a3a"
+      },
+      {
+       "icon": "fist",
+       "label": "Ataque comum",
+       "value": "Soco Flamejante",
+       "desc": "Soco com a mão em chamas, que queima no impacto e empurra o alvo.",
+       "weak": false,
+       "color": "#ff6a3a"
+      },
+      {
+       "icon": "burst",
+       "label": "Ataque comum",
+       "value": "Rajada de Brasas",
+       "desc": "Dispara uma chuva de brasas que explodem ao tocar em algo.",
+       "weak": false,
+       "color": "#ff6a3a"
+      },
+      {
+       "icon": "wing",
+       "label": "Ataque comum",
+       "value": "Asa em Chamas",
+       "desc": "Golpe de asa que lança uma onda de fogo em arco à frente.",
+       "weak": false,
+       "color": "#ff6a3a"
+      },
+      {
+       "icon": "sun",
+       "label": "Ultimate",
+       "value": "Supernova",
+       "desc": "Uma bola de fogo enorme que cresce até explodir e varrer tudo ao redor.",
+       "weak": false,
+       "color": "#ff6a3a"
+      }
+     ]
+    },
+    {
+     "title": "Raio · Ansioso",
+     "rows": [
+      {
+       "icon": "bolt",
+       "label": "Personalidade",
+       "value": "Raio",
+       "desc": "Ansioso e afobado, fala rápido e às vezes gagueja. Nunca termina a frase antes de agir.",
+       "weak": false,
+       "color": "#ffd23a"
+      },
+      {
+       "icon": "shell",
+       "label": "Armadura",
+       "value": "Armadura de Raio",
+       "desc": "Ao transformar, explode em choque. A armadura interrompe o ataque de quem bater de perto, e projéteis batem nela e caem no chão.",
+       "weak": false,
+       "color": "#ffd23a"
+      },
+      {
+       "icon": "cloudbolt",
+       "label": "Campo",
+       "value": "Tempestade",
+       "desc": "Invoca uma tempestade que, de vez em quando, solta raios em volta. Serve de antiaéreo: derruba com um raio quem voar.",
+       "weak": false,
+       "color": "#ffd23a"
+      },
+      {
+       "icon": "bolt",
+       "label": "Ataque comum",
+       "value": "Faísca Rápida",
+       "desc": "Descargas curtas e velozes, muito difíceis de desviar.",
+       "weak": false,
+       "color": "#ffd23a"
+      },
+      {
+       "icon": "link",
+       "label": "Ataque comum",
+       "value": "Cadeia Elétrica",
+       "desc": "Um raio que pula de um inimigo para outro e atinge todos de uma vez.",
+       "weak": false,
+       "color": "#ffd23a"
+      },
+      {
+       "icon": "dash",
+       "label": "Ataque comum",
+       "value": "Investida Relâmpago",
+       "desc": "Corre como um raio e acerta o alvo num único flash.",
+       "weak": false,
+       "color": "#ffd23a"
+      },
+      {
+       "icon": "bazooka",
+       "label": "Ultimate",
+       "value": "Raio-Canhão",
+       "desc": "Um feixe de raio ultra forte, disparado com as duas mãos depois de uma pose de carga.",
+       "weak": false,
+       "color": "#ffd23a"
+      }
+     ]
+    },
+    {
+     "title": "Gelo · Calmo",
+     "rows": [
+      {
+       "icon": "snow",
+       "label": "Personalidade",
+       "value": "Gelo",
+       "desc": "Calmo, distante e apático. Fala pouco, reage devagar e parece não se importar.",
+       "weak": false,
+       "color": "#6fd6ff"
+      },
+      {
+       "icon": "shell",
+       "label": "Armadura",
+       "value": "Armadura de Gelo",
+       "desc": "Ao transformar, congela tudo em volta. A armadura congela quem encostar nele. Nada de especial contra projéteis, mas é a armadura mais resistente de todas contra qualquer tipo de dano.",
+       "weak": false,
+       "color": "#6fd6ff"
+      },
+      {
+       "icon": "dash",
+       "label": "Reação",
+       "value": "Clone de Gelo",
+       "desc": "Se estiver rápido o bastante, pula para trás e deixa um clone de gelo no lugar. Quem atacar o clone fica congelado.",
+       "weak": false,
+       "color": "#6fd6ff"
+      },
+      {
+       "icon": "wind",
+       "label": "Campo",
+       "value": "Nevasca",
+       "desc": "Invoca uma nevasca que deixa os inimigos lentos e impede o voo.",
+       "weak": false,
+       "color": "#6fd6ff"
+      },
+      {
+       "icon": "needle",
+       "label": "Ataque comum",
+       "value": "Lança Gélida",
+       "desc": "Arremessa lanças de gelo afiadas, que ficam presas no alvo.",
+       "weak": false,
+       "color": "#6fd6ff"
+      },
+      {
+       "icon": "wall",
+       "label": "Ataque comum",
+       "value": "Parede de Gelo",
+       "desc": "Ergue uma muralha de gelo para bloquear ataques e cortar caminho.",
+       "weak": false,
+       "color": "#6fd6ff"
+      },
+      {
+       "icon": "wave",
+       "label": "Ataque comum",
+       "value": "Sopro Glacial",
+       "desc": "Sopra um cone de frio que congela os pés de quem for atingido.",
+       "weak": false,
+       "color": "#6fd6ff"
+      },
+      {
+       "icon": "needle",
+       "label": "Ultimate",
+       "value": "Estaca de Gelo",
+       "desc": "Uma estaca de gelo enorme que perfura o alvo e congela o que estiver em volta.",
+       "weak": false,
+       "color": "#6fd6ff"
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "crack",
+       "label": "Limitação",
+       "value": "Instável",
+       "desc": "Muda de forma sozinho e não escolhe quem aparece. Cada personalidade tem seu defeito: o fogo ignora conselho, o raio gagueja e se atrapalha, o gelo demora a reagir.",
+       "weak": true
+      },
+      {
+       "icon": "eye-arara-triade",
+       "label": "Limitação",
+       "value": "Ciclo Previsível",
+       "desc": "A ordem é sempre fogo, raio, gelo. Quem percebe prepara o contra do elemento seguinte.",
+       "weak": true
+      },
+      {
+       "icon": "drop",
+       "label": "Fraqueza",
+       "value": "Fraqueza por Forma",
+       "desc": "O fogo cai com água, o raio com isolantes e terra, e o gelo com calor.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Tríade Esgota",
+       "desc": "Depois da Tríade, fica esgotado e indefeso por um tempo, e recomeça o ciclo do zero.",
+       "weak": true
+      },
+      {
+       "icon": "pause",
+       "label": "Limitação",
+       "value": "Dano Atrasa o Ciclo",
+       "desc": "Dano demais pula uma forma, e a pulada não conta. A Tríade demora mais para chegar.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bico-sombrio",
+   "name": "Bico Sombrio",
+   "subtitle": "Mestre das Ilusões de Grau 1",
+   "quote": "Estou rindo?",
+   "audio": "",
+   "photo": "midia/bico-sombrio/foto.jpg",
+   "photoAlt": "Pássaro de bico enorme, cabeça cinza-escura e olhar sério, saindo da escuridão total",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-bico.svg",
+   "logoAlt": "Logo de Bico Sombrio",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 4,
+   "gradeNote": "Quem o encara já está dentro",
+   "role": "Assassino",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#070a08",
+    "surface": "#0e1410",
+    "raised": "#151e18",
+    "line": "rgba(140, 215, 170, 0.13)",
+    "lineStrong": "rgba(140, 215, 170, 0.24)",
+    "accent": "#6fcf97",
+    "warn": "#ef7a5a",
+    "ink": "#e8f1ea",
+    "muted": "#8fa396",
+    "photoBg": "#0b100d"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "eye-bico-sombrio",
+       "label": "Inata",
+       "value": "Ilusão Sombria",
+       "desc": "Cria ilusões de visão, som, toque e dor que a vítima não distingue da realidade. O corpo reage como se fosse verdade.",
+       "weak": false
+      },
+      {
+       "icon": "eye-bico-sombrio",
+       "label": "Gatilho",
+       "value": "Olhar Sem Riso",
+       "desc": "Quem cruza o olhar com ele por um instante já está dentro da ilusão. Ele nunca pisca nem sorri, e é por isso que o olhar pega.",
+       "weak": false
+      },
+      {
+       "icon": "skull",
+       "label": "Ataque",
+       "value": "Pesadelo Sob Medida",
+       "desc": "Mostra à vítima o pior medo dela. O dano mental é real e pode paralisar, desmaiar ou até parar o coração.",
+       "weak": false
+      },
+      {
+       "icon": "decoy",
+       "label": "Engano",
+       "value": "Mil Sombras",
+       "desc": "Espalha cópias dele pelo campo, com som, cheiro e sombra. O inimigo não sabe qual é a verdadeira.",
+       "weak": false
+      },
+      {
+       "icon": "fly",
+       "label": "Movimento",
+       "value": "Voo de Sombra",
+       "desc": "Vira sombra e sai voando em velocidade enorme, como um comensal da morte. Passa por frestas e não leva golpe físico, mas só ataca depois de se solidificar.",
+       "weak": false
+      },
+      {
+       "icon": "moon",
+       "label": "Domínio de expansão",
+       "value": "Noite Sem Amanhecer",
+       "desc": "Uma noite sem fim em que tudo é ilusão e nada se distingue do real. As ilusões sempre acertam, e ele pode estar em qualquer lugar. Só termina quando a vítima aceita que não há saída.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "smile",
+       "label": "Limitação",
+       "value": "Cara Séria",
+       "desc": "Se ele ri ou perde a compostura, as ilusões se desfazem. Uma piada boa demais o desarma.",
+       "weak": true
+      },
+      {
+       "icon": "sun",
+       "label": "Fraqueza",
+       "value": "Luz Forte",
+       "desc": "A forma de sombra se desfaz na luz forte, e as ilusões ficam mais fracas com flash, fogo ou sol.",
+       "weak": true
+      },
+      {
+       "icon": "drop",
+       "label": "Fraqueza",
+       "value": "Dor Desfaz",
+       "desc": "Dor real e forte quebra a ilusão. Quem se fere de propósito acorda.",
+       "weak": true
+      },
+      {
+       "icon": "eyeoff",
+       "label": "Fraqueza",
+       "value": "Olhos Fechados",
+       "desc": "Cego, de olhos fechados ou sem depender da visão, o alvo escapa das ilusões visuais. Só restam as de som e toque.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Ilusão Cobra Energia",
+       "desc": "Manter muitas ilusões ou ilusões longas gasta a energia dele. Lutas longas o deixam parado.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Limitação",
+       "value": "Corpo Sólido Frágil",
+       "desc": "Ao se solidificar para atacar, fica pouco resistente. Um golpe que acerta pesa muito.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bomba",
+   "name": "Bomba",
+   "subtitle": "Tanque Explosivo de Grau 1",
+   "quote": "Pode bater. Eu devolvo com juros.",
+   "audio": "",
+   "photo": "midia/bomba/foto.jpg",
+   "photoAlt": "Pássaro preto de olhar furioso e bico aberto, gritando",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-bomba.svg",
+   "logoAlt": "Logo de Bomba",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 4,
+   "gradeNote": "Mais perigoso quanto mais apanha",
+   "role": "Linha de frente",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#0b0807",
+    "surface": "#150e0c",
+    "raised": "#1f1512",
+    "line": "rgba(255, 170, 150, 0.13)",
+    "lineStrong": "rgba(255, 170, 150, 0.24)",
+    "accent": "#ff5a3a",
+    "warn": "#ffc24d",
+    "ink": "#f6ebe6",
+    "muted": "#ab9790",
+    "photoBg": "#110c0a"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 3,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "fuse",
+       "label": "Passiva",
+       "value": "Pavio Curto",
+       "desc": "Cada golpe que ele leva e cada vez que se irrita enche a Carga. Quanto mais Carga, mais forte é qualquer explosão dele. Quem bate nele alimenta a própria derrota.",
+       "weak": false
+      },
+      {
+       "icon": "shell",
+       "label": "Defesa",
+       "value": "Casca Chamuscada",
+       "desc": "Pele e penas queimadas e grossas. Aguenta explosões, inclusive as próprias, e quase nada o atravessa.",
+       "weak": false
+      },
+      {
+       "icon": "burst",
+       "label": "Área",
+       "value": "Estouro",
+       "desc": "Detona o próprio corpo em uma onda de choque em volta de si. Afasta quem está colado nele e causa dano em área.",
+       "weak": false
+      },
+      {
+       "icon": "egg",
+       "label": "Projétil",
+       "value": "Ovo-Granada",
+       "desc": "Bota um ovo que explode ao tocar em algo ou após uma contagem curta. Pode ser arremessado ou deixado no chão como mina.",
+       "weak": false
+      },
+      {
+       "icon": "mark",
+       "label": "Controle",
+       "value": "Pavio Marcado",
+       "desc": "Acende um pavio no alvo com um toque ou um ovo. Detona quando quiser, ou sozinho se a Carga passar do limite. Dá para marcar vários e explodir em cadeia.",
+       "weak": false
+      },
+      {
+       "icon": "bomb",
+       "label": "Golpe final",
+       "value": "Cabeça-Bomba",
+       "desc": "Gasta a Carga inteira em um único soco ou cabeçada explosiva. É o maior dano dele e o deixa vazio por alguns segundos.",
+       "weak": false
+      },
+      {
+       "icon": "mines",
+       "label": "Domínio de expansão",
+       "value": "Campo Minado do Pavio Sem Fim",
+       "desc": "Tudo dentro ganha um pavio: chão, paredes, ar e o corpo do inimigo. Todo movimento acende uma explosão que não dá para desviar. Há uma contagem regressiva visível, que cai mais rápido quanto mais o inimigo se mexe. No zero, uma detonação gigante acerta todos, inclusive o Bomba.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "alert",
+       "label": "Limitação",
+       "value": "Pavio Curto Demais",
+       "desc": "Muito irritado, perde o controle e as explosões saem em qualquer direção, até contra os aliados.",
+       "weak": true
+      },
+      {
+       "icon": "drop",
+       "label": "Fraqueza",
+       "value": "Pavio Molhado",
+       "desc": "Água, frio e qualquer coisa que apague o pavio enfraquecem as explosões dele.",
+       "weak": true
+      },
+      {
+       "icon": "pause",
+       "label": "Limitação",
+       "value": "Lento e Pesado",
+       "desc": "Fácil de acertar de longe. Quem mantém distância e não se aproxima sofre menos.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Vazio Pós-Estouro",
+       "desc": "Depois da Cabeça-Bomba ou do domínio, fica sem Carga e sem força até recarregar.",
+       "weak": true
+      },
+      {
+       "icon": "smoke",
+       "label": "Limitação",
+       "value": "Fumaça",
+       "desc": "As explosões enchem o ambiente de fumaça e atrapalham a visão dele também. Lutas longas o deixam meio cego.",
+       "weak": true
+      },
+      {
+       "icon": "meter",
+       "label": "Fraqueza",
+       "value": "Sem Carga, Sem Bomba",
+       "desc": "Se ninguém o atinge e ele fica calmo, o poder cai bastante. Inimigos espertos evitam bater nele.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "casuar-de-ataque",
+   "name": "Casuar de Ataque",
+   "subtitle": "Brutamontes do Grito de Grau 1",
+   "quote": "Ataque!",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "midia/casuar-de-ataque/logo.jpg",
+   "logoAlt": "Casuar azul de crista dourada, olhar furioso e bico aberto, com garras afiadas diante de raios vermelhos",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 4,
+   "gradeNote": "",
+   "role": "Ataque",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#080a0f",
+    "surface": "#0f131b",
+    "raised": "#171d28",
+    "line": "rgba(77, 155, 255, 0.13)",
+    "lineStrong": "rgba(77, 155, 255, 0.24)",
+    "accent": "#4d9bff",
+    "warn": "#ffb04c",
+    "ink": "#eaf0fa",
+    "muted": "#8f9ab0",
+    "photoBg": "#0c0f15"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 5,
+     "base": 4
+    },
+    {
+     "label": "Velocidade",
+     "value": 3,
+     "base": 3
+    },
+    {
+     "label": "Inteligência",
+     "value": 3,
+     "base": 3
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": 3
+    },
+    {
+     "label": "Energia",
+     "value": 3,
+     "base": 3
+    },
+    {
+     "label": "Destruição",
+     "value": 4,
+     "base": 3
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": 4
+    }
+   ],
+   "legend": [
+    "Fúria cheia",
+    "Sem fúria"
+   ],
+   "groups": [
+    {
+     "title": "Fúria",
+     "rows": [
+      {
+       "icon": "burst",
+       "label": "Inata",
+       "value": "Fúria",
+       "desc": "Medidor com 3 níveis. Enche quando ele bate em inimigos ou nas técnicas deles: paredes, escudos, monstros evocados e o que mais o inimigo criar.",
+       "weak": false
+      },
+      {
+       "icon": "loud",
+       "label": "Regra",
+       "value": "Gastar Níveis",
+       "desc": "Ele escolhe gastar 1, 2 ou 3 níveis de uma vez, e o grito sai na força do que foi gasto.",
+       "weak": false
+      },
+      {
+       "icon": "crystal",
+       "label": "Técnica",
+       "value": "Punhos de Cristal",
+       "desc": "Cristaliza punhos e pés: cada golpe causa dano crítico, 100% das vezes. Enquanto estiver cristalizado, a fúria máxima cai para o nível 2.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Grito",
+     "rows": [
+      {
+       "icon": "loud",
+       "label": "Nível 1",
+       "value": "Grito Curto",
+       "desc": "Recupera só o que foi ferido há poucos segundos e atordoa o oponente de leve, tudo no mesmo grito, sem causar dano.",
+       "weak": false
+      },
+      {
+       "icon": "heal",
+       "label": "Nível 2",
+       "value": "Grito Forte",
+       "desc": "Recupera a vida perdida, e o que sobrar vira bônus temporário de vida acima do limite. Atordoa os inimigos de forma média, derruba quem estiver voando, causa dano e ele ignora a dor, sem ser interrompido.",
+       "weak": false
+      },
+      {
+       "icon": "skull",
+       "label": "Nível 3",
+       "value": "Grito Total",
+       "desc": "Recupera toda a vida e dá bônus de vida. Derruba o voo, causa surdez temporária e desorientação pesada nos inimigos, e ele ignora a dor.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Combate",
+     "rows": [
+      {
+       "icon": "needle",
+       "label": "Técnica",
+       "value": "Lança de Osso",
+       "desc": "Cria uma lança de osso do próprio corpo e arremessa de longe. Gasta vida, que pode ser recuperada com o grito.",
+       "weak": false
+      },
+      {
+       "icon": "jump",
+       "label": "Mobilidade",
+       "value": "Salto Grande",
+       "desc": "Não voa. Em vez disso, dá saltos enormes para chegar no alvo ou escapar.",
+       "weak": false
+      },
+      {
+       "icon": "speak",
+       "label": "Inata",
+       "value": "Só Diz “Ataque”",
+       "desc": "Por algum motivo, só consegue falar essa palavra. Ele entende tudo e pensa normalmente, só não consegue se expressar.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "mute",
+       "label": "Limitação",
+       "value": "Sem Voo",
+       "desc": "Não alcança quem está no ar. Só os saltos e as lanças de osso chegam lá.",
+       "weak": true
+      },
+      {
+       "icon": "fist",
+       "label": "Limitação",
+       "value": "Fúria Depende de Bater",
+       "desc": "Se ficar longe ou não tiver o que bater, a fúria não enche. Sem fúria, ele é só um bruto sem grito.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Limitação",
+       "value": "Cura Tem Janela",
+       "desc": "No nível 1 só recupera o que foi ferido há poucos segundos. Ferida antiga só se cura com mais níveis.",
+       "weak": true
+      },
+      {
+       "icon": "crystal",
+       "label": "Custo",
+       "value": "Cristal Limita a Fúria",
+       "desc": "Com os punhos cristalizados, a fúria máxima cai para o nível 2 e o Grito Total fica fora de alcance.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Lança Cobra Vida",
+       "desc": "Cada lança de osso arremessada gasta vida dele. Se estiver sem fúria, não tem como recuperar.",
+       "weak": true
+      },
+      {
+       "icon": "eye-casuar-de-ataque",
+       "label": "Limitação",
+       "value": "Não Consegue Se Comunicar",
+       "desc": "Só diz “Ataque”, então não explica planos nem pede ajuda. Aliados precisam adivinhar o que ele quer.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coruja-pessimista",
+   "name": "Coruja Pessimista",
+   "subtitle": "Voz Amaldiçoada de Grau 1",
+   "quote": "Vai dar errado. Sempre dá.",
+   "audio": "",
+   "photo": "midia/coruja-pessimista/foto.jpg",
+   "photoAlt": "Coruja pequena de olhos fundos usando um grande chapéu marrom enfeitado com moedas e uma corrente no pescoço",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-coruja.svg",
+   "logoAlt": "Logo de Coruja Pessimista",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 4,
+   "gradeNote": "Cada palavra dele vale como ordem",
+   "role": "Controlador",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#0d0a08",
+    "surface": "#17120e",
+    "raised": "#211a14",
+    "line": "rgba(210, 170, 125, 0.13)",
+    "lineStrong": "rgba(210, 170, 125, 0.24)",
+    "accent": "#c9a27c",
+    "warn": "#ef7a5a",
+    "ink": "#f3ebe2",
+    "muted": "#a89a8b",
+    "photoBg": "#120e0b"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "speak",
+       "label": "Inata",
+       "value": "Fala Amaldiçoada",
+       "desc": "Tudo o que ele diz vira ordem e muda as ações ou o estado de quem ouve. Alvo mais forte resiste mais, e cada ordem cobra a garganta dele.",
+       "weak": false
+      },
+      {
+       "icon": "wave",
+       "label": "Ordem curta",
+       "value": "Murmúrio",
+       "desc": "Ordens de uma palavra, como \"pare\", \"caia\" ou \"durma\". Baratas e rápidas, mas fracas contra quem é forte.",
+       "weak": false
+      },
+      {
+       "icon": "burst",
+       "label": "Ordem longa",
+       "value": "Sentença",
+       "desc": "Ordens completas que mudam o estado do alvo, como cegar, pesar, esquecer ou paralisar. Muito mais forte que o Murmúrio e machuca a garganta dele.",
+       "weak": false
+      },
+      {
+       "icon": "fail",
+       "label": "Praga",
+       "value": "Vai Dar Errado",
+       "desc": "Ele reclama que vai dar errado e a próxima ação do alvo falha: o golpe erra, o pulo tropeça, a técnica falha. É a praga favorita dele, porque é a que ele mais acredita.",
+       "weak": false
+      },
+      {
+       "icon": "hat",
+       "label": "Ritual",
+       "value": "Chapéu Calmante",
+       "desc": "Usar um chapéu o acalma e o impede de falar sem querer. De chapéu, as ordens só saem quando ele decide. Sem um, ele solta asneira e fere os amigos.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Domínio de expansão",
+       "value": "Última Reclamação",
+       "desc": "Dentro, ninguém resiste a ele, nem o mais forte. Ele dá até três ordens que o alvo obedece sem escolha, sem desvio e sem defesa. Cada ordem gasta a voz dele, e depois da terceira ele fica mudo por muito tempo.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "crack",
+       "label": "Custo",
+       "value": "Garganta Frágil",
+       "desc": "Cada ordem forte machuca a garganta. Depois de várias, a voz falha e as ordens enfraquecem ou param.",
+       "weak": true
+      },
+      {
+       "icon": "hat",
+       "label": "Limitação",
+       "value": "Sem Chapéu",
+       "desc": "Sem um chapéu, perde o controle e solta asneiras que viram ordem contra os próprios aliados.",
+       "weak": true
+      },
+      {
+       "icon": "alert",
+       "label": "Limitação",
+       "value": "Palavra que Volta",
+       "desc": "Quando se queixa de si mesmo, como \"sou inútil\", a ordem pode cair nele próprio.",
+       "weak": true
+      },
+      {
+       "icon": "mute",
+       "label": "Fraqueza",
+       "value": "Não Ouviu, Não Obedece",
+       "desc": "A ordem só vale para quem ouve. Tampão de ouvido, surdez, barulho alto ou silêncio total anulam a fala.",
+       "weak": true
+      },
+      {
+       "icon": "shell",
+       "label": "Fraqueza",
+       "value": "Gente Forte Resiste",
+       "desc": "Quanto maior a energia do alvo, mais ele resiste. Os muito fortes ignoram o Murmúrio.",
+       "weak": true
+      },
+      {
+       "icon": "help",
+       "label": "Limitação",
+       "value": "Crise de Sentido",
+       "desc": "Procura sentido na vida e duvida de si. Quando hesita, a voz treme e a ordem sai fraca.",
+       "weak": true
+      },
+      {
+       "icon": "pause",
+       "label": "Limitação",
+       "value": "Corpo Mínimo",
+       "desc": "Pequeno e frágil. Não corre nem aguenta apanhar.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "falcao-peregrino",
+   "name": "Falcão Peregrino",
+   "subtitle": "Caçador Sem Dom de Grau 1",
+   "quote": "Dom é desculpa. Eu treinei.",
+   "audio": "",
+   "photo": "midia/falcao-peregrino/foto.jpg",
+   "photoAlt": "Falcão-peregrino de olhar sério com uma garra levantada diante do bico, pedindo silêncio",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-falcao.svg",
+   "logoAlt": "Logo de Falcão Peregrino",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 4,
+   "gradeNote": "Sem energia: ninguém o mede",
+   "role": "Rival",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#0a0b0c",
+    "surface": "#111314",
+    "raised": "#181b1d",
+    "line": "rgba(200, 210, 220, 0.13)",
+    "lineStrong": "rgba(200, 210, 220, 0.24)",
+    "accent": "#b4bcc4",
+    "warn": "#ff9a5c",
+    "ink": "#ecedee",
+    "muted": "#9aa0a6",
+    "photoBg": "#0d0f10"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 0,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 3,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "force",
+       "label": "Inata",
+       "value": "Corpo Sem Dom",
+       "desc": "Nasceu sem energia nenhuma, e o corpo compensou: força, reflexos, resistência e sentidos no limite. Quem rastreia por energia não o acha.",
+       "weak": false
+      },
+      {
+       "icon": "thermo",
+       "label": "Passiva",
+       "value": "Resistência Elemental",
+       "desc": "Resiste a fogo, raio, gelo, veneno e doença, e aguenta temperaturas extremas, de frio polar a calor de forno, sem perder força nem velocidade. É por isso que usa fogo e gelo no próprio corpo sem se machucar.",
+       "weak": false
+      },
+      {
+       "icon": "dive-falcao-peregrino",
+       "label": "Golpe",
+       "value": "Mergulho Peregrino",
+       "desc": "Sobe e cai em linha reta. Quanto maior a altura, mais velocidade e mais dano. É o golpe mais rápido da série.",
+       "weak": false
+      },
+      {
+       "icon": "eye-falcao-peregrino",
+       "label": "Treino",
+       "value": "Visão Treinada",
+       "desc": "Não tem os olhos do irmão. Treinou a vista até enxergar quase tanto, no braço e sem dom.",
+       "weak": false
+      },
+      {
+       "icon": "sky",
+       "label": "Domínio de expansão",
+       "value": "Céu do Caçador",
+       "desc": "Sem energia, ele paga com um voto: sacrifica uma arma do arsenal, à escolha dele, que quebra de vez e não volta mais. O chão some e o inimigo cai em um céu sem fim, aberto e sem paredes. Dentro, o Mergulho Peregrino sempre acerta, sem desvio e sem defesa, e ele tem altura de sobra. Termina depois de três mergulhos e o deixa exausto.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Arsenal de mercenário",
+     "rows": [
+      {
+       "icon": "pistol",
+       "label": "Pistola",
+       "value": "Canela Seca",
+       "desc": "Uma pistola normal, sem maldição. Força o inimigo a desviar, atrapalha e acerta quem não aguenta bala.",
+       "weak": false
+      },
+      {
+       "icon": "staff",
+       "label": "Bastão que muda de tamanho",
+       "value": "Jingubang",
+       "desc": "Um bastão que altera o tamanho: estica, encolhe e cresce até virar lança, barreira, ponte ou alavanca. Dá alcance e serve para prender e empurrar.",
+       "weak": false
+      },
+      {
+       "icon": "nunchaku",
+       "label": "Nunchaku de gelo e choque",
+       "value": "Cérberus Gêmeos",
+       "desc": "Um nunchaku de gelo e choque: uma ponta congela e a outra dá choque. O gelo trava, o choque atordoa, e juntos derrubam quase qualquer um.",
+       "weak": false
+      },
+      {
+       "icon": "soul",
+       "label": "Luvas e botas de fogo",
+       "value": "Balrog",
+       "desc": "Um par de luvas e botas que pegam fogo quando golpeiam o inimigo e se apagam quando ele para de bater. Quanto mais seguido o combo, mais forte o fogo.",
+       "weak": false
+      },
+      {
+       "icon": "bazooka",
+       "label": "Bazuca",
+       "value": "Belezona",
+       "desc": "Uma bazuca. Dano alto em área, com poucos tiros e recarga demorada.",
+       "weak": false
+      },
+      {
+       "icon": "claw-falcao-peregrino",
+       "label": "Ferramenta amaldiçoada",
+       "value": "Garra Quebra-Regra",
+       "desc": "Anula técnicas e regras no ponto onde corta. É a única coisa que fura a Disciplina da Águia. Só existe uma, e ele precisa tocar a barreira.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "alert",
+       "label": "Limitação",
+       "value": "Inveja do Irmão",
+       "desc": "Diante da Águia luta com raiva e comete erros que não cometeria com outro.",
+       "weak": true
+      },
+      {
+       "icon": "lone",
+       "label": "Limitação",
+       "value": "Orgulho",
+       "desc": "Recusa ajuda, não faz plano em grupo e prefere perder sozinho.",
+       "weak": true
+      },
+      {
+       "icon": "nogem",
+       "label": "Fraqueza",
+       "value": "Dependência de Ferramentas",
+       "desc": "Sem o arsenal só sobra o corpo. Sem a Garra Quebra-Regra, não fura a Disciplina.",
+       "weak": true
+      },
+      {
+       "icon": "soul",
+       "label": "Limitação",
+       "value": "Fogo Depende do Ritmo",
+       "desc": "Se parar de bater por um instante, as luvas e botas se apagam. Quem o faz errar o ritmo o desarma.",
+       "weak": true
+      },
+      {
+       "icon": "dive-falcao-peregrino",
+       "label": "Limitação",
+       "value": "Mergulho Sem Curva",
+       "desc": "Cai em linha reta e não muda a rota no ar. Quem sai da frente na hora certa o deixa exposto, e em lugar fechado ou sem altura o golpe nem funciona.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Fraqueza",
+       "value": "Sem Cura",
+       "desc": "Não se cura nem reverte ferida com técnica. Cada dano que leva fica, e lutas longas o desgastam.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Fraqueza",
+       "value": "Sem Defesa Contra Energia",
+       "desc": "Aguenta o impacto, mas ataques de técnica atravessam sem nada que os desvie.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "passarinho-escutador",
+   "name": "Passarinho Escutador",
+   "subtitle": "Rastreador de Grau 2",
+   "quote": "Eu ouvi... mas tenho certeza que ele não quis dizer isso.",
+   "audio": "",
+   "photo": "midia/passarinho-escutador/foto.jpg",
+   "photoAlt": "Pássaro vermelho de sobrancelhas grossas ouvindo atento, com uma orelha humana enorme e uma mão em concha ao lado",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-escutador.svg",
+   "logoAlt": "Logo de Passarinho Escutador",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 3,
+   "gradeNote": "Genial, mas confia em todo mundo",
+   "role": "Suporte",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#09080d",
+    "surface": "#110f17",
+    "raised": "#19161f",
+    "line": "rgba(190, 170, 255, 0.13)",
+    "lineStrong": "rgba(190, 170, 255, 0.24)",
+    "accent": "#a98bff",
+    "warn": "#ff8fb1",
+    "ink": "#efeaf7",
+    "muted": "#9d95b0",
+    "photoBg": "#0e0c14"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "echo",
+       "label": "Inata",
+       "value": "Ecolocalização Impecável",
+       "desc": "Emite sons que voltam e desenham tudo ao redor: formas, posições e movimentos, mesmo no escuro, atrás de paredes ou com invisíveis. Não erra a distância nem por um centímetro.",
+       "weak": false
+      },
+      {
+       "icon": "ear",
+       "label": "Passiva",
+       "value": "Ouvido Absoluto",
+       "desc": "Ouve sussurros, batimentos e a respiração de longe. Percebe a energia amaldiçoada pelo som que ela faz e sabe quando o corpo de alguém mente.",
+       "weak": false
+      },
+      {
+       "icon": "eye-passarinho-escutador",
+       "label": "Defesa",
+       "value": "Antecipação",
+       "desc": "Ouve músculos e tendões se preparando e sabe onde o golpe vai cair antes de ele sair. Desvia com folga, se o corpo dele deixar.",
+       "weak": false
+      },
+      {
+       "icon": "wave",
+       "label": "Ataque",
+       "value": "Frequência Quebra-Tudo",
+       "desc": "Descobre a frequência natural de um corpo, objeto ou técnica e a devolve em um grito. Causa estilhaço e atordoamento, e acerta pontos fracos que ele mesmo achou.",
+       "weak": false
+      },
+      {
+       "icon": "mute",
+       "label": "Controle",
+       "value": "Silêncio Absoluto",
+       "desc": "Anula todo som em uma área. Esconde os passos dele e dos aliados e silencia técnicas que dependem de voz ou de ordem falada.",
+       "weak": false
+      },
+      {
+       "icon": "map",
+       "label": "Equipe",
+       "value": "Mapa Compartilhado",
+       "desc": "Envia o que ouve para os aliados, que passam a ver posições e movimentos do inimigo. É o melhor batedor da equipe.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Domínio de expansão",
+       "value": "Câmara de Ecos",
+       "desc": "Dentro dela todo som volta mais alto, e todo golpe, passo ou técnica do inimigo se repete um instante depois contra ele mesmo. O eco sempre acerta, sem desvio. Por ouvir o corpo inteiro do alvo, ele também sabe o que vai fazer a seguir.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "smile",
+       "label": "Limitação",
+       "value": "Ingenuidade",
+       "desc": "Detecta qualquer mentira do corpo, mas confia em quem acredita no que diz. Vilão convicto, que acha que está certo, passa por ele sem alarme.",
+       "weak": true
+      },
+      {
+       "icon": "loud",
+       "label": "Fraqueza",
+       "value": "Ouvido Sensível",
+       "desc": "Explosões, gritos e barulho alto o ensurdecem e o cegam. Num campo de batalha barulhento, perde o mapa inteiro.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Limitação",
+       "value": "Corpo Frágil",
+       "desc": "Sem força e com pouca resistência. Um golpe que acerta o derruba.",
+       "weak": true
+      },
+      {
+       "icon": "mark",
+       "label": "Custo",
+       "value": "Eco Entrega Ele",
+       "desc": "Os sons que emite denunciam a posição dele. Inimigos que ouvem o eco sabem exatamente onde ele está.",
+       "weak": true
+      },
+      {
+       "icon": "mute",
+       "label": "Fraqueza",
+       "value": "Silêncio Total",
+       "desc": "Ambientes sem eco ou que absorvem som, como espuma, tecido grosso e vento forte, deixam o mapa dele cheio de buracos.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "passarinho-sorridente",
+   "name": "Passarinho Sorridente",
+   "subtitle": "O Rei das Maldições",
+   "quote": "Eu escrevo as regras depois que você perde.",
+   "audio": "",
+   "photo": "midia/passarinho-sorridente/foto.jpg",
+   "photoAlt": "Periquito verde com rosto humano sorrindo e lasers azuis saindo dos olhos",
+   "photoFit": "cover",
+   "photoPos": "50% 28%",
+   "photoPad": "",
+   "logo": "icones/icone-sorridente.svg",
+   "logoAlt": "Logo de Passarinho Sorridente",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 5,
+   "gradeNote": "",
+   "role": "Vilão supremo",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#080b12",
+    "surface": "#0e1420",
+    "raised": "#141c2c",
+    "line": "rgba(160, 190, 255, 0.13)",
+    "lineStrong": "rgba(160, 190, 255, 0.24)",
+    "accent": "#4cc2ff",
+    "warn": "#f0907f",
+    "ink": "#e9eef8",
+    "muted": "#8c9ab2",
+    "photoBg": "#06142e"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 3,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "grin",
+       "label": "Inata",
+       "value": "Sorriso Inquebrável",
+       "desc": "Quanto mais sorri, mais forte fica.",
+       "weak": false
+      },
+      {
+       "icon": "aura",
+       "label": "Passiva",
+       "value": "Aura Malevolente",
+       "desc": "Envolve o corpo e causa dano contínuo a todos por perto. Cresce quanto mais ele sorri.",
+       "weak": false
+      },
+      {
+       "icon": "feather",
+       "label": "Corpo",
+       "value": "Penas Cortantes",
+       "desc": "Penas afiadas como lâminas. Cortam de perto e podem ser arremessadas para atacar de longe.",
+       "weak": false
+      },
+      {
+       "icon": "copy",
+       "label": "",
+       "value": "Cópia Sacana",
+       "desc": "Copia uma técnica por vez e cria a versão trapaceira dela.",
+       "weak": false
+      },
+      {
+       "icon": "swap",
+       "label": "",
+       "value": "Troca de Corpos",
+       "desc": "Salta a consciência entre corpos dormentes espalhados pelo mundo.",
+       "weak": false
+      },
+      {
+       "icon": "contract",
+       "label": "",
+       "value": "Contrato Sacana",
+       "desc": "Propõe um acordo cheio de pegadinhas. Quem aceita fica preso às regras dele.",
+       "weak": false
+      },
+      {
+       "icon": "stage",
+       "label": "Domínio de expansão",
+       "value": "Programa do Passarinho",
+       "desc": "Estúdio infinito de jogos e portas com pegadinha.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "say",
+       "label": "Limitação",
+       "value": "Frase Justificadora",
+       "desc": "Para usar a versão sacana de um poder, precisa dizer a trapaça em voz alta, sorrindo.",
+       "weak": true
+      },
+      {
+       "icon": "grounded",
+       "label": "Limitação",
+       "value": "Penas Esgotadas",
+       "desc": "Cada pena arremessada abre uma falha na defesa. Gastar demais o deixa sem voo por um tempo.",
+       "weak": true
+      },
+      {
+       "icon": "loophole",
+       "label": "Fraqueza",
+       "value": "Brecha nas Regras",
+       "desc": "Achar a brecha cancela a trapaça e racha o sorriso. No domínio, o domínio quebra.",
+       "weak": true
+      },
+      {
+       "icon": "cracked-passarinho-sorridente",
+       "label": "Consequência",
+       "value": "Sorriso Quebrado",
+       "desc": "Sem sorriso, perde a frase, a aura e as versões sacanas dos poderes até regenerar.",
+       "weak": true
+      },
+      {
+       "icon": "shame",
+       "label": "Fraqueza",
+       "value": "Vergonha",
+       "desc": "Vergonha genuína apaga a aura.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pica-pau-cartucho",
+   "name": "Pica-Pau Cartucho",
+   "subtitle": "Casca de Bala de Grau 1",
+   "quote": "Pode vir. Eu não paro de bater!",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "midia/pica-pau-cartucho/logo.jpg",
+   "logoAlt": "Pica-pau de crista vermelha e bico longo, com a luva Beowulf e uma cartucheira de cascas de escopeta",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 4,
+   "gradeNote": "Cada golpe o deixa mais perigoso",
+   "role": "Parceiro",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#090b06",
+    "surface": "#11150b",
+    "raised": "#181d10",
+    "line": "rgba(190, 230, 100, 0.13)",
+    "lineStrong": "rgba(190, 230, 100, 0.24)",
+    "accent": "#b8e04a",
+    "warn": "#ff8a5c",
+    "ink": "#eef3e2",
+    "muted": "#9aa58a",
+    "photoBg": "#0d1008"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "mark",
+       "label": "Inata",
+       "value": "Foco",
+       "desc": "Quanto mais ele bate e fica perto do inimigo, mais Foco ele ganha, até 3 níveis. Perde um nível se parar de bater, correr ou se afastar do inimigo, e perde todo o Foco se levar um golpe. Trocar de arma não faz perder.",
+       "weak": false
+      },
+      {
+       "icon": "gem",
+       "label": "Ferramentas",
+       "value": "Armas Amaldiçoadas",
+       "desc": "Usa a própria mana para alimentar armas amaldiçoadas. Cada arma tem uma Ultimate que só sai no Foco 3, e depois dela o Foco volta a zero.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Domínio de expansão",
+       "value": "Estande de Tiro",
+       "desc": "Dentro, cada golpe dele conta como um tiro certeiro que não dá para desviar nem bloquear, e o Foco sobe sem precisar de contato. Depois de uma Ultimate, o Foco volta ao nível 2, e não a zero. O estande tem 12 disparos, e quando acabam o domínio termina.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Níveis de Foco",
+     "rows": [
+      {
+       "icon": "meter",
+       "label": "Foco I",
+       "value": "Mira",
+       "desc": "Reflexos e pontaria melhores. Os golpes ficam mais precisos.",
+       "weak": false
+      },
+      {
+       "icon": "meter",
+       "label": "Foco II",
+       "value": "Ritmo",
+       "desc": "Mais força e velocidade. Ele passa a ver as brechas do inimigo.",
+       "weak": false
+      },
+      {
+       "icon": "burst",
+       "label": "Foco III",
+       "value": "Estouro",
+       "desc": "Libera a Ultimate da arma em mãos. Gasta muita mana e zera o Foco.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Arsenal e Ultimates",
+     "rows": [
+      {
+       "icon": "fist",
+       "label": "Luva e bota",
+       "value": "Beowulf",
+       "desc": "Luva e bota como as do Balrog, sem fogo, mas com poder bruto bem maior. Ultimate, Soco Sísmico: uma pancada no chão que causa uma onda fortíssima.",
+       "weak": false
+      },
+      {
+       "icon": "saw",
+       "label": "Motosserra",
+       "value": "Madeireira",
+       "desc": "Corta tudo que for sólido. Ultimate, Corte Raso: corta num arco enorme tudo o que estiver à frente, como uma derrubada.",
+       "weak": false
+      },
+      {
+       "icon": "pistol",
+       "label": "Escopeta",
+       "value": "Doze",
+       "desc": "Escopeta de calibre 12 que ele carrega na cartucheira. Ultimate, Rajada de Cascas: dispara todas as cascas de uma vez, e cada uma explode ao tocar em algo.",
+       "weak": false
+      },
+      {
+       "icon": "needle",
+       "label": "Estoque",
+       "value": "Agulha",
+       "desc": "Arma rápida e precisa. Ultimate, Mil Agulhas: em poucos segundos dá centenas de estocadas num único alvo.",
+       "weak": false
+      },
+      {
+       "icon": "shell",
+       "label": "Escudo",
+       "value": "Muralha",
+       "desc": "Defesa pesada. Ultimate, Muro Final: ergue um muro indestrutível que devolve o dano de quem o ataca.",
+       "weak": false
+      },
+      {
+       "icon": "link",
+       "label": "Corrente",
+       "value": "Cadeia",
+       "desc": "Arma de controle. Ultimate, Prisão de Ferro: prende o alvo e o puxa para o golpe final.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "hand",
+       "label": "Limitação",
+       "value": "Depende de Contato",
+       "desc": "O Foco só sobe de perto. Inimigos de longe ou voadores o atrapalham.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Limitação",
+       "value": "Foco Frágil",
+       "desc": "Perde um nível se parar de bater, correr ou se afastar do inimigo, e perde tudo se levar um golpe. Quem o acerta ou o faz correr o desarma.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Ultimate Cobra Mana",
+       "desc": "Cada Ultimate gasta muita mana e o deixa exausto logo depois.",
+       "weak": true
+      },
+      {
+       "icon": "eye-pica-pau-cartucho",
+       "label": "Fraqueza",
+       "value": "Ultimates Previsíveis",
+       "desc": "São enormes, e o inimigo vê o preparo e se afasta.",
+       "weak": true
+      },
+      {
+       "icon": "nogem",
+       "label": "Fraqueza",
+       "value": "Dependência das Armas",
+       "desc": "Sem armas só sobra o Foco, que não tem nada para soltar.",
+       "weak": true
+      },
+      {
+       "icon": "speak",
+       "label": "Limitação",
+       "value": "Falastrão",
+       "desc": "Fala demais e entrega a jogada antes de agir.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pomba-da-paz",
+   "name": "Pomba da Paz",
+   "subtitle": "Doutora de Grau Especial",
+   "quote": "Respira fundo. Eu cuido de você.",
+   "audio": "",
+   "photo": "midia/pomba-da-paz/foto.jpg",
+   "photoAlt": "Pomba branca com uma coroa de conchas na cabeça, sentada diante de uma bola de cristal entre velas",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-pomba-paz.svg",
+   "logoAlt": "Logo de Pomba da Paz",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 5,
+   "gradeNote": "Não gosta de lutar, mas ninguém a vence",
+   "role": "Médica",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#060b0c",
+    "surface": "#0d1517",
+    "raised": "#141f22",
+    "line": "rgba(130, 220, 225, 0.13)",
+    "lineStrong": "rgba(130, 220, 225, 0.24)",
+    "accent": "#7ad9d0",
+    "warn": "#ef7a5a",
+    "ink": "#e9f2f3",
+    "muted": "#8ea4a7",
+    "photoBg": "#0a1112"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 5,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 5,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "heal",
+       "label": "Cura",
+       "value": "Mãos de Paz",
+       "desc": "Fecha feridas, devolve membros e cura a si e aos outros, mesmo de longe. É a técnica que ela mais usa e a que mais gosta.",
+       "weak": false
+      },
+      {
+       "icon": "sedate",
+       "label": "Calmante",
+       "value": "Alívio",
+       "desc": "Tira a dor, o pânico, a raiva e a exaustão de quem ela toca ou de quem ouve a voz dela. Remove o cansaço e devolve o fôlego. Pode acalmar até quem quer matá-la.",
+       "weak": false
+      },
+      {
+       "icon": "scan",
+       "label": "Passiva",
+       "value": "Raio-X Vivo",
+       "desc": "Vê por dentro: ossos, órgãos, nervos e o fluxo de energia. Sabe onde dói, onde a pessoa é fraca e o que ela pode fazer antes de ela fazer.",
+       "weak": false
+      },
+      {
+       "icon": "cut",
+       "label": "Ataque",
+       "value": "Corte Clínico",
+       "desc": "Cortes de energia precisos em nervos, vasos e órgãos. Paralisa um membro, para o coração ou desliga um sentido. Um toque certo mata.",
+       "weak": false
+      },
+      {
+       "icon": "mind",
+       "label": "Domínio de expansão",
+       "value": "Sala de Cirurgia",
+       "desc": "Ao expandir, ela faz o diagnóstico completo da vítima e opera contra a maior ameaça dela: os braços, as asas, os olhos, a origem da técnica. Tudo sem dor e sem escapatória. Se a vítima ainda for ameaça, opera de novo. A eutanásia cerebral, em que a vítima perde a capacidade de pensar e a vontade de lutar, nunca é a primeira opção: só vem quando é a única saída. Cruel, mas necessário.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "pause",
+       "label": "Limitação",
+       "value": "Relutância",
+       "desc": "Detesta lutar. Tenta a paz antes de atacar e dá ao inimigo o primeiro golpe.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Limitação",
+       "value": "Corpo Frágil",
+       "desc": "Sem força e com pouca resistência. Aguenta pouco golpe físico.",
+       "weak": true
+      },
+      {
+       "icon": "hand",
+       "label": "Fraqueza",
+       "value": "Mãos Ocupadas",
+       "desc": "A cirurgia exige toque, calma e concentração. Se for interrompida, falha.",
+       "weak": true
+      },
+      {
+       "icon": "time",
+       "label": "Limitação",
+       "value": "Diagnóstico Leva Tempo",
+       "desc": "O exame completo pede tempo. Contra um inimigo rápido ou desconhecido, ela vê menos e opera pior.",
+       "weak": true
+      },
+      {
+       "icon": "scroll",
+       "label": "Fraqueza",
+       "value": "Juramento",
+       "desc": "Não mata quem se rende nem quem não é mais ameaça. Quem finge desistir a desarma.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Cura Cobra Energia",
+       "desc": "Curar e operar gastam muita energia. Não revive os mortos nem repara o que já morreu por completo.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pombo-aurudo",
+   "name": "Pombo Aurudo",
+   "subtitle": "Agente Livre de Grau Especial",
+   "quote": "Alexa, ligar aura.",
+   "audio": "",
+   "photo": "midia/pombo-aurudo/foto.jpg",
+   "photoAlt": "Pombo gordo com uma manopla dourada de joias no braço, corrente de ouro com o número 67 e lasers saindo dos olhos",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-pombo.svg",
+   "logoAlt": "Logo de Pombo Aurudo",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 5,
+   "gradeNote": "Sem a manopla: Grau 3",
+   "role": "Mercenário",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#0b0906",
+    "surface": "#15100b",
+    "raised": "#1e1710",
+    "line": "rgba(255, 205, 150, 0.13)",
+    "lineStrong": "rgba(255, 205, 150, 0.24)",
+    "accent": "#ff9a3c",
+    "warn": "#ff6f8e",
+    "ink": "#f5ede3",
+    "muted": "#a89884",
+    "photoBg": "#120f0a"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 5,
+     "base": 1
+    },
+    {
+     "label": "Velocidade",
+     "value": 3,
+     "base": 1
+    },
+    {
+     "label": "Inteligência",
+     "value": 3,
+     "base": 3
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": 2
+    },
+    {
+     "label": "Energia",
+     "value": 5,
+     "base": 1
+    },
+    {
+     "label": "Destruição",
+     "value": 5,
+     "base": 3
+    },
+    {
+     "label": "Potencial",
+     "value": 2,
+     "base": 2
+    }
+   ],
+   "legend": [
+    "Com a manopla",
+    "Sem a manopla"
+   ],
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "laser",
+       "label": "Inata",
+       "value": "Laser Nativo",
+       "desc": "Raios que saem dos olhos. É o único poder que é dele, mesmo sem a manopla.",
+       "weak": false
+      },
+      {
+       "icon": "gem",
+       "label": "Ferramenta",
+       "value": "Manopla das Joias",
+       "desc": "Ferramenta amaldiçoada de Grau Especial com seis joias. De onde vem quase todo o poder dele.",
+       "weak": false
+      },
+      {
+       "icon": "aura",
+       "label": "Comando",
+       "value": "Ligar Aura",
+       "desc": "Comando de voz liberado quando a aura enche. Leva a manopla ao máximo por pouco tempo e o deixa exausto.",
+       "weak": false
+      },
+      {
+       "icon": "uturn",
+       "label": "Domínio de expansão",
+       "value": "Praça do Atalho",
+       "desc": "Praça de mil caminhos curtos que sempre voltam ao começo. Todo esforço da vítima é desfeito, e a energia que ela gastou vira dano nela e carga para o Pombo. Não depende da manopla.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Joias da manopla",
+     "rows": [
+      {
+       "icon": "force",
+       "label": "",
+       "value": "Joia do Poder",
+       "desc": "Laser contínuo ou disparo único, mais forte que o nativo. Reforça passivamente a resistência e os golpes. Gastar energia reforça também a força e o poder de fogo.",
+       "weak": false
+      },
+      {
+       "icon": "shieldp",
+       "label": "Joia do Poder",
+       "value": "Escudo",
+       "desc": "Cria um escudo em volta dele ou de outras pessoas, mesmo de longe.",
+       "weak": false
+      },
+      {
+       "icon": "space",
+       "label": "",
+       "value": "Joia do Espaço",
+       "desc": "Voo mais rápido, estável e flexível. Teletransporta para qualquer lugar visível ou já visitado. Quanto mais longe, mais energia.",
+       "weak": false
+      },
+      {
+       "icon": "mind",
+       "label": "",
+       "value": "Joia da Mente",
+       "desc": "Lê a mente dos outros e envia mensagens telepáticas. Cria um elo mental para ver, ouvir e sentir o que a pessoa sente, mas o elo só funciona com a aprovação dela.",
+       "weak": false
+      },
+      {
+       "icon": "soul",
+       "label": "",
+       "value": "Joia da Alma",
+       "desc": "Transfere energia para curar a si ou outros de longe, ou converte vida em energia. Quem doa precisa concordar. Sem acordo, ele rouba a força no combate.",
+       "weak": false
+      },
+      {
+       "icon": "reality",
+       "label": "",
+       "value": "Joia da Realidade",
+       "desc": "Cria coisas pela imaginação ou muda o estado de algo, como um anel de lanterna. Gasta mais energia que todas, menos o tempo.",
+       "weak": false
+      },
+      {
+       "icon": "time",
+       "label": "",
+       "value": "Joia do Tempo",
+       "desc": "Desacelera, para e até volta o tempo. Gasta energia demais.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Energia em combate",
+     "rows": [
+      {
+       "icon": "eatshield",
+       "label": "Defesa",
+       "value": "Escudo Faminto",
+       "desc": "Quando o escudo segura um golpe, parte do dano vira energia para ele. Golpe forte demais quebra o escudo e não rende nada.",
+       "weak": false
+      },
+      {
+       "icon": "siphon",
+       "label": "Joia da Alma",
+       "value": "Soco que Rouba",
+       "desc": "Cada golpe que acerta puxa um pouco da energia do alvo. Exige contato, o que o deixa perto do perigo.",
+       "weak": false
+      },
+      {
+       "icon": "meter",
+       "label": "Acúmulo",
+       "value": "Medidor de Aura",
+       "desc": "Golpes dados, recebidos e bloqueados enchem a aura. Cheia, libera o Ligar Aura.",
+       "weak": false
+      },
+      {
+       "icon": "give",
+       "label": "Equipe",
+       "value": "Doação dos Aliados",
+       "desc": "Aliados podem doar energia pela Joia da Alma. Isso faz deles uma bateria viva.",
+       "weak": false
+      },
+      {
+       "icon": "crumbs",
+       "label": "Recarga",
+       "value": "Migalhas",
+       "desc": "Fora da luta, recarrega comendo pão e migalhas. É por isso que ele não para de comer.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "nogem",
+       "label": "Limitação",
+       "value": "Dependência Total",
+       "desc": "Sem a manopla, perde força, velocidade e energia. Só sobram o laser e a Praça do Atalho.",
+       "weak": true
+      },
+      {
+       "icon": "wing",
+       "label": "Limitação",
+       "value": "Voo Emprestado",
+       "desc": "Só voa pela Joia do Espaço. Parou de treinar e as asas não aguentam mais sozinhas.",
+       "weak": true
+      },
+      {
+       "icon": "weight",
+       "label": "Limitação",
+       "value": "Corpo Obeso",
+       "desc": "Lento, sem fôlego e com pouca energia própria. Cansa rápido depois de qualquer esforço.",
+       "weak": true
+      },
+      {
+       "icon": "queasy",
+       "label": "Limitação",
+       "value": "Energia Roubada Dissipa",
+       "desc": "A energia que ele rouba ou recebe se perde rápido se não for usada. Guardar demais o deixa enjoado.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Joias Cobram",
+       "desc": "Cada joia gasta a energia dele. As mais fortes o deixam parado em poucos usos.",
+       "weak": true
+      },
+      {
+       "icon": "steal",
+       "label": "Fraqueza",
+       "value": "Manopla Tomável",
+       "desc": "Quem tirar a manopla do braço dele vence a luta.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "urubu-coveiro",
+   "name": "Urubu Coveiro",
+   "subtitle": "Coveiro Amaldiçoado de Grau 1",
+   "quote": "Fique à vontade. Eu espero.",
+   "audio": "",
+   "photo": "midia/urubu-coveiro/foto.jpg",
+   "photoAlt": "Urubu de cartola e gola de penas brancas diante de um cemitério à luz da lua",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "icones/icone-urubu.svg",
+   "logoAlt": "Logo de Urubu Coveiro",
+   "logoFit": "contain",
+   "logoPos": "50% 50%",
+   "grade": 4,
+   "gradeNote": "Quanto mais mortos por perto, mais forte",
+   "role": "Coveiro",
+   "series": "Temporada 1",
+   "theme": {
+    "canvas": "#0c080a",
+    "surface": "#150e11",
+    "raised": "#1e151a",
+    "line": "rgba(220, 140, 170, 0.13)",
+    "lineStrong": "rgba(220, 140, 170, 0.24)",
+    "accent": "#d66f9a",
+    "warn": "#e9b44c",
+    "ink": "#f3e8ee",
+    "muted": "#a8949f",
+    "photoBg": "#110b0e"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Técnicas",
+     "rows": [
+      {
+       "icon": "nose",
+       "label": "Inata",
+       "value": "Faro da Morte",
+       "desc": "Sente feridas, doenças, quem está morrendo e onde há corpos, a quilômetros. Sabe quanto tempo de vida alguém ainda tem.",
+       "weak": false
+      },
+      {
+       "icon": "shell",
+       "label": "Passiva",
+       "value": "Estômago de Ferro",
+       "desc": "Imune a veneno, doença e podridão. Come qualquer coisa que outros não aguentam nem olhar.",
+       "weak": false
+      },
+      {
+       "icon": "crumbs",
+       "label": "Cura",
+       "value": "Banquete",
+       "desc": "Come cadáveres para se curar e recuperar energia, e lê as últimas memórias de quem comeu.",
+       "weak": false
+      },
+      {
+       "icon": "grave",
+       "label": "Selo",
+       "value": "Sepultamento",
+       "desc": "Enterra um corpo e o sela. Ele não pode mais ser usado por nenhuma técnica nem voltar a se mover.",
+       "weak": false
+      },
+      {
+       "icon": "time",
+       "label": "Maldição",
+       "value": "Presságio",
+       "desc": "Circula acima do alvo e faz com que ele sinta a própria morte chegando. A vítima perde força, velocidade e vontade de lutar enquanto ele voa.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Domínio de expansão",
+       "value": "Cemitério a Céu Aberto",
+       "desc": "Um campo de lápides sem fim em que o alvo vê o próprio túmulo. Tudo o que morre ali passa a obedecer a ele, e o Presságio e o Sepultamento sempre acertam. Quanto mais morte, mais forte o domínio.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "skull",
+       "label": "Limitação",
+       "value": "Precisa de Corpos",
+       "desc": "Sem cadáveres por perto, o Banquete e o domínio quase não funcionam.",
+       "weak": true
+      },
+      {
+       "icon": "smoke",
+       "label": "Fraqueza",
+       "value": "Cheiro Denuncia",
+       "desc": "O cheiro de morte o acompanha. Não consegue se esconder, e animais e rastreadores o encontram de longe.",
+       "weak": true
+      },
+      {
+       "icon": "wing",
+       "label": "Limitação",
+       "value": "Decolagem Lenta",
+       "desc": "Demora para sair do chão e anda desajeitado. Em terra, é alvo fácil.",
+       "weak": true
+      },
+      {
+       "icon": "eye-urubu-coveiro",
+       "label": "Limitação",
+       "value": "Oportunista",
+       "desc": "Só fica realmente forte quando alguém já está ferido. Contra um inimigo inteiro, é fraco.",
+       "weak": true
+      },
+      {
+       "icon": "soul",
+       "label": "Fraqueza",
+       "value": "Cremação",
+       "desc": "Fogo e ácido destroem os corpos e não deixam nada para devorar nem selar.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

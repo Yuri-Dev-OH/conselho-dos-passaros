@@ -187,6 +187,28 @@
   }
   .quote::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--accent); border-radius: 2px; }
   .quote span { padding-left: 4px; display: block; }
+  .quote.has-audio { display: flex; align-items: center; gap: 12px; padding-right: 8px; }
+  .quote.has-audio span { flex: 1; min-width: 0; }
+  .quote.only-audio { right: auto; padding: 6px; }
+  .quote.only-audio::before { display: none; }
+  .audio-btn {
+    flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+    display: grid; place-items: center; background: var(--accent); color: #0b0b0d;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+  .audio-btn:hover { filter: brightness(1.1); }
+  .audio-btn:active { transform: scale(0.94); }
+  .audio-btn:focus-visible, .media-swap:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .audio-btn svg.ui { width: 18px; height: 18px; stroke-width: 2.4; }
+  .audio-btn:not(.on) svg.ui { fill: currentColor; stroke-width: 1.2; transform: translateX(1px); }
+  .media-swap {
+    position: absolute; top: 12px; right: 12px; z-index: 1; height: 32px; padding: 0 12px 0 9px;
+    display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; cursor: pointer;
+    background: var(--quote-bg); border: 1px solid var(--line-strong); color: var(--ink);
+    font: 600 12px/1 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .media-swap:hover { border-color: var(--accent); }
+  .media-swap svg.ui { width: 16px; height: 16px; }
 
   .panel { padding: 20px 20px 0; display: grid; gap: 18px; }
   .detail { padding: 18px 20px 4px; }
@@ -281,6 +303,11 @@
   .img-prev { position: relative; aspect-ratio: 744 / 500; border-radius: 10px; overflow: hidden; border: 1px solid var(--hair-2); background: #18181c; display: grid; place-items: center; color: var(--muted); }
   .img-prev img { width: 100%; height: 100%; display: block; position: absolute; inset: 0; }
   .img-actions { display: grid; gap: 8px; justify-items: start; }
+  .media-block { display: grid; gap: 12px; }
+  .media-block + .media-block { border-top: 1px solid var(--hair); padding-top: 16px; }
+  .media-block h4 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .audio-prev { width: 100%; height: 40px; }
+  .btn.busy { opacity: 0.6; pointer-events: none; }
 
   .color-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .swatch { display: flex; align-items: center; gap: 10px; padding: 6px; border: 1px solid var(--hair-2); border-radius: 10px; background: rgba(255, 255, 255, 0.035); }
@@ -439,18 +466,18 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <input type="file" id="importFile" accept="application/json,.json" hidden>
 
-<script src="dados.js"></script>
 <script>
 (() => {
   "use strict";
 
   /* ===== Constantes ===== */
-  const SEED = window.FICHAS_SEED || { version: 1, icons: {}, characters: [] };
-  const ICONS = SEED.icons;
+  /** Ícones das linhas da ficha (vêm do servidor junto com as fichas). */
+  let ICONS = {};
   const GRADES = ["Grau 4", "Grau 3", "Grau 2", "Grau 1", "Especial"];
-  /* Senha do modo edição: só o hash PBKDF2-SHA256. Gere com "node ferramentas/definir-senha.js"; nunca escreva a senha aqui. */
-  const SENHA = /*SENHA*/ { salt: "", hash: "", iter: 210000 } /*FIM-SENHA*/;
-  const SESSION_KEY = "fichas-modo-edicao";
+  /* Sessão de edição (token assinado pelo servidor, válido por 1 hora). A senha nunca fica no navegador. */
+  const SESSION_KEY = "fichas-sessao";
+  const MAX_UPLOAD = 3 * 1024 * 1024;
+  const AUDIO_EXT = ["mp3", "ogg", "oga", "opus", "m4a", "aac", "wav", "webm"];
   const DEFAULT_STATS = ["Força", "Velocidade", "Inteligência", "Resistência", "Energia", "Destruição", "Potencial"];
   const UI = {
     search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>',
@@ -470,7 +497,10 @@
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
     lock: '<rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/>',
     logout: '<path d="M14 4.5h4.5a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14"/><path d="M10 8l-4 4 4 4M6 12h9"/>',
-    publish: '<path d="M7 18.5a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9.5"/><path d="M12 20v-8M9 14.5l3-3 3 3"/>',
+    play: '<path d="M8 5.5v13l10.5-6.5z"/>',
+    pause: '<path d="M9 6v12M15 6v12"/>',
+    swap: '<path d="M5 9h13l-3.5-3.5M19 15H6l3.5 3.5"/>',
+    audio: '<path d="M4.5 9.5h3l4.5-4v13l-4.5-4h-3z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>',
   };
 
   /* ===== Utilitários de DOM ===== */
@@ -585,6 +615,7 @@
     return {
       id: "", name: "", subtitle: "", quote: "", grade: 1, gradeNote: "", role: "", series: "Temporada 1",
       photo: "", photoAlt: "", photoFit: "cover", photoPos: "50% 0%", photoPad: "",
+      logo: "", logoAlt: "", logoFit: "contain", logoPos: "50% 50%", audio: "",
       theme: deriveTheme("#4cc2ff", "#ffb04c"),
       stats: DEFAULT_STATS.map((label) => ({ label, value: 3, base: null })),
       legend: null,
@@ -593,7 +624,18 @@
   }
 
   /**
-   * Valida e completa uma ficha vinda de importação.
+   * Aceita só caminhos de mídia seguros: arquivo do site, link https ou data URL (importação antiga).
+   *
+   * @param {*} v Valor recebido.
+   * @return {string} Caminho ou "".
+   */
+  function mediaPath(v) {
+    const p = typeof v === "string" ? v.trim() : "";
+    return /^(data:(image|audio)\/|https:\/\/|[\w-][\w\-./]*$)/i.test(p) && !p.includes("..") ? p : "";
+  }
+
+  /**
+   * Valida e completa uma ficha (do servidor ou de importação).
    *
    * @param {*} raw Objeto lido do JSON.
    * @return {?Object} Ficha normalizada ou null se inválida.
@@ -611,9 +653,10 @@
       name: raw.name.trim(), subtitle: str(raw.subtitle), quote: str(raw.quote),
       grade: clamp(Math.round(Number(raw.grade) || 1), 1, 5), gradeNote: str(raw.gradeNote),
       role: str(raw.role), series: str(raw.series),
-      photo: /^(data:image\/|https?:|\.{0,2}\/?[\w-])/i.test(str(raw.photo)) ? str(raw.photo) : "",
-      photoAlt: str(raw.photoAlt), photoFit: raw.photoFit === "contain" ? "contain" : "cover",
+      photo: mediaPath(raw.photo), photoAlt: str(raw.photoAlt), photoFit: raw.photoFit === "contain" ? "contain" : "cover",
       photoPos: str(raw.photoPos) || "50% 0%", photoPad: str(raw.photoPad),
+      logo: mediaPath(raw.logo), logoAlt: str(raw.logoAlt), logoFit: raw.logoFit === "cover" ? "cover" : "contain",
+      logoPos: str(raw.logoPos) || "50% 50%", audio: mediaPath(raw.audio),
       theme,
       stats: (Array.isArray(raw.stats) ? raw.stats : []).filter((s) => s && typeof s === "object")
         .map((s) => ({ label: str(s.label), value: num(s.value) ?? 0, base: num(s.base) })),
@@ -629,62 +672,120 @@
     };
   }
 
-  /* ===== Armazenamento (IndexedDB, com fallback em memória) ===== */
-  const DB = (() => {
-    const mem = { chars: new Map(), meta: new Map() };
-    let dbp = null;
-    let volatile = false;
+  /* ===== Servidor ===== */
+  const session = { token: null, exp: 0, timer: 0 };
 
-    /** Abre (uma vez) o banco local. Resolve null quando indisponível. */
-    function open() {
-      if (dbp) return dbp;
-      dbp = new Promise((resolve) => {
-        try {
-          const rq = indexedDB.open("conselho-dos-passaros", 1);
-          rq.onupgradeneeded = () => {
-            rq.result.createObjectStore("chars", { keyPath: "id" });
-            rq.result.createObjectStore("meta", { keyPath: "k" });
-          };
-          rq.onsuccess = () => resolve(rq.result);
-          rq.onerror = () => { volatile = true; resolve(null); };
-          rq.onblocked = () => { volatile = true; resolve(null); };
-        } catch (e) {
-          volatile = true;
-          resolve(null);
-        }
+  /**
+   * Chama a API do hub.
+   *
+   * @param {string} method Método HTTP.
+   * @param {string} url Rota relativa (ex.: "api/fichas").
+   * @param {*=} body Corpo JSON.
+   * @return {!Promise<!Object>} Resposta.
+   * @throws {Error} Com mensagem pronta para o usuário.
+   */
+  async function api(method, url, body) {
+    let res;
+    try {
+      res = await fetch(url, {
+        method,
+        headers: Object.assign({ "Content-Type": "application/json" }, session.token ? { Authorization: "Bearer " + session.token } : {}),
+        body: body === undefined ? undefined : JSON.stringify(body),
       });
-      return dbp;
+    } catch (e) {
+      throw new Error("Sem conexão com o servidor. Confira a internet e tente de novo.");
     }
+    let data = null;
+    try { data = await res.json(); } catch (e) { /* resposta sem JSON */ }
+    if (res.status === 401 && session.token) endSession();
+    if (!res.ok || !data) throw new Error((data && data.erro) || "O servidor não respondeu (" + res.status + "). Tente de novo.");
+    return data;
+  }
 
-    /** Executa operações numa transação e espera concluir. */
-    async function run(store, mode, fn) {
-      const db = await open();
-      if (!db) {
-        const out = fn(null, mem[store]);
-        return out && typeof out === "object" && !Array.isArray(out) && "result" in out ? out.result : out;
+  /** Converte um Blob em base64 (sem o prefixo data:). */
+  const toBase64 = (blob) => new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result).split(",")[1] || "");
+    r.onerror = () => reject(r.error);
+    r.readAsDataURL(blob);
+  });
+
+  /* ===== Mídia (foto, logo e áudio) ===== */
+  const media = { local: new Map(), rawBase: null };
+  /** URL para exibir um caminho de mídia; arquivos recém-enviados usam a cópia local. */
+  const mediaSrc = (p) => media.local.get(p) || p;
+
+  /**
+   * Se um arquivo recém-enviado ainda não chegou ao site (deploy em andamento),
+   * tenta a cópia direta do repositório; se falhar de novo, chama onFail.
+   *
+   * @param {!HTMLElement} el img ou audio.
+   * @param {string} p Caminho de mídia.
+   * @param {function()=} onFail Chamado quando não há mais alternativa.
+   * @return {!HTMLElement} O próprio elemento.
+   */
+  function withFallback(el, p, onFail) {
+    el.addEventListener("error", () => {
+      if (media.rawBase && !el.dataset.raw && !/^(https?:|data:|blob:)/.test(p)) {
+        el.dataset.raw = "1";
+        el.src = media.rawBase + p;
+        if (el.play && player.audio === el) el.play().catch(() => {});
+      } else if (onFail) {
+        onFail();
       }
-      return new Promise((resolve, reject) => {
-        const tx = db.transaction(store, mode);
-        const out = fn(tx.objectStore(store));
-        tx.oncomplete = () => resolve(out && typeof out === "object" && "result" in out ? out.result : out);
-        tx.onerror = tx.onabort = () => reject(tx.error);
-      });
-    }
+    });
+    return el;
+  }
 
-    return {
-      get volatile() { return volatile; },
-      all: () => run("chars", "readonly", (s, m) => (s ? s.getAll() : [...m.values()].map(clone))),
-      putMany: (list) => run("chars", "readwrite", (s, m) => { for (const c of list) s ? s.put(c) : m.set(c.id, clone(c)); }),
-      put: (c) => DB.putMany([c]),
-      clear: () => run("chars", "readwrite", (s, m) => (s ? s.clear() : m.clear())),
-      del: (id) => run("chars", "readwrite", (s, m) => (s ? s.delete(id) : m.delete(id))),
-      getMeta: (k) => run("meta", "readonly", (s, m) => (s ? s.get(k) : { result: m.get(k) })).then((r) => (r && r.v !== undefined ? r.v : r)),
-      setMeta: (k, v) => run("meta", "readwrite", (s, m) => (s ? s.put({ k, v }) : m.set(k, { k, v }))),
-    };
-  })();
+  /* Áudio da fala: um só tocando por vez. */
+  const player = { audio: null, id: null, btn: null };
+
+  function paintAudioBtn() {
+    const btn = player.btn;
+    if (!btn) return;
+    const on = !!player.audio && !player.audio.paused;
+    btn.classList.toggle("on", on);
+    btn.setAttribute("aria-label", on ? "Pausar fala" : "Ouvir fala");
+    btn.title = on ? "Pausar fala" : "Ouvir fala";
+    btn.replaceChildren(ic(on ? "pause" : "play"));
+  }
+
+  function stopAudio() {
+    if (player.audio) player.audio.pause();
+    player.audio = player.id = null;
+    paintAudioBtn();
+  }
+
+  /**
+   * Toca ou pausa a fala de um personagem.
+   *
+   * @param {!Object} c Ficha.
+   * @param {!HTMLElement} btn Botão que controla o áudio.
+   */
+  function toggleAudio(c, btn) {
+    player.btn = btn;
+    if (player.id === c.id && player.audio) {
+      if (player.audio.paused) player.audio.play().catch(() => {});
+      else player.audio.pause();
+      return;
+    }
+    stopAudio();
+    player.btn = btn;
+    const a = withFallback(new Audio(mediaSrc(c.audio)), c.audio, () => {
+      if (player.audio === a) stopAudio();
+      toast("Não foi possível tocar o áudio. Confira o caminho do arquivo.");
+    });
+    player.audio = a;
+    player.id = c.id;
+    a.addEventListener("play", paintAudioBtn);
+    a.addEventListener("pause", paintAudioBtn);
+    a.addEventListener("ended", paintAudioBtn);
+    a.play().catch((e) => { if (e.name === "NotAllowedError") toast("O navegador bloqueou o áudio. Toque de novo."); });
+    paintAudioBtn();
+  }
 
   /* ===== Estado ===== */
-  const state = { chars: [], currentId: null, query: "", editing: null, unlocked: false, dirty: false };
+  const state = { chars: [], currentId: null, query: "", editing: null, unlocked: false, online: false, view: {} };
   const app = $("app"), host = $("host"), stage = $("stage"), editorEl = $("editor");
 
   const byId = (id) => state.chars.find((c) => c.id === id) || null;
@@ -763,16 +864,54 @@
     const grade = clamp(c.grade || 1, 1, 5), gradeLabel = GRADES[grade - 1];
 
     const photo = h("div", { class: "photo" });
-    if (c.photo) {
-      const contain = c.photoFit === "contain";
-      photo.append(h("img", {
-        src: c.photo, alt: c.photoAlt || "", decoding: "async",
-        css: { "object-fit": contain ? "contain" : "cover", "object-position": c.photoPos || "50% 0%", padding: contain ? c.photoPad || null : null },
-      }));
-    } else {
-      photo.append(h("div", { class: "ph" }, ic("image"), "Sem imagem"));
+    const both = !!(c.photo && c.logo);
+    let showLogo = !!c.logo && (!c.photo || state.view[c.id] === "logo");
+    const paintPic = () => {
+      const src = showLogo ? c.logo : c.photo;
+      const fit = showLogo ? c.logoFit : c.photoFit, contain = fit === "contain";
+      const pic = src ? withFallback(h("img", {
+        class: "pic", src: mediaSrc(src), alt: (showLogo ? c.logoAlt : c.photoAlt) || "", decoding: "async",
+        css: {
+          "object-fit": contain ? "contain" : "cover",
+          "object-position": (showLogo ? c.logoPos : c.photoPos) || "50% 0%",
+          padding: contain && !showLogo ? c.photoPad || null : null,
+        },
+      }), src) : h("div", { class: "ph pic" }, ic("image"), "Sem imagem");
+      const old = photo.querySelector(".pic");
+      old ? old.replaceWith(pic) : photo.prepend(pic);
+    };
+    paintPic();
+    if (both) {
+      const swap = h("button", { type: "button", class: "media-swap" });
+      const paintSwap = () => {
+        swap.replaceChildren(ic("swap"), showLogo ? "Ver foto" : "Ver logo");
+        swap.setAttribute("aria-label", showLogo ? "Mostrar a foto" : "Mostrar a logo");
+      };
+      swap.addEventListener("click", () => {
+        showLogo = !showLogo;
+        state.view[c.id] = showLogo ? "logo" : "photo";
+        paintPic();
+        paintSwap();
+      });
+      paintSwap();
+      photo.append(swap);
     }
-    if (c.quote) photo.append(h("div", { class: "quote" }, h("span", { text: "“" + c.quote + "”" })));
+    if (c.quote || c.audio) {
+      let btn = null;
+      if (c.audio) {
+        btn = h("button", { type: "button", class: "audio-btn", onclick: () => toggleAudio(c, btn) });
+        if (player.id === c.id) {
+          player.btn = btn;
+          paintAudioBtn();
+        } else {
+          btn.append(ic("play"));
+          btn.setAttribute("aria-label", "Ouvir fala");
+          btn.title = "Ouvir fala";
+        }
+      }
+      photo.append(h("div", { class: "quote" + (c.audio ? (c.quote ? " has-audio" : " only-audio") : "") },
+        c.quote && h("span", { text: "“" + c.quote + "”" }), btn));
+    }
 
     const bars = h("div", { class: "bars", role: "img", "aria-label": "Classificação: " + gradeLabel });
     for (let i = 0; i < 5; i++) bars.append(h("i", { class: i < grade ? "on" : null, css: { height: 10 + i * 5 + "px" } }));
@@ -823,11 +962,13 @@
   /* ===== Renderização do hub ===== */
   /** Miniatura do personagem (foto recortada ou marcador). */
   function thumb(c) {
-    if (!c.photo) return h("span", { class: "thumb blank", html: svg("image"), css: { "--tbg": c.theme.raised } });
-    return h("img", {
-      class: "thumb", src: c.photo, alt: "", loading: "lazy", decoding: "async",
-      css: { "--tbg": c.theme.photoBg && c.theme.photoBg.startsWith("#") ? c.theme.photoBg : c.theme.raised, "object-position": c.photoFit === "contain" ? "50% 40%" : c.photoPos || "50% 0%" },
-    });
+    const src = c.photo || c.logo;
+    if (!src) return h("span", { class: "thumb blank", html: svg("image"), css: { "--tbg": c.theme.raised } });
+    const [fit, pos] = c.photo ? [c.photoFit, c.photoPos] : [c.logoFit, c.logoPos];
+    return withFallback(h("img", {
+      class: "thumb", src: mediaSrc(src), alt: "", loading: "lazy", decoding: "async",
+      css: { "--tbg": c.theme.photoBg && c.theme.photoBg.startsWith("#") ? c.theme.photoBg : c.theme.raised, "object-position": fit === "contain" ? "50% 40%" : pos || "50% 0%" },
+    }), src);
   }
 
   function renderList() {
@@ -839,7 +980,7 @@
     }, thumb(c), h("span", null, h("b", { text: c.name }), h("small", { text: c.subtitle || GRADES[c.grade - 1] })))) :
       [h("p", { class: "list-empty", text: state.chars.length ? "Nenhum personagem encontrado." : "Nenhuma ficha ainda." })]));
     $("count").textContent = (state.chars.length === 1 ? "1 ficha" : state.chars.length + " fichas") +
-      (state.unlocked ? (state.dirty ? " · alterações não publicadas" : " · modo edição") : "");
+      (state.unlocked ? " · edição até " + new Date(session.exp).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }) : "");
   }
 
   function renderStrip() {
@@ -860,6 +1001,7 @@
    */
   function renderStage(animate) {
     const c = state.editing ? state.editing.draft : current();
+    if (player.id && (!c || c.id !== player.id)) stopAudio();
     const idx = state.chars.findIndex((x) => x.id === state.currentId);
     $("pos").textContent = state.chars.length ? idx + 1 + " de " + state.chars.length : "";
     for (const b of document.querySelectorAll('[data-act="prev"], [data-act="next"]')) b.disabled = state.chars.length < 2;
@@ -873,10 +1015,8 @@
       document.documentElement.style.setProperty("--stage", "#0b0b0d");
       host.replaceChildren(h("div", { class: "empty" },
         h("h2", { text: "Nenhuma ficha" }),
-        h("p", { text: "Crie um personagem novo ou restaure as fichas originais." }),
-        h("div", { class: "two" },
-          h("button", { class: "btn primary", "data-act": "new", "data-need": "edit" }, ic("plus"), "Novo personagem"),
-          h("button", { class: "btn", "data-act": "restore", "data-need": "edit" }, ic("restore"), "Restaurar"))));
+        h("p", { text: state.unlocked ? "Crie o primeiro personagem." : "Ainda não há personagens publicados." }),
+        h("button", { class: "btn primary", "data-act": "new", "data-need": "edit" }, ic("plus"), "Novo personagem")));
       return;
     }
     document.documentElement.style.setProperty("--stage", c.theme.canvas);
@@ -971,10 +1111,8 @@
   }
   function menuItems(ctx) {
     const data = [
-      { icon: "publish", label: "Publicar (baixar dados.js)", run: publish, disabled: !state.chars.length },
       { icon: "download", label: "Exportar backup (.json)", run: exportAll, disabled: !state.chars.length },
       { icon: "upload", label: "Importar backup", run: () => $("importFile").click() },
-      { icon: "restore", label: "Voltar à versão publicada", run: restoreOriginals },
       "-",
       { icon: "logout", label: "Sair do modo edição", run: logout },
     ];
@@ -992,29 +1130,20 @@
     if (!c) return;
     const ok = await confirmBox({
       title: "Excluir " + c.name + "?",
-      message: "A ficha sai do seu rascunho. Seus amigos só deixam de vê-la depois que você publicar.",
+      message: "A ficha sai do site para todos. Dá para recuperá-la pelo histórico do GitHub.",
       ok: "Excluir", danger: true,
     });
     if (!ok) return;
     const i = state.chars.indexOf(c);
-    await DB.del(c.id);
-    markDirty();
-    state.chars.splice(i, 1);
+    toast("Excluindo…");
+    try {
+      applyData(await api("DELETE", "api/fichas?id=" + encodeURIComponent(c.id)));
+    } catch (e) {
+      toast(e.message);
+      return;
+    }
     select((state.chars[Math.min(i, state.chars.length - 1)] || {}).id);
     toast(c.name + " excluído");
-  }
-
-  async function restoreOriginals() {
-    const ok = await confirmBox({
-      title: "Voltar à versão publicada?",
-      message: "As alterações feitas neste navegador e ainda não publicadas serão descartadas.",
-      ok: "Descartar e voltar", danger: true,
-    });
-    if (!ok) return;
-    state.chars = await replaceWorkspace();
-    sortChars();
-    select(state.currentId, false);
-    toast("Versão publicada restaurada");
   }
 
   /** Baixa um arquivo gerado no navegador. */
@@ -1032,165 +1161,142 @@
     download("fichas-backup-" + new Date().toISOString().slice(0, 10) + ".json", JSON.stringify(data), "application/json");
   }
 
-  /** Gera o dados.js com o rascunho atual; substituí-lo no repositório atualiza o site. */
-  async function publish() {
-    const version = Date.now();
-    download("dados.js", "/* Dados publicados pelo hub. Para atualizar o site, substitua este arquivo no repositório. */\n" +
-      "window.FICHAS_SEED = " + JSON.stringify({ version, icons: ICONS, characters: state.chars }) + ";\n", "text/javascript");
-    await DB.setMeta("base", version);
-    await DB.setMeta("dirty", false);
-    state.dirty = false;
-    renderList();
-    toast("dados.js baixado. Envie ao GitHub para publicar.");
+  /* ===== Dados e sessão ===== */
+  /** Aplica a resposta do servidor (ícones + fichas). */
+  function applyData(data) {
+    ICONS = data.icons || {};
+    media.rawBase = data.rawBase || null;
+    state.chars = (data.characters || []).map(normalize).filter(Boolean);
+    sortChars();
   }
 
-  /* ===== Modo leitura × modo edição ===== */
-  function markDirty() {
-    state.dirty = true;
-    DB.setMeta("dirty", true).catch(() => {});
-  }
-
-  /** Substitui o rascunho local pela versão publicada (dados.js). */
-  async function replaceWorkspace() {
-    const seed = SEED.characters.map(clone);
-    await DB.clear();
-    await DB.putMany(seed);
-    await DB.setMeta("base", SEED.version || 1);
-    await DB.setMeta("dirty", false);
-    state.dirty = false;
-    return seed;
-  }
-
-  /**
-   * Carrega o rascunho local. Se o site publicou uma versão mais nova, adota-a
-   * (pedindo confirmação quando há alterações locais não publicadas).
-   *
-   * @return {!Promise<!Array<!Object>>} Fichas do rascunho.
-   */
-  async function loadWorkspace() {
-    const ver = SEED.version || 1;
+  /** Busca as fichas na API; em hospedagem estática, lê o dados.json (só leitura). */
+  async function loadData() {
     try {
-      let base = await DB.getMeta("base");
-      if (base == null && (await DB.getMeta("seeded"))) {
-        base = 1;  // rascunho criado antes do modo senha: preserva
-        await DB.setMeta("base", 1);
-        await DB.setMeta("dirty", true);
-      }
-      if (base == null) return await replaceWorkspace();
-      state.dirty = !!(await DB.getMeta("dirty"));
-      if (ver > base) {
-        const take = !state.dirty || await confirmBox({
-          title: "O site tem uma versão mais nova",
-          message: "Ela foi publicada depois das suas alterações locais. Usar a versão publicada descarta o que não foi publicado neste navegador.",
-          ok: "Usar a publicada", danger: true,
-        });
-        if (take) return await replaceWorkspace();
-        await DB.setMeta("base", ver);
-      }
-      return await DB.all();
+      applyData(await api("GET", "api/fichas" + (state.unlocked ? "?t=" + Date.now() : "")));
+      state.online = true;
     } catch (e) {
-      return SEED.characters.map(clone);
+      state.online = false;
+      try {
+        const r = await fetch("dados.json", { cache: "no-cache" });
+        applyData(await r.json());
+      } catch (e2) {
+        state.chars = [];
+        toast("Não foi possível carregar as fichas");
+      }
     }
   }
 
-  function showPublished() {
-    state.unlocked = false;
-    state.dirty = false;
-    app.classList.add("locked");
-    state.chars = SEED.characters.map(clone);
-    sortChars();
-  }
-
-  async function enterEditMode() {
+  /**
+   * Libera o CRUD até a expiração do token.
+   *
+   * @param {{token: string, exp: number}} s Sessão emitida pelo servidor.
+   */
+  function startSession(s) {
+    session.token = s.token;
+    session.exp = s.exp;
+    try { localStorage.setItem(SESSION_KEY, JSON.stringify(s)); } catch (e) { /* só dura esta aba */ }
+    clearTimeout(session.timer);
+    session.timer = setTimeout(() => endSession("Sua hora de edição acabou. Entre de novo para continuar."), Math.min(s.exp - Date.now(), 2147483647));
     state.unlocked = true;
     app.classList.remove("locked");
-    state.chars = await loadWorkspace();
-    sortChars();
-    if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
-    if (DB.volatile) toast("Armazenamento local indisponível: alterações não serão mantidas");
+    renderList();
+  }
+
+  /**
+   * Volta ao modo leitura. O editor aberto continua aberto para não perder o rascunho;
+   * ao salvar, a senha é pedida de novo.
+   *
+   * @param {string=} msg Aviso opcional.
+   */
+  function endSession(msg) {
+    session.token = null;
+    session.exp = 0;
+    clearTimeout(session.timer);
+    try { localStorage.removeItem(SESSION_KEY); } catch (e) { /* ignorado */ }
+    state.unlocked = false;
+    app.classList.add("locked");
+    renderList();
+    if (msg) toast(msg);
   }
 
   function logout() {
+    endSession();
     if (state.editing) closeEditor();
-    try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
-    showPublished();
     select(state.currentId, false);
     toast("Modo leitura");
   }
 
-  const hexBytes = (hx) => new Uint8Array(hx.match(/../g).map((b) => parseInt(b, 16)));
-
-  /**
-   * Confere a senha contra o hash PBKDF2-SHA256 configurado.
-   *
-   * @param {string} pw Senha digitada.
-   * @return {!Promise<boolean>} true se confere.
-   */
-  async function checkPassword(pw) {
-    const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
-    const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: hexBytes(SENHA.salt), iterations: SENHA.iter }, key, 256);
-    return [...new Uint8Array(bits)].map((b) => b.toString(16).padStart(2, "0")).join("") === SENHA.hash;
-  }
-
   function openLogin() {
-    const configured = !!SENHA.hash;
-    $("loginMsg").textContent = configured ? "Digite a senha para criar, editar e excluir fichas." :
-      "A senha ainda não foi configurada. No PC, rode: node ferramentas/definir-senha.js";
-    $("loginPw").hidden = $("loginOk").hidden = !configured;
+    $("loginMsg").textContent = state.online ? "Digite a senha para criar, editar e excluir fichas. A edição fica liberada por 1 hora." :
+      "A edição só funciona no endereço da Vercel. Esta cópia do site é apenas para leitura.";
+    $("loginPw").hidden = $("loginOk").hidden = !state.online;
     $("loginPw").value = "";
     $("loginErr").textContent = "";
     $("login").showModal();
-    if (configured) $("loginPw").focus();
+    if (state.online) $("loginPw").focus();
   }
 
   async function submitLogin(e) {
     e.preventDefault();
     const btn = $("loginOk");
     btn.disabled = true;
+    $("loginErr").textContent = "";
     try {
-      if (!(await checkPassword($("loginPw").value))) {
-        $("loginErr").textContent = "Senha incorreta.";
-        $("loginPw").select();
-        return;
-      }
-      try { sessionStorage.setItem(SESSION_KEY, "1"); } catch (err) {}
+      startSession(await api("POST", "api/login", { senha: $("loginPw").value }));
       $("login").close();
-      await enterEditMode();
-      select(state.currentId, false);
-      toast("Modo edição ativo");
+      if (!state.editing) {
+        await loadData();
+        select(state.currentId, false);
+      }
+      toast(state.editing ? "Edição liberada. Agora é só salvar." : "Edição liberada por 1 hora");
     } catch (err) {
-      $("loginErr").textContent = "Este navegador não permite verificar a senha (abra pelo link https).";
+      $("loginErr").textContent = err.message;
+      $("loginPw").select();
     } finally {
       btn.disabled = false;
     }
   }
 
   async function importFrom(file) {
+    if (!state.unlocked) return openLogin();
+    let list;
     try {
       const data = JSON.parse(await file.text());
-      const list = (Array.isArray(data) ? data : data && data.characters || []).map(normalize).filter(Boolean);
+      list = (Array.isArray(data) ? data : data && data.characters || []).map(normalize).filter(Boolean);
       if (!list.length) throw new Error("vazio");
-      await DB.putMany(list);
-      markDirty();
-      for (const c of list) {
-        const i = state.chars.findIndex((x) => x.id === c.id);
-        i >= 0 ? (state.chars[i] = c) : state.chars.push(c);
-      }
-      sortChars();
-      select(state.currentId || list[0].id, false);
-      toast(list.length + (list.length === 1 ? " ficha importada" : " fichas importadas"));
     } catch (e) {
       toast("Arquivo inválido para importação");
+      return;
     }
+    toast("Importando…");
+    try {
+      // Backups antigos trazem imagens embutidas: vão para midia/ antes de salvar as fichas.
+      for (const c of list) {
+        for (const kind of ["photo", "logo", "audio"]) {
+          const m = /^data:(?:image|audio)\/([\w+.-]+);base64,(.+)$/.exec(c[kind]);
+          if (!m) continue;
+          const ext = { jpeg: "jpg", "svg+xml": "svg", mpeg: "mp3" }[m[1]] || m[1];
+          c[kind] = (await api("POST", "api/midia", { id: c.id, kind, ext, data: m[2] })).path;
+        }
+      }
+      applyData(await api("POST", "api/fichas", { characters: list }));
+    } catch (e) {
+      toast(e.message);
+      return;
+    }
+    select(state.currentId || list[0].id, false);
+    toast(list.length + (list.length === 1 ? " ficha importada" : " fichas importadas"));
   }
 
   /**
-   * Lê uma imagem enviada e a reduz (máx. 1200 px de largura) para caber no armazenamento local.
+   * Prepara uma imagem para envio: reduz para no máximo 1600 px de largura (SVG e GIF vão como estão).
    *
    * @param {!File} file Arquivo de imagem.
-   * @return {!Promise<string>} Data URL.
+   * @return {!Promise<{blob: !Blob, ext: string}>} Arquivo pronto e extensão.
    */
   async function readImage(file) {
+    if (file.type === "image/svg+xml" || file.type === "image/gif") return { blob: file, ext: file.type === "image/gif" ? "gif" : "svg" };
     const url = URL.createObjectURL(file);
     try {
       const img = await new Promise((resolve, reject) => {
@@ -1199,12 +1305,15 @@
         i.onerror = reject;
         i.src = url;
       });
-      const scale = Math.min(1, 1200 / img.naturalWidth);
+      const scale = Math.min(1, 1600 / img.naturalWidth);
       const cv = document.createElement("canvas");
       cv.width = Math.round(img.naturalWidth * scale);
       cv.height = Math.round(img.naturalHeight * scale);
       cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
-      return file.type === "image/png" || file.type === "image/webp" ? cv.toDataURL("image/webp", 0.9) : cv.toDataURL("image/jpeg", 0.86);
+      const webp = file.type === "image/png" || file.type === "image/webp";
+      const blob = await new Promise((resolve) => cv.toBlob(resolve, webp ? "image/webp" : "image/jpeg", webp ? 0.9 : 0.86));
+      if (!blob) throw new Error("conversão");
+      return { blob, ext: blob.type === "image/webp" ? "webp" : "jpg" };
     } finally {
       URL.revokeObjectURL(url);
     }
@@ -1223,7 +1332,7 @@
   function openEditor(c, isNew) {
     closeMenu();
     closeDrawer();
-    state.editing = { draft: clone(c), isNew, dirty: false };
+    state.editing = { draft: clone(c), isNew, dirty: false, pending: {} };
     app.classList.add("is-editing");
     document.documentElement.classList.add("lock");
     editorEl.hidden = false;
@@ -1235,6 +1344,8 @@
   }
 
   function closeEditor() {
+    const ed = state.editing;
+    if (ed) for (const p of Object.values(ed.pending)) if (![...media.local.values()].includes(p.url)) URL.revokeObjectURL(p.url);
     state.editing = null;
     app.classList.remove("is-editing", "previewing");
     document.documentElement.classList.remove("lock");
@@ -1263,21 +1374,37 @@
       if (nameInput) nameInput.focus();
       return;
     }
-    if (ed.isNew) d.id = uniqueId(slug(d.name));
+    if (!state.unlocked) {
+      toast("Entre com a senha para salvar");
+      return openLogin();
+    }
+    if (ed.isNew && !d.id) d.id = uniqueId(slug(d.name));
     d.stats = d.stats.filter((s) => s.label.trim());
+    const btn = editorEl.querySelector('[data-act="save"]');
+    btn.classList.add("busy");
+    btn.textContent = "Salvando…";
+    let id;
     try {
-      await DB.put(d);
-      markDirty();
+      // Arquivos escolhidos no editor só sobem agora, para não deixar lixo se a edição for cancelada.
+      for (const [kind, p] of Object.entries(ed.pending)) {
+        if (d[kind] !== p.url) continue;
+        const { path } = await api("POST", "api/midia", { id: d.id, kind, ext: p.ext, data: await toBase64(p.blob) });
+        media.local.set(path, p.url);
+        d[kind] = path;
+        delete ed.pending[kind];
+      }
+      const data = await api("PUT", "api/fichas", { char: d, novo: ed.isNew });
+      applyData(data);
+      id = data.id;
     } catch (e) {
-      toast("Não foi possível salvar (armazenamento cheio?)");
+      toast(e.message);
+      btn.classList.remove("busy");
+      btn.textContent = "Salvar";
       return;
     }
-    const i = state.chars.findIndex((x) => x.id === d.id);
-    i >= 0 ? (state.chars[i] = d) : state.chars.push(d);
-    sortChars();
-    state.currentId = d.id;
+    state.currentId = id;
     closeEditor();
-    select(d.id, false);
+    select(id, false);
     toast(ed.isNew ? "Personagem criado" : "Ficha salva");
   }
 
@@ -1316,7 +1443,7 @@
       h("button", { class: "btn ghost ed-prev", "data-act": "preview" }, "Prévia"),
       h("button", { class: "btn primary", "data-act": "save" }, "Salvar"));
     const body = h("div", { class: "ed-body" },
-      secIdentity(d), secImage(d), secGrade(d), secColors(d), secStats(d), secGroups(d));
+      secIdentity(d), secImages(d), secAudio(d), secGrade(d), secColors(d), secStats(d), secGroups(d));
     editorEl.replaceChildren(head, body);
   }
 
@@ -1330,39 +1457,110 @@
         field("Série", textIn(d, "series", { placeholder: "Temporada 1" }))));
   }
 
-  function secImage(d) {
+  /**
+   * Guarda um arquivo escolhido no editor; ele só é enviado ao salvar.
+   *
+   * @param {string} kind "photo", "logo" ou "audio".
+   * @param {!Blob} blob Conteúdo.
+   * @param {string} ext Extensão.
+   */
+  function setPending(kind, blob, ext) {
+    const ed = state.editing;
+    if (blob.size > MAX_UPLOAD) {
+      toast("Arquivo acima de 3 MB. Reduza o tamanho e tente de novo.");
+      return false;
+    }
+    const url = URL.createObjectURL(blob);
+    ed.pending[kind] = { blob, ext, url };
+    ed.draft[kind] = url;
+    changed();
+    rebuild();
+    return true;
+  }
+
+  /** Campo de caminho: mostra o arquivo atual e aceita digitar outro (relativo ao site ou https). */
+  function pathIn(d, kind, placeholder, onType) {
+    const pending = String(d[kind]).startsWith("blob:");
+    return h("input", {
+      class: "in", type: "text", value: pending ? "" : d[kind] || "", spellcheck: "false", autocomplete: "off",
+      placeholder: pending ? "Arquivo novo: enviado ao salvar" : placeholder,
+      oninput: (e) => { d[kind] = e.target.value.trim(); changed(); if (onType) onType(); },
+      onchange: () => rebuild(),
+    });
+  }
+
+  /**
+   * Bloco do editor para foto ou logo: prévia, envio, caminho, ajuste e descrição.
+   *
+   * @param {!Object} d Rascunho.
+   * @param {string} kind "photo" ou "logo".
+   * @return {!HTMLElement} Bloco.
+   */
+  function imageBlock(d, kind) {
+    const isPhoto = kind === "photo";
+    const K = isPhoto ? { fit: "photoFit", pos: "photoPos", alt: "photoAlt" } : { fit: "logoFit", pos: "logoPos", alt: "logoAlt" };
     const prev = h("div", { class: "img-prev" });
     const paint = () => {
-      prev.replaceChildren(d.photo ? h("img", { src: d.photo, alt: "", css: { "object-fit": d.photoFit, "object-position": d.photoPos } }) : ic("image"));
+      prev.replaceChildren(d[kind] ? withFallback(h("img", { src: mediaSrc(d[kind]), alt: "", css: { "object-fit": d[K.fit], "object-position": d[K.pos] } }), d[kind]) : ic("image"));
     };
     paint();
     const file = h("input", {
       type: "file", accept: "image/*", hidden: true,
       onchange: async (e) => {
         const f = e.target.files[0];
+        e.target.value = "";
         if (!f) return;
         try {
-          d.photo = await readImage(f);
-          changed();
-          rebuild();
+          const { blob, ext } = await readImage(f);
+          setPending(kind, blob, ext);
         } catch (err) {
           toast("Não foi possível ler a imagem");
         }
       },
     });
-    const posY = parseFloat(String(d.photoPos || "50% 0%").split(/\s+/)[1]) || 0;
+    const posY = parseFloat(String(d[K.pos] || "50% 0%").split(/\s+/)[1]) || 0;
     const range = h("input", {
       class: "range", type: "range", min: 0, max: 100, step: 1, value: posY, "aria-label": "Enquadramento vertical",
-      oninput: (e) => { d.photoPos = "50% " + e.target.value + "%"; paint(); changed(); },
+      oninput: (e) => { d[K.pos] = "50% " + e.target.value + "%"; paint(); changed(); },
     });
-    return h("section", { class: "ed-sec" }, h("h3", { text: "Imagem" }),
+    const label = isPhoto ? "foto" : "logo";
+    return h("div", { class: "media-block" }, h("h4", { text: isPhoto ? "Foto" : "Logo" }),
       h("div", { class: "img-row" }, prev, h("div", { class: "img-actions" },
-        h("button", { type: "button", class: "btn sm", onclick: () => file.click() }, ic("upload"), d.photo ? "Trocar imagem" : "Enviar imagem"),
-        d.photo && h("button", { type: "button", class: "btn sm ghost danger", onclick: () => { d.photo = ""; changed(); rebuild(); } }, ic("trash"), "Remover"),
+        h("button", { type: "button", class: "btn sm", onclick: () => file.click() }, ic("upload"), d[kind] ? "Trocar " + label : "Enviar " + label),
+        d[kind] && h("button", { type: "button", class: "btn sm ghost danger", onclick: () => { d[kind] = ""; changed(); rebuild(); } }, ic("trash"), "Remover"),
         file)),
-      d.photo && field("Ajuste", seg([["cover", "Preencher"], ["contain", "Imagem inteira"]], d.photoFit, (v) => { d.photoFit = v; changed(); rebuild(); }, "Ajuste da imagem")),
-      d.photo && d.photoFit === "cover" && field("Enquadramento vertical", range),
-      d.photo && field("Descrição da imagem", textIn(d, "photoAlt", { placeholder: "Para leitores de tela" })));
+      field("Caminho", pathIn(d, kind, isPhoto ? "midia/" + (d.id || "personagem") + "/foto.webp" : "icones/icone-personagem.svg", paint)),
+      d[kind] && field("Ajuste", seg([["cover", "Preencher"], ["contain", "Imagem inteira"]], d[K.fit], (v) => { d[K.fit] = v; changed(); rebuild(); }, "Ajuste da " + label)),
+      d[kind] && d[K.fit] === "cover" && field("Enquadramento vertical", range),
+      d[kind] && field("Descrição da " + label, textIn(d, K.alt, { placeholder: "Para leitores de tela" })));
+  }
+
+  function secImages(d) {
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Foto e logo" }),
+      h("p", { class: "hint", text: "Com as duas preenchidas, a ficha ganha um botão para alternar entre elas." }),
+      imageBlock(d, "photo"), imageBlock(d, "logo"));
+  }
+
+  function secAudio(d) {
+    const file = h("input", {
+      type: "file", accept: "audio/*", hidden: true,
+      onchange: (e) => {
+        const f = e.target.files[0];
+        e.target.value = "";
+        if (!f) return;
+        const ext = (f.name.split(".").pop() || "").toLowerCase();
+        if (!AUDIO_EXT.includes(ext)) return toast("Formato não aceito. Use mp3, ogg, m4a, wav ou webm.");
+        setPending("audio", f, ext);
+      },
+    });
+    return h("section", { class: "ed-sec" }, h("h3", { text: "Fala em áudio" }),
+      h("p", { class: "hint", text: "Aparece como um botão de play ao lado da frase. Até 3 MB." }),
+      d.audio && withFallback(h("audio", { class: "audio-prev", controls: true, preload: "none", src: mediaSrc(d.audio) }), d.audio),
+      h("div", { class: "img-actions" }, h("div", { class: "two" },
+        h("button", { type: "button", class: "btn sm", onclick: () => file.click() }, ic("audio"), d.audio ? "Trocar áudio" : "Enviar áudio"),
+        d.audio && h("button", { type: "button", class: "btn sm ghost danger", onclick: () => { d.audio = ""; changed(); rebuild(); } }, ic("trash"), "Remover")),
+        file),
+      field("Caminho", pathIn(d, "audio", "midia/" + (d.id || "personagem") + "/fala.mp3")));
   }
 
   function secGrade(d) {
@@ -1517,7 +1715,6 @@
     "close-drawer": closeDrawer,
     cancel: cancelEditor,
     save: saveEditor,
-    restore: () => { if (state.unlocked) restoreOriginals(); },
     preview: () => {
       const on = app.classList.toggle("previewing");
       document.documentElement.classList.toggle("lock", !on);
@@ -1607,10 +1804,12 @@
 
   async function init() {
     wire();
-    let wantsEdit = false;
-    try { wantsEdit = sessionStorage.getItem(SESSION_KEY) === "1"; } catch (e) {}
-    if (wantsEdit && SENHA.hash) await enterEditMode();
-    else showPublished();
+    host.replaceChildren(h("div", { class: "empty" }, h("p", { text: "Carregando fichas…" })));
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(SESSION_KEY)); } catch (e) { /* sem sessão */ }
+    await loadData();
+    if (state.online && saved && saved.token && saved.exp > Date.now() + 5000) startSession(saved);
+    else endSession();
     select(decodeURIComponent(location.hash.slice(1)), false);
   }
 
