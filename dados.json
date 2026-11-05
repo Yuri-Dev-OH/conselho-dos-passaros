@@ -2764,43 +2764,40 @@
     {
      "label": "Força",
      "value": 4,
-     "base": 3
+     "base": null
     },
     {
      "label": "Velocidade",
      "value": 4,
-     "base": 3
+     "base": null
     },
     {
      "label": "Inteligência",
      "value": 3,
-     "base": 3
+     "base": null
     },
     {
      "label": "Resistência",
      "value": 5,
-     "base": 4
+     "base": null
     },
     {
      "label": "Energia",
      "value": 3,
-     "base": 3
+     "base": null
     },
     {
      "label": "Destruição",
      "value": 3,
-     "base": 2
+     "base": null
     },
     {
      "label": "Potencial",
      "value": 4,
-     "base": 4
+     "base": null
     }
    ],
-   "legend": [
-    "Em postura",
-    "Sem postura"
-   ],
+   "legend": null,
    "groups": [
     {
      "title": "Base",
@@ -3147,7 +3144,88 @@
       }
      ]
     }
-   ]
+   ],
+   "forms": [
+    {
+     "chip": "Sem postura",
+     "name": "Sem postura",
+     "values": [
+      3,
+      3,
+      3,
+      4,
+      3,
+      2,
+      4
+     ]
+    },
+    {
+     "chip": "Calau",
+     "name": "Cabeça-Dura como Calau",
+     "values": [
+      5,
+      3,
+      3,
+      4,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "chip": "Garça",
+     "name": "Certeiro como Garça",
+     "values": [
+      3,
+      4,
+      3,
+      3,
+      4,
+      3,
+      4
+     ]
+    },
+    {
+     "chip": "Beija-flor",
+     "name": "Leve como Beija-flor",
+     "values": [
+      3,
+      5,
+      3,
+      2,
+      3,
+      2,
+      4
+     ]
+    },
+    {
+     "chip": "Pinguim-Imperador",
+     "name": "Firme como Pinguim-Imperador",
+     "values": [
+      3,
+      2,
+      3,
+      5,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "chip": "Inabalável",
+     "name": "Inabalável como um Galo",
+     "values": [
+      5,
+      5,
+      3,
+      5,
+      4,
+      5,
+      4
+     ]
+    }
+   ],
+   "startForm": 1
   },
   {
    "id": "pinguim-lenda",

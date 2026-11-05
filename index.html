@@ -242,6 +242,14 @@
   .legend span { display: inline-flex; align-items: center; gap: 6px; }
   .legend i { width: 14px; height: 0; display: inline-block; border-top: 2px solid var(--accent); }
   .legend i.base { border-top: 2px dashed var(--muted); }
+  .forms { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 8px 4px; }
+  .forms button {
+    font: inherit; font-size: 12px; font-weight: 500; min-height: 32px; padding: 4px 12px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line-strong); background: transparent; color: var(--muted);
+  }
+  .forms button:hover { color: var(--ink); }
+  .forms button[aria-pressed="true"] { color: var(--ink); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+  .forms button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .radar { width: 100%; height: auto; display: block; }
   .radar .ring { fill: none; stroke: var(--line-strong); stroke-opacity: 0.66; }
   .radar .spoke { stroke: var(--line); }
@@ -298,6 +306,11 @@
   .in::placeholder { color: #5f5f69; }
   textarea.in { resize: vertical; min-height: 64px; }
   .in.num { text-align: center; padding-inline: 4px; }
+  .form-ed { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--hair-2); border-radius: 10px; }
+  .form-vals { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; }
+  .fv { display: grid; gap: 4px; font-size: 12px; color: var(--muted); min-width: 0; }
+  .fv span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .form-acts { display: flex; gap: 6px; justify-content: flex-end; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .seg { display: flex; gap: 2px; padding: 3px; border: 1px solid var(--hair-2); border-radius: 11px; background: rgba(255, 255, 255, 0.03); }
   .seg button { flex: 1; min-width: 0; height: 34px; border: 0; border-radius: 8px; background: transparent; color: var(--muted); font-size: 14px; font-weight: 500; white-space: nowrap; }
@@ -627,7 +640,7 @@
       logo: "", logoAlt: "", logoFit: "contain", logoPos: "50% 50%", audio: "",
       theme: deriveTheme("#4cc2ff", "#ffb04c"),
       stats: DEFAULT_STATS.map((label) => ({ label, value: 3, base: null })),
-      legend: null,
+      legend: null, forms: null, startForm: 0,
       groups: [{ title: "Técnicas", rows: [] }, { title: "Pontos fracos", rows: [] }],
     };
   }
@@ -670,6 +683,10 @@
       stats: (Array.isArray(raw.stats) ? raw.stats : []).filter((s) => s && typeof s === "object")
         .map((s) => ({ label: str(s.label), value: num(s.value) ?? 0, base: num(s.base) })),
       legend: Array.isArray(raw.legend) && raw.legend.length === 2 ? raw.legend.map(str) : null,
+      forms: Array.isArray(raw.forms) && raw.forms.length >= 2 ? raw.forms.filter((f) => f && typeof f === "object").map((f) => ({
+        chip: str(f.chip), name: str(f.name), values: (Array.isArray(f.values) ? f.values : []).map((v) => num(v) ?? 0),
+      })) : null,
+      startForm: Number.isInteger(raw.startForm) ? raw.startForm : 0,
       groups: (Array.isArray(raw.groups) ? raw.groups : []).filter((g) => g && typeof g === "object").map((g) => ({
         title: str(g.title),
         rows: (Array.isArray(g.rows) ? g.rows : []).filter((r) => r && typeof r === "object").map((r) => {
@@ -794,7 +811,7 @@
   }
 
   /* ===== Estado ===== */
-  const state = { chars: [], currentId: null, query: "", editing: null, unlocked: false, online: false, view: {} };
+  const state = { chars: [], currentId: null, query: "", editing: null, unlocked: false, online: false, view: {}, form: {} };
   const app = $("app"), host = $("host"), stage = $("stage"), editorEl = $("editor");
 
   const byId = (id) => state.chars.find((c) => c.id === id) || null;
@@ -814,11 +831,13 @@
   /**
    * Monta o radar de atributos (N vértices = N atributos).
    *
-   * @param {!Object} c Ficha.
-   * @param {boolean} withBase Se desenha a segunda forma tracejada.
+   * @param {!Object} c Ficha (rótulos e cores).
+   * @param {!Array<number>} vals Valores da forma principal.
+   * @param {?Array<number>} baseVals Valores da forma tracejada, ou null.
+   * @param {!Array<string>} names Nomes [principal, tracejada] para leitores de tela.
    * @return {!SVGElement} O SVG.
    */
-  function radar(c, withBase) {
+  function radar(c, vals, baseVals, names) {
     const NS = "http://www.w3.org/2000/svg";
     const svgEl = document.createElementNS(NS, "svg");
     svgEl.setAttribute("viewBox", "0 0 340 248");
@@ -840,10 +859,9 @@
       const [x, y] = pt(i, R);
       el("line", { x1: cx, y1: cy, x2: x.toFixed(1), y2: y.toFixed(1), class: "spoke", "stroke-width": 1 });
     });
-    const vals = c.stats.map((s) => Number(s.value) || 0);
     el("polygon", { points: poly(vals), fill: c.theme.accent, "fill-opacity": 0.2, stroke: c.theme.accent, "stroke-width": 1.8, "stroke-linejoin": "round" });
-    if (withBase) {
-      el("polygon", { points: poly(c.stats.map((s) => Number(s.base) || 0)), fill: c.theme.muted, "fill-opacity": 0.14, stroke: c.theme.muted, "stroke-width": 1.6, "stroke-dasharray": "4 3", "stroke-linejoin": "round" });
+    if (baseVals) {
+      el("polygon", { points: poly(baseVals), fill: c.theme.muted, "fill-opacity": 0.14, stroke: c.theme.muted, "stroke-width": 1.6, "stroke-dasharray": "4 3", "stroke-linejoin": "round" });
     }
     vals.forEach((v, i) => {
       const [x, y] = pt(i, (R * clamp(v, 0, max)) / max);
@@ -854,10 +872,11 @@
       const anchor = co > 0.25 ? "start" : co < -0.25 ? "end" : "middle";
       const dy = si < -0.5 ? -10 : si > 0.5 ? 4 : -4;
       el("text", { x: x.toFixed(1), y: (y + dy).toFixed(1), "text-anchor": anchor, class: "name" }, s.label);
-      el("text", { x: x.toFixed(1), y: (y + dy + 15).toFixed(1), "text-anchor": anchor, class: "val" }, String(s.value));
+      el("text", { x: x.toFixed(1), y: (y + dy + 15).toFixed(1), "text-anchor": anchor, class: "val" }, String(vals[i]));
     });
-    svgEl.setAttribute("aria-label", "Atributos: " + c.stats.map((s) => s.label + " " + s.value).join(", ") +
-      (withBase ? ". " + c.legend[1] + ": " + c.stats.map((s) => s.label + " " + s.base).join(", ") : ""));
+    const list = (v) => c.stats.map((s, i) => s.label + " " + v[i]).join(", ");
+    svgEl.setAttribute("aria-label", "Atributos" + (names[0] ? " em " + names[0] : "") + ": " + list(vals) +
+      (baseVals ? ". " + (names[1] || "Base") + ": " + list(baseVals) : ""));
     return svgEl;
   }
 
@@ -934,14 +953,37 @@
           c.gradeNote && h("span", { class: "note", text: c.gradeNote })),
         bars));
 
-    const withBase = !!c.legend && c.stats.length > 0 && c.stats.every((s) => s.base != null);
     const radarBox = h("div", { class: "radar-box" }, h("p", { class: "section-label", text: "Atributos · escala de 0 a 5" }));
-    if (withBase) {
-      radarBox.append(h("div", { class: "legend" },
-        h("span", null, h("i"), c.legend[0]),
-        h("span", null, h("i", { class: "base" }), c.legend[1])));
+    const forms = formsOf(c);
+    if (c.stats.length < 3) {
+      radarBox.append(h("p", { class: "radar-empty", text: "Adicione ao menos 3 atributos para formar o gráfico." }));
+    } else if (forms) {
+      // Posturas: a primeira é a base, tracejada por baixo das demais.
+      let idx = clamp(state.form[c.id] ?? c.startForm ?? 0, 0, forms.length - 1);
+      const bar = h("div", { class: "forms", role: "group", "aria-label": "Postura" });
+      const legend = h("div", { class: "legend" });
+      const slot = h("div");
+      const draw = () => {
+        const f = forms[idx], base = forms[0];
+        slot.replaceChildren(radar(c, f.values, idx ? base.values : null, [f.name, base.name]));
+        legend.replaceChildren(h("span", null, h("i"), f.name), idx > 0 && h("span", null, h("i", { class: "base" }), base.name));
+        [...bar.children].forEach((b, k) => b.setAttribute("aria-pressed", String(k === idx)));
+      };
+      forms.forEach((f, k) => bar.append(h("button", {
+        type: "button", text: f.chip || f.name || "Postura " + (k + 1),
+        onclick: () => { idx = k; state.form[c.id] = k; draw(); },
+      })));
+      draw();
+      radarBox.append(bar, legend, slot);
+    } else {
+      const withBase = !!c.legend && c.stats.every((s) => s.base != null);
+      if (withBase) {
+        radarBox.append(h("div", { class: "legend" },
+          h("span", null, h("i"), c.legend[0]),
+          h("span", null, h("i", { class: "base" }), c.legend[1])));
+      }
+      radarBox.append(radar(c, c.stats.map((s) => Number(s.value) || 0), withBase ? c.stats.map((s) => Number(s.base) || 0) : null, withBase ? c.legend : []));
     }
-    radarBox.append(c.stats.length >= 3 ? radar(c, withBase) : h("p", { class: "radar-empty", text: "Adicione ao menos 3 atributos para formar o gráfico." }));
 
     const lead = h("div", { class: "lead" }, photo, h("section", { class: "panel" }, head, radarBox));
 
@@ -966,6 +1008,17 @@
     card.append(h("div", { class: "foot" }, h("span", { text: c.role || "" }), h("span", { text: c.series || "" })));
     sheet.append(card);
     return sheet;
+  }
+
+  /**
+   * Posturas válidas da ficha, com um valor por atributo (faltantes viram 0).
+   *
+   * @param {!Object} c Ficha.
+   * @return {?Array<{chip: string, name: string, values: !Array<number>}>} Posturas ou null.
+   */
+  function formsOf(c) {
+    if (!Array.isArray(c.forms) || c.forms.length < 2) return null;
+    return c.forms.map((f) => ({ chip: f.chip, name: f.name || f.chip, values: c.stats.map((_, i) => Number(f.values[i]) || 0) }));
   }
 
   /* ===== Renderização do hub ===== */
@@ -1388,7 +1441,10 @@
       return openLogin();
     }
     if (ed.isNew && !d.id) d.id = uniqueId(slug(d.name));
-    d.stats = d.stats.filter((s) => s.label.trim());
+    const keep = d.stats.map((st) => !!st.label.trim());
+    d.stats = d.stats.filter((_, i) => keep[i]);
+    if (d.forms) for (const f of d.forms) f.values = f.values.filter((_, i) => keep[i]);
+    if (d.forms) d.startForm = clamp(d.startForm || 0, 0, d.forms.length - 1);
     const btn = editorEl.querySelector('[data-act="save"]');
     btn.classList.add("busy");
     btn.textContent = "Salvando…";
@@ -1452,7 +1508,7 @@
       h("button", { class: "btn ghost ed-prev", "data-act": "preview" }, "Prévia"),
       h("button", { class: "btn primary", "data-act": "save" }, "Salvar"));
     const body = h("div", { class: "ed-body" },
-      secIdentity(d), secImages(d), secAudio(d), secGrade(d), secColors(d), secStats(d), secGroups(d));
+      secIdentity(d), secImages(d), secAudio(d), secGrade(d), secColors(d), secStats(d), secForms(d), secGroups(d));
     editorEl.replaceChildren(head, body);
   }
 
@@ -1615,18 +1671,84 @@
         textIn(s, "label", { placeholder: "Atributo", "aria-label": "Nome do atributo" }),
         numIn(s, "value", "Valor de " + (s.label || "atributo")),
         hasBase && numIn(s, "base", "Valor base de " + (s.label || "atributo")),
-        tinyBtn("close", "Remover atributo", () => { d.stats.splice(i, 1); changed(); rebuild(); }, d.stats.length <= 3))));
+        tinyBtn("close", "Remover atributo", () => {
+          d.stats.splice(i, 1);
+          if (d.forms) for (const f of d.forms) f.values.splice(i, 1);
+          changed();
+          rebuild();
+        }, d.stats.length <= 3))));
 
     return h("section", { class: "ed-sec" }, h("h3", { text: "Atributos · 0 a 5" }),
-      toggle,
+      d.forms ? h("p", { class: "hint", text: "Os valores de cada postura ficam na seção Posturas. Aqui vale o nome dos atributos." }) : toggle,
       hasBase && h("div", { class: "two" },
         field("Legenda da forma principal", textIn(d.legend, 0)),
         field("Legenda da forma tracejada", textIn(d.legend, 1))),
       list,
       h("button", {
         type: "button", class: "btn sm ed-add", disabled: d.stats.length >= 10,
-        onclick: () => { d.stats.push({ label: "", value: 3, base: hasBase ? 3 : null }); changed(); rebuild(); },
+        onclick: () => {
+          d.stats.push({ label: "", value: 3, base: hasBase ? 3 : null });
+          if (d.forms) for (const f of d.forms) f.values.push(3);
+          changed();
+          rebuild();
+        },
       }, ic("plus"), "Atributo"));
+  }
+
+  /**
+   * Seção de posturas: conjuntos de atributos alternáveis por botões acima do gráfico.
+   *
+   * @param {!Object} d Rascunho.
+   * @return {!HTMLElement} Seção.
+   */
+  function secForms(d) {
+    const sec = h("section", { class: "ed-sec" }, h("h3", { text: "Posturas" }),
+      h("p", { class: "hint", text: "Botões acima do gráfico para alternar entre conjuntos de atributos. A primeira é a base e aparece tracejada por baixo das outras." }));
+    if (!d.forms) {
+      sec.append(h("button", {
+        type: "button", class: "btn sm ed-add",
+        onclick: () => {
+          d.forms = [
+            { chip: d.legend ? d.legend[1] : "Base", name: d.legend ? d.legend[1] : "Base", values: d.stats.map((st) => st.base ?? st.value) },
+            { chip: d.legend ? d.legend[0] : "Postura 1", name: d.legend ? d.legend[0] : "Postura 1", values: d.stats.map((st) => st.value) },
+          ];
+          d.startForm = 1;
+          d.legend = null;
+          d.stats.forEach((st) => { st.base = null; });
+          changed();
+          rebuild();
+        },
+      }, ic("plus"), "Usar posturas"));
+      return sec;
+    }
+    d.forms.forEach((f, k) => sec.append(h("div", { class: "form-ed" },
+      h("div", { class: "two" },
+        field("Botão", textIn(f, "chip", { placeholder: "Ex.: Calau" })),
+        field("Nome completo", textIn(f, "name", { placeholder: "Ex.: Cabeça-Dura como Calau" }))),
+      h("div", { class: "form-vals" }, ...d.stats.map((st, i) => h("label", { class: "fv" },
+        h("span", { text: st.label || "Atributo " + (i + 1) }), numIn(f.values, i, (st.label || "Atributo") + " em " + (f.chip || "postura"))))),
+      h("div", { class: "form-acts" },
+        tinyBtn("up", "Subir postura", () => move(d.forms, k, -1), k === 0),
+        tinyBtn("down", "Descer postura", () => move(d.forms, k, 1), k === d.forms.length - 1),
+        tinyBtn("trash", "Remover postura", () => {
+          d.forms.splice(k, 1);
+          if (d.forms.length < 2) d.forms = null;
+          else d.startForm = clamp(d.startForm || 0, 0, d.forms.length - 1);
+          changed();
+          rebuild();
+        })))));
+    sec.append(
+      h("button", {
+        type: "button", class: "btn sm ed-add", disabled: d.forms.length >= 8,
+        onclick: () => { d.forms.push({ chip: "", name: "", values: d.stats.map((st) => st.value) }); changed(); rebuild(); },
+      }, ic("plus"), "Postura"),
+      field("Postura inicial", seg(d.forms.map((f, k) => [k, f.chip || f.name || "Postura " + (k + 1)]), d.startForm || 0,
+        (v) => { d.startForm = v; changed(); rebuild(); }, "Postura inicial")),
+      h("button", {
+        type: "button", class: "btn sm ghost danger",
+        onclick: () => { d.forms = null; d.startForm = 0; changed(); rebuild(); },
+      }, ic("trash"), "Remover posturas"));
+    return sec;
   }
 
   function rowEditor(d, g, ri) {

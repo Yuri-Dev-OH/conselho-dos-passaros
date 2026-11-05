@@ -12,17 +12,24 @@
 
 ## Atributos
 
-_Escala de 0 a 5_
+_Escala de 0 a 5, por postura_
 
-| Atributo | Em postura | Sem postura |
-|---|:-:|:-:|
-| Força | 4 | 3 |
-| Velocidade | 4 | 3 |
-| Inteligência | 3 | 3 |
-| Resistência | 5 | 4 |
-| Energia | 3 | 3 |
-| Destruição | 3 | 2 |
-| Potencial | 4 | 4 |
+| Atributo | Sem postura | Calau ★ | Garça | Beija-flor | Pinguim-Imperador | Inabalável |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Força | 3 | 5 | 3 | 3 | 3 | 5 |
+| Velocidade | 3 | 3 | 4 | 5 | 2 | 5 |
+| Inteligência | 3 | 3 | 3 | 3 | 3 | 3 |
+| Resistência | 4 | 4 | 3 | 2 | 5 | 5 |
+| Energia | 3 | 3 | 4 | 3 | 3 | 4 |
+| Destruição | 2 | 4 | 3 | 2 | 3 | 5 |
+| Potencial | 4 | 4 | 4 | 4 | 4 | 4 |
+
+- **Sem postura**: Sem postura
+- **Calau**: Cabeça-Dura como Calau
+- **Garça**: Certeiro como Garça
+- **Beija-flor**: Leve como Beija-flor
+- **Pinguim-Imperador**: Firme como Pinguim-Imperador
+- **Inabalável**: Inabalável como um Galo
 
 ## Base
 

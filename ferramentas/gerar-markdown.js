@@ -41,7 +41,14 @@ function ficha(c) {
   out.push("| Lado | Classificação | Função | Série |", "|---|---|---|---|",
     "| " + cel(LADOS[c.side] || "—") + " | " + cel(GRAUS[(c.grade || 1) - 1] + (c.gradeNote ? " · " + c.gradeNote : "")) + " | " + cel(c.role) + " | " + cel(c.series) + " |", "");
 
-  if (c.stats && c.stats.length) {
+  if (c.stats && c.stats.length && Array.isArray(c.forms) && c.forms.length >= 2) {
+    // Posturas: uma coluna por postura; a inicial vem marcada.
+    out.push("## Atributos", "", "_Escala de 0 a 5, por postura_", "");
+    out.push("| Atributo | " + c.forms.map((f, k) => cel(f.chip || f.name) + (k === (c.startForm || 0) ? " ★" : "")).join(" | ") + " |");
+    out.push("|---|" + c.forms.map(() => ":-:").join("|") + "|");
+    c.stats.forEach((s, i) => out.push("| " + cel(s.label) + " | " + c.forms.map((f) => f.values[i] ?? 0).join(" | ") + " |"));
+    out.push("", ...c.forms.map((f) => "- **" + (f.chip || f.name) + "**: " + f.name), "");
+  } else if (c.stats && c.stats.length) {
     const comBase = !!c.legend && c.stats.every((s) => s.base != null);
     out.push("## Atributos", "", "_Escala de 0 a 5_", "");
     out.push(comBase ? "| Atributo | " + cel(c.legend[0]) + " | " + cel(c.legend[1]) + " |" : "| Atributo | Valor |");
