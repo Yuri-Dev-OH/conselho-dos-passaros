@@ -125,7 +125,13 @@
   "sofa": "<path d=\"M5.5 11V8a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v3\"/><path d=\"M3 12.5a2 2 0 0 1 4 0V15h10v-2.5a2 2 0 0 1 4 0V18H3z\"/><path d=\"M6 18v2M18 18v2\"/>",
   "noring": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
   "pulse": "<path d=\"M2 12h4l2-5 3 10 2.5-7 1.5 2h7\"/>",
-  "beam": "<circle cx=\"5\" cy=\"17.5\" r=\"2.4\"/><path d=\"M7.4 16.4C13 15.2 11 7.6 19 6.4\"/><path d=\"M15.6 5l3.6 1.4-2 3.3\"/><path d=\"M2.5 12.6c1-.9 2-1.3 3-1.3\"/>"
+  "beam": "<circle cx=\"5\" cy=\"17.5\" r=\"2.4\"/><path d=\"M7.4 16.4C13 15.2 11 7.6 19 6.4\"/><path d=\"M15.6 5l3.6 1.4-2 3.3\"/><path d=\"M2.5 12.6c1-.9 2-1.3 3-1.3\"/>",
+  "hammer": "<rect x=\"4\" y=\"3.5\" width=\"14\" height=\"7\" rx=\"1.5\"/><path d=\"M11 10.5V21M18 7h3\"/>",
+  "eye-galo-ultra-inabalavel": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "terminal": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M7 10l3 2-3 2M12 15h5\"/>",
+  "claw-pinguim-lenda": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
+  "key": "<circle cx=\"8\" cy=\"12\" r=\"4\"/><path d=\"M12 12h9M18 12v4M15 12v3\"/>",
+  "eye-pinguim-lenda": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>"
  },
  "characters": [
   {
@@ -2716,6 +2722,710 @@
        "label": "Fraqueza",
        "value": "Cremação",
        "desc": "Fogo e ácido destroem os corpos e não deixam nada para devorar nem selar.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "galo-ultra-inabalavel",
+   "name": "Galo Ultra Inabalável",
+   "subtitle": "Mestre do Corpo a Corpo de Grau 1",
+   "quote": "Não saio do lugar.",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "midia/galo-ultra-inabalavel/logo.jpg",
+   "logoAlt": "Galo de crista vermelha, cicatriz no olho e punhos enfaixados, diante de raios de sol",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 4,
+   "gradeNote": "",
+   "role": "Corpo a corpo",
+   "series": "Temporada 1",
+   "side": "",
+   "theme": {
+    "canvas": "#0d0709",
+    "surface": "#150d10",
+    "raised": "#1d1217",
+    "line": "rgba(224, 49, 75, 0.13)",
+    "lineStrong": "rgba(224, 49, 75, 0.24)",
+    "accent": "#e0314b",
+    "warn": "#f2b632",
+    "ink": "#f7ecee",
+    "muted": "#a8959b",
+    "photoBg": "#0f080b"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 4,
+     "base": 3
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": 3
+    },
+    {
+     "label": "Inteligência",
+     "value": 3,
+     "base": 3
+    },
+    {
+     "label": "Resistência",
+     "value": 5,
+     "base": 4
+    },
+    {
+     "label": "Energia",
+     "value": 3,
+     "base": 3
+    },
+    {
+     "label": "Destruição",
+     "value": 3,
+     "base": 2
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": 4
+    }
+   ],
+   "legend": [
+    "Em postura",
+    "Sem postura"
+   ],
+   "groups": [
+    {
+     "title": "Base",
+     "rows": [
+      {
+       "icon": "shell",
+       "label": "Inata",
+       "value": "Inabalável",
+       "desc": "Não se abala. Golpes fracos não o empurram, não o atordoam e não o fazem recuar. Só ataques realmente fortes conseguem tirar o equilíbrio dele.",
+       "weak": false
+      },
+      {
+       "icon": "needle",
+       "label": "Inata",
+       "value": "Esporão",
+       "desc": "Esporões duros nas pernas, que cortam como lâminas. Entram em todos os chutes e golpes baixos.",
+       "weak": false
+      },
+      {
+       "icon": "cycle",
+       "label": "Técnica",
+       "value": "Quatro Posturas",
+       "desc": "Luta em quatro estilos, cada um com nome de ave. Troca de postura a qualquer instante, mesmo no meio de um golpe, sem custo. Cada postura libera as próprias técnicas: ele só usa os golpes e as armas da postura em que está, exceto na Inabalável como um Galo.",
+       "weak": false
+      },
+      {
+       "icon": "burst",
+       "label": "Regra",
+       "value": "Ódio",
+       "desc": "Ao levar uma certa quantidade de dano, o ódio sobe, até o nível 4. Do 1 ao 3, quanto mais ódio, mais dano ele causa, mas menos velocidade e precisão ele tem. O nível 4 não dá vantagem extra em relação ao 3: ele dispara a Inabalável como um Galo.",
+       "weak": false
+      },
+      {
+       "icon": "wind",
+       "label": "Técnica",
+       "value": "Bufada",
+       "desc": "Solta uma bufada que baixa o ódio e devolve a velocidade. A primeira zera o ódio, e cada bufada seguinte reduz menos que a anterior.",
+       "weak": false
+      },
+      {
+       "icon": "sun",
+       "label": "Postura final",
+       "value": "Inabalável como um Galo",
+       "desc": "Ao chegar no ódio 4, libera uma onda de choque em volta e entra nessa postura. Usa tudo o que as quatro posturas oferecem, causa 20% a mais de dano, resiste a ataques pesados sem ser empurrado e fica mais rápido. Durante ela, o ódio fica em 0, e volta a 0 quando ela acaba. Dura pouco tempo, e ao terminar o GUI fica cansado.",
+       "weak": false
+      },
+      {
+       "icon": "jump",
+       "label": "Equipamento",
+       "value": "Mochila de Pulo",
+       "desc": "Ele normalmente não voa. O Pinguim Lenda deu a ele uma mochila de pulo, que dá saltos longos e impulsos curtos no ar. Não substitui o voo.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Porrada · Cabeça-Dura como Calau",
+     "rows": [
+      {
+       "icon": "fist",
+       "label": "Postura",
+       "value": "Cabeça-Dura como Calau",
+       "desc": "A postura da porrada. Ele cola no inimigo e bate sem parar. Nela ficam liberados os golpes especiais do estilo e as armas de porrada: a Marreta do Herói e a Marreta Qing.",
+       "weak": false
+      },
+      {
+       "icon": "fist",
+       "label": "Golpe",
+       "value": "Cabeçada de Calau",
+       "desc": "Cabeçada que quebra a guarda do alvo e o deixa aberto por um instante.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Golpe",
+       "value": "Ombrada de Albatroz",
+       "desc": "Investida de ombro que empurra o inimigo e o prensa na parede ou no chão.",
+       "weak": false
+      },
+      {
+       "icon": "jump",
+       "label": "Golpe",
+       "value": "Gancho de Bico",
+       "desc": "Soco de baixo para cima que lança o alvo ao ar e abre espaço para o combo.",
+       "weak": false
+      },
+      {
+       "icon": "hammer",
+       "label": "Arma",
+       "value": "Marreta do Herói",
+       "desc": "Marreta enorme. É lenta, mas dá muito dano, e quanto mais alto ele estiver ao bater, maior o dano e a onda de choque. Combina com a Mochila de Pulo.",
+       "weak": false
+      },
+      {
+       "icon": "jump",
+       "label": "Especial",
+       "value": "Queda do Herói",
+       "desc": "Sobe alto com a mochila e despenca com a Marreta. O dano e o tamanho da onda de choque crescem com a altura da queda.",
+       "weak": false
+      },
+      {
+       "icon": "crack",
+       "label": "Especial",
+       "value": "Pancada Rachadura",
+       "desc": "Marretada no chão que abre uma rachadura em linha reta. Quem estiver no caminho é lançado para cima pela onda de choque.",
+       "weak": false
+      },
+      {
+       "icon": "staff",
+       "label": "Arma",
+       "value": "Marreta Qing",
+       "desc": "Bastão versátil e rápido, que não estica. Serve para atacar, bloquear e manter distância. Ao girar, bloqueia projéteis, e pode dar Counter.",
+       "weak": false
+      },
+      {
+       "icon": "wind",
+       "label": "Especial",
+       "value": "Giro de Hélice",
+       "desc": "Gira a Marreta Qing na frente do corpo, bloqueando projéteis, e avança varrendo quem estiver no caminho.",
+       "weak": false
+      },
+      {
+       "icon": "hand",
+       "label": "Especial",
+       "value": "Counter",
+       "desc": "Devolve o golpe do inimigo no instante certo. Ele fica invulnerável por alguns instantes, mas o ódio sobe rápido.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Especial",
+       "value": "Chuva de Bastão",
+       "desc": "Sequência de estocadas muito rápidas, que acertam o alvo dezenas de vezes em poucos segundos.",
+       "weak": false
+      },
+      {
+       "icon": "sky",
+       "label": "Especial",
+       "value": "Salto de Vara",
+       "desc": "Finca o bastão no chão, se lança no ar com a mochila e cai sobre o alvo com uma pancada vinda de cima.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Longo alcance · Certeiro como Garça",
+     "rows": [
+      {
+       "icon": "needle",
+       "label": "Postura",
+       "value": "Certeiro como Garça",
+       "desc": "A postura da distância. Libera as armas de longe e os golpes de alcance longo, para acertar de fora do alcance do inimigo.",
+       "weak": false
+      },
+      {
+       "icon": "pistol",
+       "label": "Arma",
+       "value": "Confiáveis",
+       "desc": "Par de pistolas que disparam energia amaldiçoada. Tiros rápidos em sequência, bons para pressionar sem parar de se mexer.",
+       "weak": false
+      },
+      {
+       "icon": "bazooka",
+       "label": "Arma",
+       "value": "Belezinha",
+       "desc": "Pistola que lança uma pequena carga explosiva. Explode ao contato e acerta quem estiver em volta.",
+       "weak": false
+      },
+      {
+       "icon": "needle",
+       "label": "Golpe",
+       "value": "Estocada de Garça",
+       "desc": "Avanço do pescoço e da bicada, rápido como um bote, que acerta antes de o alvo reagir.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Golpe",
+       "value": "Esporão Voador",
+       "desc": "Chute com salto, de esporão para frente, que cobre uma grande distância.",
+       "weak": false
+      },
+      {
+       "icon": "wind",
+       "label": "Golpe",
+       "value": "Varredura de Pernalta",
+       "desc": "Rasteira longa, que derruba quem estiver correndo na direção dele.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Esquiva · Leve como Beija-flor",
+     "rows": [
+      {
+       "icon": "wind",
+       "label": "Postura",
+       "value": "Leve como Beija-flor",
+       "desc": "A postura da esquiva. Ele paira, desliza e muda de direção sem aviso, e quase nada o acerta.",
+       "weak": false
+      },
+      {
+       "icon": "wind",
+       "label": "Técnica",
+       "value": "Zumbido",
+       "desc": "Esquiva rápida, em microdesvios em sequência. A cada golpe esquivado, ele fica um pouco mais rápido, por pouco tempo.",
+       "weak": false
+      },
+      {
+       "icon": "decoy",
+       "label": "Técnica",
+       "value": "Rastro de Beija-flor",
+       "desc": "Se a esquiva for perfeita, deixa um clone ilusório no lugar por 1 segundo. O inimigo ataca o clone.",
+       "weak": false
+      },
+      {
+       "icon": "sky",
+       "label": "Técnica",
+       "value": "Pairar",
+       "desc": "Salta sobre o ataque do inimigo e contra-ataca de cima, no ponto cego.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Técnica",
+       "value": "Pé de Vento",
+       "desc": "Passo rápido que atravessa a guarda do inimigo e o deixa de costas para ele.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Bloqueio · Firme como Pinguim-Imperador",
+     "rows": [
+      {
+       "icon": "shell",
+       "label": "Postura",
+       "value": "Firme como Pinguim-Imperador",
+       "desc": "A postura da defesa. Ele fecha a guarda e aguenta tudo, juntando nível de bloqueio para devolver.",
+       "weak": false
+      },
+      {
+       "icon": "shell",
+       "label": "Técnica",
+       "value": "Muralha de Penas",
+       "desc": "Bloqueia e reduz o dano. Cada bloqueio dá um pouco de nível de bloqueio. Ele não sai do lugar enquanto segura.",
+       "weak": false
+      },
+      {
+       "icon": "wind",
+       "label": "Técnica",
+       "value": "Giro de Bastão",
+       "desc": "Também nesta postura, ele pode girar a Marreta Qing para bloquear projéteis, sem sair do lugar.",
+       "weak": false
+      },
+      {
+       "icon": "hand",
+       "label": "Técnica",
+       "value": "Asa-Espelho",
+       "desc": "Bloqueio perfeito: apara no instante certo, não leva dano e ganha mais nível de bloqueio. Pode contra-atacar na mesma hora.",
+       "weak": false
+      },
+      {
+       "icon": "mark",
+       "label": "Regra",
+       "value": "Nível de Bloqueio",
+       "desc": "Vai de 0 a 10 níveis, guardados como cargas. Quanto mais nível, maior o dano da Devolução.",
+       "weak": false
+      },
+      {
+       "icon": "burst",
+       "label": "Técnica",
+       "value": "Devolução",
+       "desc": "Libera todas as cargas de uma vez, em um só golpe, e o dano cresce com o nível. Se for liberada logo em um bloqueio perfeito, causa o dobro do dano.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Técnica",
+       "value": "Bola de Penas",
+       "desc": "Se enrola e rola como uma bola, absorvendo o impacto, e dispara contra o alvo como um aríete.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "burst",
+       "label": "Custo",
+       "value": "Counter Acende o Ódio",
+       "desc": "Cada Counter dá invulnerabilidade curta, mas sobe o ódio rápido. Usar demais o leva ao ódio 4 e ao cansaço depois.",
+       "weak": true
+      },
+      {
+       "icon": "pause",
+       "label": "Limitação",
+       "value": "Marreta Pesada",
+       "desc": "A Marreta é lenta. Quem desvia no tempo certo o pune, e com ódio alto, que reduz a precisão, ele erra mais ainda.",
+       "weak": true
+      },
+      {
+       "icon": "eyeoff",
+       "label": "Limitação",
+       "value": "Ódio Cego",
+       "desc": "Com muito ódio, perde velocidade e precisão. Quem o faz levar dano e o provoca o deixa lento e errando golpes.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Cansaço Pós-Galo",
+       "desc": "Quando a Inabalável como um Galo acaba, o GUI fica cansado e vulnerável por um tempo. Quem aguenta até lá o pega no pior momento.",
+       "weak": true
+      },
+      {
+       "icon": "mute",
+       "label": "Limitação",
+       "value": "Só Perto ou Pistola",
+       "desc": "Fora da postura de longe, só alcança com o corpo. Contra quem voa alto, depende da mochila de pulo, que dá só impulsos curtos.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Fraqueza",
+       "value": "Furo de Cada Postura",
+       "desc": "O Calau é lento para desviar, a Garça é fraca de perto, o Beija-flor bate pouco e o Pinguim-Imperador fica parado.",
+       "weak": true
+      },
+      {
+       "icon": "pause",
+       "label": "Limitação",
+       "value": "Perfeito Exige Timing",
+       "desc": "A esquiva e o bloqueio perfeitos dependem de acertar o tempo. Contra golpes imprevisíveis, ele erra e leva o dano cheio.",
+       "weak": true
+      },
+      {
+       "icon": "eye-galo-ultra-inabalavel",
+       "label": "Fraqueza",
+       "value": "Teimoso",
+       "desc": "Não recua nunca, mesmo quando devia. Cai em provocação e em armadilha de quem o conhece.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pinguim-lenda",
+   "name": "Pinguim Lenda",
+   "subtitle": "Hacker de Base de Grau 1",
+   "quote": "Já estou dentro.",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "logo": "midia/pinguim-lenda/logo.jpg",
+   "logoAlt": "Pinguim de fones e viseira azul, com um pássaro-drone conectado, diante de telas de código",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 4,
+   "gradeNote": "",
+   "role": "Hacker · Suporte",
+   "series": "Temporada 1",
+   "side": "",
+   "theme": {
+    "canvas": "#050b0d",
+    "surface": "#0b1519",
+    "raised": "#112126",
+    "line": "rgba(56, 229, 255, 0.13)",
+    "lineStrong": "rgba(56, 229, 255, 0.24)",
+    "accent": "#38e5ff",
+    "warn": "#ffb04c",
+    "ink": "#e8f6f8",
+    "muted": "#8aa5ab",
+    "photoBg": "#091316"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 1,
+     "base": 1
+    },
+    {
+     "label": "Velocidade",
+     "value": 2,
+     "base": 2
+    },
+    {
+     "label": "Inteligência",
+     "value": 5,
+     "base": 3
+    },
+    {
+     "label": "Resistência",
+     "value": 2,
+     "base": 2
+    },
+    {
+     "label": "Energia",
+     "value": 5,
+     "base": 3
+    },
+    {
+     "label": "Destruição",
+     "value": 3,
+     "base": 2
+    },
+    {
+     "label": "Potencial",
+     "value": 5,
+     "base": 5
+    }
+   ],
+   "legend": [
+    "Com mechas e canal",
+    "Sem mechas"
+   ],
+   "groups": [
+    {
+     "title": "Base",
+     "rows": [
+      {
+       "icon": "terminal",
+       "label": "Inata",
+       "value": "Acesso",
+       "desc": "Lê a energia amaldiçoada como código: enxerga o fluxo, as regras e os pontos de entrada de cada técnica. Tudo o que ele faz é dar comandos em cima dessa leitura.",
+       "weak": false
+      },
+      {
+       "icon": "map",
+       "label": "Inata",
+       "value": "Sala de Controle",
+       "desc": "Nunca luta de frente. Fica sempre dentro da base, cercado de telas, e age à distância por mechas e comunicadores.",
+       "weak": false
+      },
+      {
+       "icon": "scan",
+       "label": "Técnica",
+       "value": "Varredura",
+       "desc": "Qualquer alvo visto pelo Dedo-duro ou por um aliado com comunicador fica mapeado: técnica, ritmo de energia e ponto fraco. Os ataques dele dependem disso.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Comunicação",
+     "rows": [
+      {
+       "icon": "echo",
+       "label": "Técnica",
+       "value": "Linha Direta",
+       "desc": "Fala e escuta por objetos amaldiçoados que o time carrega como comunicadores. Funciona em tempo real, mesmo a longa distância.",
+       "weak": false
+      },
+      {
+       "icon": "help",
+       "label": "Suporte",
+       "value": "Olho na Tela",
+       "desc": "Passa aos heróis, durante a luta, o que a Varredura mostrou: técnicas inimigas, posições, pontos fracos e rotas de fuga.",
+       "weak": false
+      },
+      {
+       "icon": "ear",
+       "label": "Técnica",
+       "value": "Grampo",
+       "desc": "Escuta o que acontece em volta de qualquer comunicador, mesmo desligado, e também o que os mechas ouvem.",
+       "weak": false
+      },
+      {
+       "icon": "map",
+       "label": "Utilidade",
+       "value": "Rastreio",
+       "desc": "Segue o rastro de energia de qualquer alvo mapeado e o localiza pelo Dedo-duro, que fareja a energia. Serve para achar os corpos do Passarinho Sorridente.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Mechas",
+     "rows": [
+      {
+       "icon": "link",
+       "label": "Regra",
+       "value": "Comando dos Mechas",
+       "desc": "Controla um mecha por vez no comando fino. Os outros seguem ordens simples ou ficam parados. Se um é destruído, perde só a máquina, mas gasta energia para refazer.",
+       "weak": false
+      },
+      {
+       "icon": "fly",
+       "label": "Mecha",
+       "value": "Bando de Marimbondos",
+       "desc": "Sete drones que andam sempre juntos e obedecem ao que o Pinguim estiver controlando. Se ele não estiver no comando, agem em mente de colmeia, no modo automático, e atacam em bando.",
+       "weak": false
+      },
+      {
+       "icon": "shell",
+       "label": "Primeiro mecha",
+       "value": "Colosso",
+       "desc": "Mecha pesado e blindado, com garra-martelo, asa-escudo e canhão no peito. É o tanque do bando e o mais caro de refazer.",
+       "weak": false
+      },
+      {
+       "icon": "claw-pinguim-lenda",
+       "label": "Mecha",
+       "value": "Garra",
+       "desc": "Mecha quadrúpede em forma de cão de caça, rápido e ágil. Ataca de curta distância com garras e lâminas retráteis e usa a Força Bruta para abrir a defesa do alvo.",
+       "weak": false
+      },
+      {
+       "icon": "nose",
+       "label": "Mecha",
+       "value": "Dedo-duro",
+       "desc": "Pequeno e discreto. Voa, serve de olhos e ouvidos, faz a Varredura e fareja a energia dos alvos. É por ele que o Rastreio funciona.",
+       "weak": false
+      },
+      {
+       "icon": "bazooka",
+       "label": "Mecha",
+       "value": "Canhão Orbital",
+       "desc": "Só funciona ativado à mão. O Pinguim precisa trocar para ele e perde a visão de tudo. O tiro demora 5 segundos para carregar, e nesse tempo todos os outros mechas desligam. Depois de atirar, ele perde a comunicação e o controle dos mechas, e leva muito tempo para a energia amaldiçoada voltar e ele reconectar.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Ataques por mecha",
+     "rows": [
+      {
+       "icon": "key",
+       "label": "Ataque",
+       "value": "Força Bruta",
+       "desc": "Testa combinações até abrir a defesa do alvo mapeado: quebra barreiras, selos, escudos e armaduras.",
+       "weak": false
+      },
+      {
+       "icon": "fail",
+       "label": "Ataque",
+       "value": "Erro 404",
+       "desc": "Injeta um comando em uma técnica mapeada no meio do uso. Ela falha e não acontece, uma vez por alvo.",
+       "weak": false
+      },
+      {
+       "icon": "pulse",
+       "label": "Ataque",
+       "value": "Sobrecarga",
+       "desc": "Um pulso dos mechas atordoa os alvos mapeados e os deixa sem usar técnica por alguns segundos.",
+       "weak": false
+      },
+      {
+       "icon": "pause",
+       "label": "Ataque",
+       "value": "Lag",
+       "desc": "Atrasa a percepção e o movimento do alvo mapeado. Ele reage um instante tarde.",
+       "weak": false
+      },
+      {
+       "icon": "scan",
+       "label": "Técnica",
+       "value": "Varredura Auspex",
+       "desc": "Pelo Dedo-duro, marca uma área que demora para carregar. Quem estiver dentro sofre dano crítico garantido. Depois de posta, a área fica fixa. Quem sair continua escaneado por 3 segundos, ainda suscetível ao dano crítico.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Expansão de domínio",
+       "value": "Servidor Raiz",
+       "desc": "Abre uma área ao redor de um mecha, onde ele é administrador. Cada alvo mapeado tem uma técnica bloqueada (Acesso Negado), e ele edita as regras locais, como velocidade e gravidade. Se o mecha central cair, o domínio fecha.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "crack",
+       "label": "Fraqueza",
+       "value": "Corpo Indefeso",
+       "desc": "Força e resistência baixas. Se acharem a base, ele cai fácil. Quem rastrear o sinal dos mechas chega até ele.",
+       "weak": true
+      },
+      {
+       "icon": "link",
+       "label": "Limitação",
+       "value": "Comunicador Quebrado",
+       "desc": "Sem o comunicador, ele perde o canal com aquele aliado. Se um inimigo tomar um, escuta o time.",
+       "weak": true
+      },
+      {
+       "icon": "eyeoff",
+       "label": "Fraqueza",
+       "value": "Sem Energia, Sem Código",
+       "desc": "Quem não tem energia amaldiçoada não tem o que mapear. Contra o Falcão Peregrino, quase nada funciona.",
+       "weak": true
+      },
+      {
+       "icon": "eye-pinguim-lenda",
+       "label": "Limitação",
+       "value": "Precisa Mapear",
+       "desc": "Sem Varredura os ataques dele não funcionam. Quem bloquear a visão dos mechas o deixa fraco.",
+       "weak": true
+      },
+      {
+       "icon": "eyeoff",
+       "label": "Custo",
+       "value": "Cego e Mudo",
+       "desc": "Ao trocar para o Canhão Orbital, perde a visão de tudo e deixa os outros mechas desligados por 5 segundos. Depois do tiro, fica sem comunicação com o time por muito tempo.",
+       "weak": true
+      },
+      {
+       "icon": "pause",
+       "label": "Limitação",
+       "value": "Auspex Fixa",
+       "desc": "A área da Varredura Auspex demora para carregar e não se move. Quem percebe, evita.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Custo",
+       "value": "Sobreaquecimento",
+       "desc": "Controlar vários mechas, perder máquinas e abrir o domínio esgota a energia e o deixa sem resposta por um tempo.",
        "weak": true
       }
      ]

@@ -1,6 +1,6 @@
 # Conselho dos Pássaros
 
-13 fichas.
+15 fichas.
 
 ## Heróis (7)
 
@@ -29,3 +29,10 @@
 |---|---|---|
 | [Falcão Peregrino](falcao-peregrino.md) | Caçador Sem Dom de Grau 1 | Grau 1 |
 | [Urubu Coveiro](urubu-coveiro.md) | Coveiro Amaldiçoado de Grau 1 | Grau 1 |
+
+## Sem lado definido (2)
+
+| Personagem | Subtítulo | Classificação |
+|---|---|---|
+| [Galo Ultra Inabalável](galo-ultra-inabalavel.md) | Mestre do Corpo a Corpo de Grau 1 | Grau 1 |
+| [Pinguim Lenda](pinguim-lenda.md) | Hacker de Base de Grau 1 | Grau 1 |
