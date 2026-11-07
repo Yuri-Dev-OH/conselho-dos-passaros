@@ -2,7 +2,7 @@
 
 **Herdeiro da Mineração, Fanático por Sangue Puro**
 
-![Morcego de capacete de mineração dourado, com presas, olhos vermelhos e asas abertas, em uma caverna com cristais](../midia/morcego-barao/logo.jpg)
+![Foto de Morcego Barão](../midia/morcego-barao/foto.jpg) ![Morcego de capacete de mineração dourado, com presas, olhos vermelhos e asas abertas, em uma caverna com cristais](../midia/morcego-barao/logo.jpg)
 
 > “Ninguém entra na minha caverna sem convite.”
 

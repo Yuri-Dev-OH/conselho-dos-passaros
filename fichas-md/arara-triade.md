@@ -2,7 +2,7 @@
 
 **Elemental Triplo de Grau Especial**
 
-![Arara de crista com três penas, uma vermelha, uma amarela e uma azul, diante de um fundo dividido em fogo, raio e gelo](../midia/arara-triade/logo.jpg)
+![Foto de Arara Tríade](../midia/arara-triade/foto.jpg) ![Arara de crista com três penas, uma vermelha, uma amarela e uma azul, diante de um fundo dividido em fogo, raio e gelo](../midia/arara-triade/logo.jpg)
 
 > “Fogo, raio, gelo. Quem sou eu hoje?”
 

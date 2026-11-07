@@ -1,6 +1,6 @@
 # Conselho dos Pássaros
 
-16 fichas.
+17 fichas.
 
 ## Heróis (7)
 
@@ -23,11 +23,12 @@
 | [Passarinho Sorridente](passarinho-sorridente.md) | O Rei das Maldições | Especial |
 | [Pica-Pau Cartucho](pica-pau-cartucho.md) | Casca de Bala de Grau 1 | Grau 1 |
 
-## Neutros (3)
+## Neutros (4)
 
 | Personagem | Subtítulo | Classificação |
 |---|---|---|
 | [Falcão Peregrino](falcao-peregrino.md) | Caçador Sem Dom de Grau 1 | Grau 1 |
+| [Invisi-Cisne](invisi-cisne.md) | Dama de Preto, Paranoica Invisível | Grau 2 |
 | [Morcego Barão](morcego-barao.md) | Herdeiro da Mineração, Fanático por Sangue Puro | Grau 1 |
 | [Urubu Coveiro](urubu-coveiro.md) | Coveiro Amaldiçoado de Grau 1 | Grau 1 |
 

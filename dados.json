@@ -132,7 +132,14 @@
   "claw-pinguim-lenda": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
   "key": "<circle cx=\"8\" cy=\"12\" r=\"4\"/><path d=\"M12 12h9M18 12v4M15 12v3\"/>",
   "eye-pinguim-lenda": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
-  "moon-morcego-barao": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>"
+  "moon-morcego-barao": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>",
+  "moon-invisi-cisne": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>",
+  "ghost": "<path d=\"M5 20V11a7 7 0 0 1 14 0v9l-2.3-2-2.3 2-2.4-2-2.4 2-2.3-2z\"/><path d=\"M9.5 11v.01M14.5 11v.01\"/>",
+  "noaura": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M7 7.2a7 7 0 0 0 0 9.6M17 7.2a7 7 0 0 1 0 9.6\"/><path d=\"M3.2 3.2l17.6 17.6\"/>",
+  "lowfly": "<path d=\"M3 15c3-4 7-5 11-2 2 1.5 4 1.5 7-1\"/><path d=\"M3 20h18\"/>",
+  "feather-invisi-cisne": "<path d=\"M20 4c-8 0-14 5-14 12v4M6 20l9-9M9 14h5M12 11h5\"/>",
+  "eye-invisi-cisne": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "steps": "<ellipse cx=\"8\" cy=\"8\" rx=\"2.6\" ry=\"3.8\"/><ellipse cx=\"16\" cy=\"15\" rx=\"2.6\" ry=\"3.8\"/><path d=\"M8 13.2v.01M16 20.2v.01\"/>"
  },
  "characters": [
   {
@@ -346,10 +353,10 @@
    "subtitle": "Elemental Triplo de Grau Especial",
    "quote": "Fogo, raio, gelo. Quem sou eu hoje?",
    "audio": "",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/arara-triade/foto.jpg",
+   "photoAlt": "Foto de Arara Tríade",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "logo": "midia/arara-triade/logo.jpg",
    "logoAlt": "Arara de crista com três penas, uma vermelha, uma amarela e uma azul, diante de um fundo dividido em fogo, raio e gelo",
@@ -1023,10 +1030,10 @@
    "subtitle": "Brutamontes do Grito de Grau 1",
    "quote": "Ataque!",
    "audio": "",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/casuar-de-ataque/foto.jpg",
+   "photoAlt": "Foto de Casuar de Ataque",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "logo": "midia/casuar-de-ataque/logo.jpg",
    "logoAlt": "Casuar azul de crista dourada, olhar furioso e bico aberto, com garras afiadas diante de raios vermelhos",
@@ -1946,10 +1953,10 @@
    "subtitle": "Casca de Bala de Grau 1",
    "quote": "Pode vir. Eu não paro de bater!",
    "audio": "",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/pica-pau-cartucho/foto.jpg",
+   "photoAlt": "Foto de Pica-Pau Cartucho",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "logo": "midia/pica-pau-cartucho/logo.jpg",
    "logoAlt": "Pica-pau de crista vermelha e bico longo, com a luva Beowulf e uma cartucheira de cascas de escopeta",
@@ -2578,12 +2585,12 @@
    "photo": "midia/urubu-coveiro/foto.jpg",
    "photoAlt": "Urubu de cartola e gola de penas brancas diante de um cemitério à luz da lua",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
-   "logo": "icones/icone-urubu.svg",
+   "logo": "midia/urubu-coveiro/logo.jpg",
    "logoAlt": "Logo de Urubu Coveiro",
-   "logoFit": "contain",
-   "logoPos": "50% 50%",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
    "grade": 4,
    "gradeNote": "Quanto mais mortos por perto, mais forte",
    "role": "Coveiro",
@@ -2735,10 +2742,10 @@
    "subtitle": "Mestre do Corpo a Corpo de Grau 1",
    "quote": "Não saio do lugar.",
    "audio": "",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/galo-ultra-inabalavel/foto.jpg",
+   "photoAlt": "Foto de Galo Ultra Inabalável",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "logo": "midia/galo-ultra-inabalavel/logo.jpg",
    "logoAlt": "Galo de crista vermelha, cicatriz no olho e punhos enfaixados, diante de raios de sol",
@@ -3234,10 +3241,10 @@
    "subtitle": "Hacker de Base de Grau 1",
    "quote": "Já estou dentro.",
    "audio": "",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/pinguim-lenda/foto.jpg",
+   "photoAlt": "Foto de Pinguim Lenda",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "logo": "midia/pinguim-lenda/logo.jpg",
    "logoAlt": "Pinguim de fones e viseira azul, com um pássaro-drone conectado, diante de telas de código",
@@ -3517,10 +3524,10 @@
    "subtitle": "Herdeiro da Mineração, Fanático por Sangue Puro",
    "quote": "Ninguém entra na minha caverna sem convite.",
    "audio": "",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/morcego-barao/foto.jpg",
+   "photoAlt": "Foto de Morcego Barão",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "logo": "midia/morcego-barao/logo.jpg",
    "logoAlt": "Morcego de capacete de mineração dourado, com presas, olhos vermelhos e asas abertas, em uma caverna com cristais",
@@ -3760,6 +3767,247 @@
        "label": "Fraqueza",
        "value": "Orgulho do Sangue",
        "desc": "Subestima quem acha impuro e cai em provocação sobre a pureza dele. Perde a calma quando ofendem a família.",
+       "weak": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "invisi-cisne",
+   "name": "Invisi-Cisne",
+   "subtitle": "Dama de Preto, Paranoica Invisível",
+   "quote": "Eu sei que alguém está me olhando. Por isso você não me vê.",
+   "audio": "",
+   "photo": "midia/invisi-cisne/foto.jpg",
+   "photoAlt": "Foto de Invisi-Cisne",
+   "photoFit": "cover",
+   "photoPos": "50% 18%",
+   "photoPad": "",
+   "logo": "midia/invisi-cisne/logo.jpg",
+   "logoAlt": "Cisne-negro gótica de bico vermelho, rosa escura na cabeça e gargantilha, ficando invisível sob a lua",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 3,
+   "gradeNote": "Emboscada: Grau 1",
+   "role": "Neutra · Sem Lado",
+   "series": "Temporada 1",
+   "side": "neutro",
+   "theme": {
+    "canvas": "#060b0d",
+    "surface": "#0b1316",
+    "raised": "#101c20",
+    "line": "rgba(95, 224, 207, 0.13)",
+    "lineStrong": "rgba(95, 224, 207, 0.24)",
+    "accent": "#5fe0cf",
+    "warn": "#f2b632",
+    "ink": "#f3ecfa",
+    "muted": "#a597b8",
+    "photoBg": "#081012"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "forms": [
+    {
+     "chip": "Visível",
+     "name": "Visível",
+     "values": [
+      1,
+      4,
+      4,
+      1,
+      3,
+      1,
+      4
+     ]
+    },
+    {
+     "chip": "Invisível",
+     "name": "Invisível",
+     "values": [
+      2,
+      4,
+      4,
+      1,
+      3,
+      3,
+      4
+     ]
+    }
+   ],
+   "startForm": 1,
+   "groups": [
+    {
+     "title": "Quem ela é",
+     "rows": [
+      {
+       "icon": "moon-invisi-cisne",
+       "label": "Inata",
+       "value": "Gótica e Sensual",
+       "desc": "Elegante, lenta e magnética, de preto dos pés à cabeça. Usa a presença e o olhar para desviar a atenção e some antes que alguém lembre dela.",
+       "weak": false
+      },
+      {
+       "icon": "alert",
+       "label": "Inata",
+       "value": "Paranoica",
+       "desc": "Acha que sempre tem alguém tramando contra ela. Vê armadilha em todo convite, confere todas as saídas e nunca fica de costas para uma porta.",
+       "weak": false
+      },
+      {
+       "icon": "uturn",
+       "label": "Inata",
+       "value": "Neutra",
+       "desc": "Não se compromete com ninguém. Aceita um trabalho, ajuda se for conveniente e se afasta antes de virar aliada de verdade.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Invisibilidade",
+     "rows": [
+      {
+       "icon": "ghost",
+       "label": "Técnica",
+       "value": "Véu",
+       "desc": "Fica invisível para as pessoas, para as câmeras ou para os dois ao mesmo tempo. Ela escolhe quem deixa de ver. Véu das Pessoas, Véu das Lentes ou Véu Total.",
+       "weak": false
+      },
+      {
+       "icon": "mute",
+       "label": "Técnica",
+       "value": "Passo Silencioso",
+       "desc": "Anda, pousa e bate as asas sem fazer barulho nenhum. Passa por quem está atento sem ser ouvida.",
+       "weak": false
+      },
+      {
+       "icon": "noaura",
+       "label": "Técnica",
+       "value": "Energia Oculta",
+       "desc": "Esconde a própria energia amaldiçoada. Quem rastreia por energia não sente que ela está ali.",
+       "weak": false
+      },
+      {
+       "icon": "lowfly",
+       "label": "Técnica",
+       "value": "Voo Rasante",
+       "desc": "Voando baixo, rente ao chão, não é detectada pela energia, nem quando está com o Véu desligado.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Luta",
+     "rows": [
+      {
+       "icon": "cut",
+       "label": "Técnica",
+       "value": "Golpe Oculto",
+       "desc": "Sem força, ela bate enquanto está invisível. Mira os pontos fracos: olhos, pescoço, articulações. O golpe a revela por um instante.",
+       "weak": false
+      },
+      {
+       "icon": "feather-invisi-cisne",
+       "label": "Sugestão",
+       "value": "Chuva de Penas Negras",
+       "desc": "Solta penas finas que ficam invisíveis junto com ela e flutuam ao redor das asas. Disparadas, cortam e fazem sangrar, sem muito dano.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Sugestão",
+       "value": "Passo Fantasma",
+       "desc": "Quando é descoberta, solta uma nuvem de penas escuras, ativa o Véu Total e some pela saída mais próxima, que ela já tinha escolhido.",
+       "weak": false
+      },
+      {
+       "icon": "mark",
+       "label": "Sugestão",
+       "value": "Primeiro Golpe",
+       "desc": "Escolhe o alvo e a rota de fuga antes de atacar. O primeiro golpe invisível vem sempre pelas costas, e o segundo só se der tempo de sair.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "fail",
+       "label": "Fraqueza",
+       "value": "Sem Resistência",
+       "desc": "Frágil. Um golpe a derruba, e um ataque em área acerta sem precisar enxergar. Ela não aguenta luta aberta.",
+       "weak": true
+      },
+      {
+       "icon": "eye-invisi-cisne",
+       "label": "Fraqueza",
+       "value": "Revelada ao Bater",
+       "desc": "Ao atacar, ela aparece por um instante. Quem reage rápido contra-ataca antes de ela sumir de novo.",
+       "weak": true
+      },
+      {
+       "icon": "echo",
+       "label": "Fraqueza",
+       "value": "Eco e Barulho",
+       "desc": "Ecolocalização mapeia o corpo dela mesmo invisível, como o grito do Morcego e o Escutador. O Passo Silencioso não ajuda contra eco.",
+       "weak": true
+      },
+      {
+       "icon": "steps",
+       "label": "Limitação",
+       "value": "Invisível, Não Intangível",
+       "desc": "Deixa pegadas na lama e na neve, ondas na água, marcas na poeira e na fumaça. Quem olha o chão a encontra.",
+       "weak": true
+      },
+      {
+       "icon": "meter",
+       "label": "Limitação",
+       "value": "Cada Camada Cobra",
+       "desc": "O Véu Total gasta bem mais energia que um Véu só. Ela não aguenta uma luta longa invisível.",
+       "weak": true
+      },
+      {
+       "icon": "help",
+       "label": "Fraqueza",
+       "value": "Paranoia",
+       "desc": "Foge antes de se comprometer, abandona aliados e missões no meio e vê traição onde não tem. É quase impossível fazê-la ficar.",
        "weak": true
       }
      ]

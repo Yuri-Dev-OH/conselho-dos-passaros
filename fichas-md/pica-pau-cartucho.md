@@ -2,7 +2,7 @@
 
 **Casca de Bala de Grau 1**
 
-![Pica-pau de crista vermelha e bico longo, com a luva Beowulf e uma cartucheira de cascas de escopeta](../midia/pica-pau-cartucho/logo.jpg)
+![Foto de Pica-Pau Cartucho](../midia/pica-pau-cartucho/foto.jpg) ![Pica-pau de crista vermelha e bico longo, com a luva Beowulf e uma cartucheira de cascas de escopeta](../midia/pica-pau-cartucho/logo.jpg)
 
 > “Pode vir. Eu não paro de bater!”
 

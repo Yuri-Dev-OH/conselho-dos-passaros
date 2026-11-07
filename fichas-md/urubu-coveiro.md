@@ -2,7 +2,7 @@
 
 **Coveiro Amaldiçoado de Grau 1**
 
-![Urubu de cartola e gola de penas brancas diante de um cemitério à luz da lua](../midia/urubu-coveiro/foto.jpg) ![Logo de Urubu Coveiro](../icones/icone-urubu.svg)
+![Urubu de cartola e gola de penas brancas diante de um cemitério à luz da lua](../midia/urubu-coveiro/foto.jpg) ![Logo de Urubu Coveiro](../midia/urubu-coveiro/logo.jpg)
 
 > “Fique à vontade. Eu espero.”
 

@@ -2,7 +2,7 @@
 
 **Hacker de Base de Grau 1**
 
-![Pinguim de fones e viseira azul, com um pássaro-drone conectado, diante de telas de código](../midia/pinguim-lenda/logo.jpg)
+![Foto de Pinguim Lenda](../midia/pinguim-lenda/foto.jpg) ![Pinguim de fones e viseira azul, com um pássaro-drone conectado, diante de telas de código](../midia/pinguim-lenda/logo.jpg)
 
 > “Já estou dentro.”
 

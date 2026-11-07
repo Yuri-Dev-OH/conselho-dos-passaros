@@ -2,7 +2,7 @@
 
 **Mestre do Corpo a Corpo de Grau 1**
 
-![Galo de crista vermelha, cicatriz no olho e punhos enfaixados, diante de raios de sol](../midia/galo-ultra-inabalavel/logo.jpg)
+![Foto de Galo Ultra Inabalável](../midia/galo-ultra-inabalavel/foto.jpg) ![Galo de crista vermelha, cicatriz no olho e punhos enfaixados, diante de raios de sol](../midia/galo-ultra-inabalavel/logo.jpg)
 
 > “Não saio do lugar.”
 

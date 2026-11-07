@@ -2,7 +2,7 @@
 
 **Brutamontes do Grito de Grau 1**
 
-![Casuar azul de crista dourada, olhar furioso e bico aberto, com garras afiadas diante de raios vermelhos](../midia/casuar-de-ataque/logo.jpg)
+![Foto de Casuar de Ataque](../midia/casuar-de-ataque/foto.jpg) ![Casuar azul de crista dourada, olhar furioso e bico aberto, com garras afiadas diante de raios vermelhos](../midia/casuar-de-ataque/logo.jpg)
 
 > “Ataque!”
 

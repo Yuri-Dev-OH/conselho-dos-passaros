@@ -1024,9 +1024,10 @@
   /* ===== Renderização do hub ===== */
   /** Miniatura do personagem (foto recortada ou marcador). */
   function thumb(c) {
-    const src = c.photo || c.logo;
+    // Logo primeiro: é leve, e as fotos podem ter vários MB.
+    const src = c.logo || c.photo;
     if (!src) return h("span", { class: "thumb blank", html: svg("image"), css: { "--tbg": c.theme.raised } });
-    const [fit, pos] = c.photo ? [c.photoFit, c.photoPos] : [c.logoFit, c.logoPos];
+    const [fit, pos] = c.logo ? [c.logoFit, c.logoPos] : [c.photoFit, c.photoPos];
     return withFallback(h("img", {
       class: "thumb", src: mediaSrc(src), alt: "", loading: "lazy", decoding: "async",
       css: { "--tbg": c.theme.photoBg && c.theme.photoBg.startsWith("#") ? c.theme.photoBg : c.theme.raised, "object-position": fit === "contain" ? "50% 40%" : pos || "50% 0%" },
