@@ -8,7 +8,7 @@
 
 | Lado | Classificação | Função | Série |
 |---|---|---|---|
-| — | Grau 1 | Hacker · Suporte | Temporada 1 |
+| Herói | Grau 1 | Hacker · Suporte | Temporada 1 |
 
 ## Atributos
 

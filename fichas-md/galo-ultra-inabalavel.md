@@ -8,7 +8,7 @@
 
 | Lado | Classificação | Função | Série |
 |---|---|---|---|
-| — | Grau 1 | Corpo a corpo | Temporada 1 |
+| Neutro | Grau 1 | Corpo a corpo | Temporada 1 |
 
 ## Atributos
 

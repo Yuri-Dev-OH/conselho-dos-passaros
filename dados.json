@@ -2769,7 +2769,7 @@
    "gradeNote": "",
    "role": "Corpo a corpo",
    "series": "Temporada 1",
-   "side": "",
+   "side": "neutro",
    "theme": {
     "canvas": "#0d0709",
     "surface": "#150d10",
@@ -3268,7 +3268,7 @@
    "gradeNote": "",
    "role": "Hacker · Suporte",
    "series": "Temporada 1",
-   "side": "",
+   "side": "heroi",
    "theme": {
     "canvas": "#050b0d",
     "surface": "#0b1519",
