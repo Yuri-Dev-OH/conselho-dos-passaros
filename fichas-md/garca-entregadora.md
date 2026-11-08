@@ -2,7 +2,7 @@
 
 **Entregador Neutro, Pontual e Sigiloso**
 
-![Garça cinzenta de boné vermelho com bolsa de entregas, envelope e pino de destino ao pôr do sol](../midia/garca-entregadora/logo.jpg)
+![Foto de Garça Entregadora](../midia/garca-entregadora/foto.jpg) ![Garça cinzenta de boné vermelho com bolsa de entregas, envelope e pino de destino ao pôr do sol](../midia/garca-entregadora/logo.jpg)
 
 > “Entrego em qualquer endereço. Não pergunto o que tem dentro.”
 

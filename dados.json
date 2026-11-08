@@ -4037,10 +4037,10 @@
    "gradeNote": "Logística: Grau 1",
    "role": "Neutro · Serviço de Entrega",
    "series": "Temporada 1",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/garca-entregadora/foto.jpg",
+   "photoAlt": "Foto de Garça Entregadora",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "theme": {
     "canvas": "#0c0a12",
