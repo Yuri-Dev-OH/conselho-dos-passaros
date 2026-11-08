@@ -139,7 +139,21 @@
   "lowfly": "<path d=\"M3 15c3-4 7-5 11-2 2 1.5 4 1.5 7-1\"/><path d=\"M3 20h18\"/>",
   "feather-invisi-cisne": "<path d=\"M20 4c-8 0-14 5-14 12v4M6 20l9-9M9 14h5M12 11h5\"/>",
   "eye-invisi-cisne": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
-  "steps": "<ellipse cx=\"8\" cy=\"8\" rx=\"2.6\" ry=\"3.8\"/><ellipse cx=\"16\" cy=\"15\" rx=\"2.6\" ry=\"3.8\"/><path d=\"M8 13.2v.01M16 20.2v.01\"/>"
+  "steps": "<ellipse cx=\"8\" cy=\"8\" rx=\"2.6\" ry=\"3.8\"/><ellipse cx=\"16\" cy=\"15\" rx=\"2.6\" ry=\"3.8\"/><path d=\"M8 13.2v.01M16 20.2v.01\"/>",
+  "bag": "<rect x=\"4\" y=\"8\" width=\"16\" height=\"12\" rx=\"2.5\"/><path d=\"M4 12.5h16M9 8V6a3 3 0 0 1 6 0v2M12 12.5V15\"/>",
+  "lock": "<rect x=\"5\" y=\"10.5\" width=\"14\" height=\"10\" rx=\"2\"/><path d=\"M8 10.5V8a4 4 0 0 1 8 0v2.5M12 15v2\"/>",
+  "box": "<path d=\"M3 7.5L12 3l9 4.5v9L12 21l-9-4.5z\"/><path d=\"M3 7.5l9 4.5 9-4.5M12 12v9\"/>",
+  "pin": "<path d=\"M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/>",
+  "route": "<circle cx=\"6\" cy=\"18\" r=\"2.2\"/><circle cx=\"18\" cy=\"6\" r=\"2.2\"/><path d=\"M8.2 18H14a3.5 3.5 0 0 0 0-7h-4a3.5 3.5 0 0 1 0-7h5.8\"/>",
+  "send": "<path d=\"M3 11.5L21 3l-8.5 18-2.5-7.5z\"/><path d=\"M10 13.5L21 3\"/>",
+  "truck": "<path d=\"M3 7h11v9H3zM14 10h4l3 3v3h-7\"/><circle cx=\"7\" cy=\"17.5\" r=\"1.8\"/><circle cx=\"17\" cy=\"17.5\" r=\"1.8\"/>",
+  "insure": "<path d=\"M12 3l7 2.8v5.4c0 4.6-3 8.1-7 9.8-4-1.7-7-5.2-7-9.8V5.8z\"/><path d=\"M8.8 12l2.4 2.4 4-4.4\"/>",
+  "warehouse": "<path d=\"M3 20V9l9-5 9 5v11\"/><path d=\"M8 20v-6h8v6M8 17h8\"/>",
+  "eye-garca-entregadora": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "moon-garca-entregadora": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>",
+  "dive-garca-entregadora": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
+  "claw-garca-entregadora": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
+  "door": "<path d=\"M6 21V4h12v17M3 21h18\"/><circle cx=\"15\" cy=\"13\" r=\"1\"/>"
  },
  "characters": [
   {
@@ -148,10 +162,10 @@
    "subtitle": "O Mais Forte dos Heróis",
    "quote": "Disciplina é escolher de novo, todo dia.",
    "audio": "",
-   "photo": "midia/aguia-disciplinada/foto.webp",
+   "photo": "midia/aguia-disciplinada/foto.jpg",
    "photoAlt": "Águia de óculos escuros, retrato de perfil",
-   "photoFit": "contain",
-   "photoPos": "50% 50%",
+   "photoFit": "cover",
+   "photoPos": "50% 18%",
    "photoPad": "10px 0 58px",
    "logo": "icones/icone-aguia.svg",
    "logoAlt": "Logo de Águia Disciplinada",
@@ -4013,6 +4027,333 @@
      ]
     }
    ]
+  },
+  {
+   "id": "garca-entregadora",
+   "name": "Garça Entregadora",
+   "subtitle": "Entregador Neutro, Pontual e Sigiloso",
+   "quote": "Entrego em qualquer endereço. Não pergunto o que tem dentro.",
+   "grade": 3,
+   "gradeNote": "Logística: Grau 1",
+   "role": "Neutro · Serviço de Entrega",
+   "series": "Temporada 1",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "theme": {
+    "canvas": "#0c0a12",
+    "surface": "#15111b",
+    "raised": "#1d1724",
+    "line": "rgba(255, 154, 82, 0.13)",
+    "lineStrong": "rgba(255, 154, 82, 0.24)",
+    "accent": "#ff9a52",
+    "warn": "#f2b632",
+    "ink": "#f3ecfa",
+    "muted": "#a597b8",
+    "photoBg": "#0d0a12"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Quem ele é",
+     "rows": [
+      {
+       "icon": "bag",
+       "label": "Inata",
+       "value": "Entregador de Ofício",
+       "desc": "Vive de entregar e coletar itens para quem pagar, herói ou vilão. É neutro por profissão: o endereço só precisa ser válido.",
+       "weak": false
+      },
+      {
+       "icon": "lock",
+       "label": "Inata",
+       "value": "Sigiloso",
+       "desc": "Nunca abre o pacote e nunca conta quem pediu a entrega. Ninguém arranca dele o nome de um cliente.",
+       "weak": false
+      },
+      {
+       "icon": "time",
+       "label": "Inata",
+       "value": "Pontual",
+       "desc": "Tem o prazo na cabeça o tempo todo e cumpre mesmo sob pressão. Atraso é o que mais o incomoda.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Logística",
+     "rows": [
+      {
+       "icon": "box",
+       "label": "Técnica",
+       "value": "Bolsa Sem Fundo",
+       "desc": "Bolsa amaldiçoada com espaço enorme por dentro. Guarda armas, comida, remédios e cargas grandes, e o peso não o atrapalha. Tem limite de espaço e gasta energia conforme enche.",
+       "weak": false
+      },
+      {
+       "icon": "pin",
+       "label": "Técnica",
+       "value": "Endereço",
+       "desc": "Marca um destinatário ou um local que já viu ou cuja energia conhece, e a marca o guia até lá pela Rota Perfeita. Ele entrega pessoalmente: tem que chegar ao destino, não entrega de longe. Só itens, não pessoas.",
+       "weak": false
+      },
+      {
+       "icon": "steal",
+       "label": "Técnica",
+       "value": "Coleta",
+       "desc": "Puxa para a bolsa um item ao alcance dele, desde que esteja largado, perdido ou liberado pelo dono. Não arranca da asa de quem o segura firme.",
+       "weak": false
+      },
+      {
+       "icon": "route",
+       "label": "Técnica",
+       "value": "Rota Perfeita",
+       "desc": "Sente o caminho mais rápido entre dois pontos, com atalhos, correntes de vento, perigos e obstáculos. Voa longe com carga sem se perder e sem esbarrar.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Tipos de entrega",
+     "rows": [
+      {
+       "icon": "send",
+       "label": "Modalidade",
+       "value": "Entrega Comum",
+       "desc": "O serviço padrão. Voa na velocidade normal e leva várias cargas comuns na mesma viagem.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Modalidade",
+       "value": "Entrega Expressa",
+       "desc": "Só ativa enquanto ele faz uma entrega expressa contratada. O voo mais veloz da série inteira, com a velocidade máxima mais alta de todos os personagens. Fora da entrega expressa, voa na velocidade normal.",
+       "weak": false
+      },
+      {
+       "icon": "truck",
+       "label": "Modalidade",
+       "value": "Carro-Forte",
+       "desc": "Quando o cliente escolhe, e enquanto faz a rota dessa entrega, ele fica blindado, com a maior resistência dele. O preço é voar na velocidade 1.",
+       "weak": false
+      },
+      {
+       "icon": "insure",
+       "label": "Serviço pago",
+       "value": "Seguro",
+       "desc": "Se o cliente pagar, e a carga da entrega for perdida ou danificada, ela some e aparece uma cópia idêntica no lugar onde ele pegou o pacote. Ele precisa voltar lá para recuperá-la.",
+       "weak": false
+      },
+      {
+       "icon": "echo",
+       "label": "Serviço pago",
+       "value": "Rastreio",
+       "desc": "Se o cliente pagar, ele transmite a própria localização em tempo real durante essa entrega.",
+       "weak": false
+      },
+      {
+       "icon": "uturn",
+       "label": "Regra",
+       "value": "Entregas Não se Misturam",
+       "desc": "Comum, Expressa e Carro-Forte nunca andam juntas. Quando termina todas as entregas comuns, ele volta ao Centro de Logística e só então coleta cargas expressas ou Carro-Forte.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Suporte em luta",
+     "rows": [
+      {
+       "icon": "send",
+       "label": "Serviço pago · Urgência",
+       "value": "Reabastecimento",
+       "desc": "No meio da luta, voa até um aliado e entrega arma, munição, remédio ou comida. O Falcão, sem energia, recebe o arsenal dele. O Pica-Pau recebe cartuchos e a Pomba da Paz, remédios. Por ser urgente, custa bem mais caro que uma entrega comum.",
+       "weak": false
+      },
+      {
+       "icon": "lock",
+       "label": "Serviço pago · Urgência",
+       "value": "Caixa Lacrada",
+       "desc": "Fecha um item perigoso em uma caixa que só o destinatário abre. Qualquer outro que tente abrir encontra a caixa travada. Por ser urgente, custa mais caro que uma entrega comum.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Domínio",
+     "rows": [
+      {
+       "icon": "warehouse",
+       "label": "Domínio",
+       "value": "Centro de Logística",
+       "desc": "O domínio dele é o próprio Centro de Logística, onde as cargas são separadas e saem as entregas. Nem dentro dele, ele entrega de longe.",
+       "weak": false
+      },
+      {
+       "icon": "give",
+       "label": "Inata",
+       "value": "Energia por Entrega",
+       "desc": "Cada entrega concluída enche a energia dele. Por isso tem energia de sobra para expandir o domínio várias vezes.",
+       "weak": false
+      },
+      {
+       "icon": "steal",
+       "label": "Gasto extra",
+       "value": "Confisco",
+       "desc": "Gastando mais energia no domínio, ele pega armas que outras pessoas estão segurando. Sem esse gasto, não tira nada de quem segura.",
+       "weak": false
+      },
+      {
+       "icon": "key",
+       "label": "Serviço pago",
+       "value": "Armazenagem",
+       "desc": "Se o cliente pagar, guarda o item dele dentro do domínio por um tempo combinado. Quanto mais tempo, mais caro.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "fail",
+       "label": "Fraqueza",
+       "value": "Não É de Luta",
+       "desc": "Frágil e sem golpe de verdade. Um acerto o derruba, e ele foge ao primeiro sinal de briga.",
+       "weak": true
+      },
+      {
+       "icon": "mark",
+       "label": "Limitação",
+       "value": "Endereço Válido",
+       "desc": "Sem um destinatário que ele conheça, não entrega. Quem esconde a energia, como a Invisi-Cisne, fica sem endereço.",
+       "weak": true
+      },
+      {
+       "icon": "bag",
+       "label": "Fraqueza",
+       "value": "A Bolsa é o Poder",
+       "desc": "Se a bolsa for cortada, roubada ou perder a energia, ele perde Bolsa, Endereço e Coleta, e o que estava dentro cai.",
+       "weak": true
+      },
+      {
+       "icon": "truck",
+       "label": "Limitação",
+       "value": "Carro-Forte é Lento",
+       "desc": "Na velocidade 1, mesmo blindado, é um alvo fácil de seguir, cercar e prender. Não consegue fugir de nada.",
+       "weak": true
+      },
+      {
+       "icon": "meter",
+       "label": "Limitação",
+       "value": "Energia Vem da Entrega",
+       "desc": "Sem entregar, ele não recarrega. Entra em luta com pouca energia e o domínio fraco se não tiver feito entregas antes.",
+       "weak": true
+      },
+      {
+       "icon": "alert",
+       "label": "Fraqueza",
+       "value": "Prazo Apertado",
+       "desc": "Quando o prazo aperta, entra em pânico e erra a rota. Atrasado, perde o foco de vez.",
+       "weak": true
+      },
+      {
+       "icon": "eye-garca-entregadora",
+       "label": "Limitação",
+       "value": "Rota Conhecida",
+       "desc": "Todo mundo sabe que ele entrega. Com o Rastreio ligado, quem interceptar o sinal acha a Garça e a rota dela.",
+       "weak": true
+      }
+     ]
+    }
+   ],
+   "audio": "",
+   "logo": "midia/garca-entregadora/logo.jpg",
+   "logoAlt": "Garça cinzenta de boné vermelho com bolsa de entregas, envelope e pino de destino ao pôr do sol",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "forms": [
+    {
+     "chip": "Normal",
+     "name": "Normal",
+     "values": [
+      1,
+      4,
+      4,
+      2,
+      4,
+      1,
+      4
+     ]
+    },
+    {
+     "chip": "Entrega Expressa",
+     "name": "Entrega Expressa",
+     "values": [
+      1,
+      5,
+      4,
+      1,
+      4,
+      1,
+      4
+     ]
+    },
+    {
+     "chip": "Carro-Forte",
+     "name": "Carro-Forte",
+     "values": [
+      1,
+      1,
+      4,
+      5,
+      4,
+      1,
+      4
+     ]
+    }
+   ],
+   "startForm": 0,
+   "side": "neutro"
   }
  ]
 }

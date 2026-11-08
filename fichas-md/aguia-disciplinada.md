@@ -2,7 +2,7 @@
 
 **O Mais Forte dos Heróis**
 
-![Águia de óculos escuros, retrato de perfil](../midia/aguia-disciplinada/foto.webp) ![Logo de Águia Disciplinada](../icones/icone-aguia.svg)
+![Águia de óculos escuros, retrato de perfil](../midia/aguia-disciplinada/foto.jpg) ![Logo de Águia Disciplinada](../icones/icone-aguia.svg)
 
 > “Disciplina é escolher de novo, todo dia.”
 
