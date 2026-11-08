@@ -86,6 +86,14 @@
     color: var(--ink); font: inherit; font-size: 16px;
   }
   .search input:focus { outline: none; border-color: rgba(255, 255, 255, 0.28); }
+  .filters { display: flex; gap: 6px; margin: 0 14px 10px; align-items: center; flex-wrap: wrap; }
+  .filters button, .filters select {
+    height: 30px; padding: 0 10px; border-radius: 999px; border: 1px solid var(--hair);
+    background: rgba(255, 255, 255, 0.04); color: var(--muted); font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .filters button[aria-pressed="true"] { color: var(--ink); border-color: rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.1); }
+  .filters select { margin-left: auto; color: var(--ink); }
+  .filters select option { background: #15151a; }
   .list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 4px 10px 12px; display: grid; align-content: start; gap: 2px; }
   .item {
     position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; align-items: center;
@@ -421,6 +429,13 @@
       <button class="icon-btn side-close" data-act="close-drawer" aria-label="Fechar lista"></button>
     </div>
     <label class="search"><input id="q" type="search" placeholder="Buscar personagem" autocomplete="off" aria-label="Buscar personagem"></label>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar por lado">
+      <button type="button" data-side="" aria-pressed="true">Todos</button>
+      <button type="button" data-side="heroi" aria-pressed="false">Heróis</button>
+      <button type="button" data-side="neutro" aria-pressed="false">Neutros</button>
+      <button type="button" data-side="vilao" aria-pressed="false">Vilões</button>
+      <select id="ord" aria-label="Ordenar"><option value="nome">Nome</option><option value="grau">Classificação</option></select>
+    </div>
     <nav class="list" id="list"></nav>
     <div class="side-foot">
       <button class="btn primary" data-act="new" data-need="edit"></button>
@@ -811,7 +826,7 @@
   }
 
   /* ===== Estado ===== */
-  const state = { chars: [], currentId: null, query: "", editing: null, unlocked: false, online: false, view: {}, form: {} };
+  const state = { chars: [], currentId: null, query: "", side: "", order: "nome", editing: null, unlocked: false, online: false, view: {}, form: {} };
   const app = $("app"), host = $("host"), stage = $("stage"), editorEl = $("editor");
 
   const byId = (id) => state.chars.find((c) => c.id === id) || null;
@@ -1034,9 +1049,20 @@
     }), src);
   }
 
+  /**
+   * Fichas na ordem escolhida: por nome ou por classificação (mais alta primeiro).
+   *
+   * @return {!Array<!Object>} Cópia ordenada de state.chars.
+   */
+  function ordered() {
+    const list = state.chars.slice();
+    if (state.order === "grau") list.sort((a, b) => (b.grade || 1) - (a.grade || 1) || a.name.localeCompare(b.name, "pt", { sensitivity: "base" }));
+    return list;
+  }
+
   function renderList() {
     const q = norm(state.query.trim());
-    const list = state.chars.filter((c) => !q || norm(c.name + " " + c.subtitle + " " + c.role + " " + (SIDES[c.side] || "")).includes(q));
+    const list = ordered().filter((c) => (!state.side || c.side === state.side) && (!q || norm(c.name + " " + c.subtitle + " " + c.role + " " + (SIDES[c.side] || "")).includes(q)));
     $("list").replaceChildren(...(list.length ? list.map((c) => h("a", {
       class: "item" + (c.id === state.currentId ? " on" : ""), href: "#" + c.id,
       "aria-current": c.id === state.currentId ? "true" : null, css: { "--acc": c.theme.accent },
@@ -1048,7 +1074,7 @@
 
   function renderStrip() {
     const strip = $("strip");
-    strip.replaceChildren(...state.chars.map((c) => h("a", {
+    strip.replaceChildren(...ordered().map((c) => h("a", {
       class: "chip" + (c.id === state.currentId ? " on" : ""), href: "#" + c.id,
       "aria-label": c.name, "aria-current": c.id === state.currentId ? "true" : null, css: { "--acc": c.theme.accent },
     }, thumb(c), h("span", { text: c.name.split(" ")[0] }))));
@@ -1911,6 +1937,14 @@
       strip.scrollLeft += e.deltaY;
     }, { passive: false });
     $("q").addEventListener("input", (e) => { state.query = e.target.value; renderList(); });
+    $("filters").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-side]");
+      if (!b) return;
+      state.side = b.dataset.side;
+      for (const x of $("filters").querySelectorAll("button")) x.setAttribute("aria-pressed", String(x === b));
+      renderList();
+    });
+    $("ord").addEventListener("change", (e) => { state.order = e.target.value; renderList(); renderStrip(); });
     $("importFile").addEventListener("change", (e) => {
       const f = e.target.files[0];
       e.target.value = "";
