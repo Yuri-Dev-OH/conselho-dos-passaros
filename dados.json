@@ -3958,21 +3958,21 @@
       },
       {
        "icon": "feather-invisi-cisne",
-       "label": "Sugestão",
+       "label": "Técnica",
        "value": "Chuva de Penas Negras",
        "desc": "Solta penas finas que ficam invisíveis junto com ela e flutuam ao redor das asas. Disparadas, cortam e fazem sangrar, sem muito dano.",
        "weak": false
       },
       {
        "icon": "dash",
-       "label": "Sugestão",
+       "label": "Técnica",
        "value": "Passo Fantasma",
        "desc": "Quando é descoberta, solta uma nuvem de penas escuras, ativa o Véu Total e some pela saída mais próxima, que ela já tinha escolhido.",
        "weak": false
       },
       {
        "icon": "mark",
-       "label": "Sugestão",
+       "label": "Técnica",
        "value": "Primeiro Golpe",
        "desc": "Escolhe o alvo e a rota de fuga antes de atacar. O primeiro golpe invisível vem sempre pelas costas, e o segundo só se der tempo de sair.",
        "weak": false

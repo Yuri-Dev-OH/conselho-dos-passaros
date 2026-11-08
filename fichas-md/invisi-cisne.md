@@ -51,11 +51,11 @@ _Escala de 0 a 5, por postura_
 
 - _Técnica_ · **Golpe Oculto**  
   Sem força, ela bate enquanto está invisível. Mira os pontos fracos: olhos, pescoço, articulações. O golpe a revela por um instante.
-- _Sugestão_ · **Chuva de Penas Negras**  
+- _Técnica_ · **Chuva de Penas Negras**  
   Solta penas finas que ficam invisíveis junto com ela e flutuam ao redor das asas. Disparadas, cortam e fazem sangrar, sem muito dano.
-- _Sugestão_ · **Passo Fantasma**  
+- _Técnica_ · **Passo Fantasma**  
   Quando é descoberta, solta uma nuvem de penas escuras, ativa o Véu Total e some pela saída mais próxima, que ela já tinha escolhido.
-- _Sugestão_ · **Primeiro Golpe**  
+- _Técnica_ · **Primeiro Golpe**  
   Escolhe o alvo e a rota de fuga antes de atacar. O primeiro golpe invisível vem sempre pelas costas, e o segundo só se der tempo de sair.
 
 ## Pontos fracos
