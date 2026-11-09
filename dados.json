@@ -159,7 +159,17 @@
   "eye-andorrinhao-conto": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
   "zz": "<path d=\"M4 5h7L4 12h7M13 13h6l-6 6h6\"/>",
   "dive-andorrinhao-conto": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
-  "claw-andorrinhao-conto": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>"
+  "claw-andorrinhao-conto": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
+  "eye-gaviao-evocador": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "ghostwing": "<path d=\"M3.5 17c3-.5 6.5-3.5 7.6-8.4C13.6 8.8 17 11 19.5 16c-2.7-1.4-5.2-1.7-7.4-.7-2 .9-4.8 1.8-8.6 1.7z\"/>",
+  "ghostclaw": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/><path d=\"M3.5 20.5h17\" stroke-dasharray=\"2 2\"/>",
+  "sword": "<path d=\"M14.5 3H21v6.5L9 21.5 6 18.5z\"/><path d=\"M4 17l3 3M3 21l3-3\"/>",
+  "revolver": "<path d=\"M3 8.5h13a2 2 0 0 1 2 2V13h-6l-1 5H7.5l.8-5H3z\"/><circle cx=\"16.5\" cy=\"6.5\" r=\"1.4\"/>",
+  "feather-gaviao-evocador": "<path d=\"M20 4c-8 0-14 5-14 12v4M6 20l9-9M9 14h5M12 11h5\"/>",
+  "swap-gaviao-evocador": "<path d=\"M4 8h13M14 4.5L17.5 8 14 11.5M20 16H7M10 12.5L6.5 16 10 19.5\"/>",
+  "moon-gaviao-evocador": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>",
+  "dive-gaviao-evocador": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
+  "claw-gaviao-evocador": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>"
  },
  "characters": [
   {
@@ -4649,6 +4659,372 @@
       3,
       4,
       4
+     ]
+    }
+   ],
+   "startForm": 0,
+   "side": ""
+  },
+  {
+   "id": "gaviao-evocador",
+   "name": "Gavião Evocador",
+   "subtitle": "Filho do Falcão, Recruta da Águia",
+   "quote": "Eu nunca luto sozinho. Eles sempre atendem.",
+   "grade": 3,
+   "gradeNote": "Espada encantada: Grau 1",
+   "role": "Herói · Recruta da Águia",
+   "series": "Temporada 1",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 0%",
+   "photoPad": "",
+   "theme": {
+    "canvas": "#0e060f",
+    "surface": "#170b17",
+    "raised": "#201122",
+    "line": "rgba(240, 85, 140, 0.13)",
+    "lineStrong": "rgba(240, 85, 140, 0.24)",
+    "accent": "#f0558c",
+    "warn": "#f2b632",
+    "ink": "#f3ecfa",
+    "muted": "#a597b8",
+    "photoBg": "#10060f"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 5,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Quem ele é",
+     "rows": [
+      {
+       "icon": "mark",
+       "label": "Inata",
+       "value": "Filho Bastardo do Falcão",
+       "desc": "Filho bastardo do Falcão Peregrino. Ao contrário do pai, nasceu com energia amaldiçoada.",
+       "weak": false
+      },
+      {
+       "icon": "shield",
+       "label": "Inata",
+       "value": "Recruta da Águia",
+       "desc": "Foi recrutado pela Águia Disciplinada e luta do lado dos heróis.",
+       "weak": false
+      },
+      {
+       "icon": "eye-gaviao-evocador",
+       "label": "Técnica",
+       "value": "Olho de Falcão",
+       "desc": "Reflexos e pontaria herdados do pai, sem o corpo sem dom. Ajudam no revólver e na espada.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Stand: Asas e Garras Fantasmas",
+     "rows": [
+      {
+       "icon": "ghostwing",
+       "label": "Técnica",
+       "value": "Asas Fantasmas",
+       "desc": "Duas asas espectrais enormes, como um stand. Servem para voar, bater e se proteger.",
+       "weak": false
+      },
+      {
+       "icon": "ghostclaw",
+       "label": "Técnica",
+       "value": "Garras Fantasmas",
+       "desc": "Duas garras espectrais gigantes que agarram, prendem e rasgam.",
+       "weak": false
+      },
+      {
+       "icon": "link",
+       "label": "Técnica",
+       "value": "Asas e Garras Juntas",
+       "desc": "Usa as asas e as garras ao mesmo tempo. Gasta bem mais energia que usar só um par.",
+       "weak": false
+      },
+      {
+       "icon": "sword",
+       "label": "Técnica",
+       "value": "Stand com a Espada",
+       "desc": "Pode usar as asas e as garras fantasmas ao mesmo tempo que luta com a espada, sem largar nada.",
+       "weak": false
+      },
+      {
+       "icon": "decoy",
+       "label": "Técnica",
+       "value": "Clone Fantasma",
+       "desc": "Faz o stand virar um clone mágico dele, com uma espada fantasma igual à Acelerada, mas sem os bônus. Ele controla o clone enquanto luta. O clone só faz movimentos que o Gavião já fez.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Evocação",
+     "rows": [
+      {
+       "icon": "flock",
+       "label": "Técnica",
+       "value": "Evocação",
+       "desc": "Evoca criaturas, todas elas aves espectrais, que lutam ao lado dele enquanto durar a energia.",
+       "weak": false
+      },
+      {
+       "icon": "heal",
+       "label": "Evocação",
+       "value": "Fantasma-Padre",
+       "desc": "Um pássaro orador que fica imóvel, com um escudo fraco. Fortalece o Gavião e os aliados o tempo todo.",
+       "weak": false
+      },
+      {
+       "icon": "burst",
+       "label": "Evocação",
+       "value": "Fantasma-Corvo",
+       "desc": "Um corvo que fica atirando bolinhas de energia.",
+       "weak": false
+      },
+      {
+       "icon": "decoy",
+       "label": "Evocação",
+       "value": "Fantasma-Magos-Gêmeos",
+       "desc": "Dois pássaros obesos que voam e dão escudo mágico um ao outro. O inimigo precisa bater no que está sem escudo. Quando ele leva dano suficiente, ganha o escudo e o outro o perde. Atiram bolas grandes de energia rapidamente e um laser mágico lento. Podem parar de voar para soltar ondas de energia circulares, uma a cada 3 segundos.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Evocação",
+       "value": "Fantasma-Besta-do-Vórtice",
+       "desc": "Um pássaro gigante, com muita resistência, que bate corpo a corpo sem parar e atira laser enquanto bate. É uma besta incontrolável: nem o Gavião a controla, e invocá-la é a última opção dele. Pode parar para bater no chão, soltando ondas de energia circulares e vários lasers em todas as direções ao mesmo tempo.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Espada Acelerada",
+     "rows": [
+      {
+       "icon": "sword",
+       "label": "Arma",
+       "value": "Espada Acelerada",
+       "desc": "Lâmina escura, longa e levemente curva, com ponta serrilhada. A guarda parece uma asa de penas afiadas, com detalhes vermelhos. A espada flutua ao lado da asa. Ao bater, ele acelera o cabo, como o acelerador de uma moto: o motor ruge e a lâmina se encanta com fogo, raio ou gelo.",
+       "weak": false
+      },
+      {
+       "icon": "meter",
+       "label": "Técnica",
+       "value": "Três Níveis de Energia",
+       "desc": "A espada tem 3 níveis de energia, e cada nível melhora o fogo, o raio ou o gelo. Trocar de elemento, incluindo voltar à Crua, zera a carga.",
+       "weak": false
+      },
+      {
+       "icon": "force",
+       "label": "Modo",
+       "value": "Espada Crua",
+       "desc": "Se não estiver encantada, a espada está sempre crua. Aumenta o dano puro, sem magia e sem níveis de energia.",
+       "weak": false
+      },
+      {
+       "icon": "burst",
+       "label": "Técnica",
+       "value": "Fogo, Raio e Gelo",
+       "desc": "O fogo queima e continua queimando. O raio acerta e atordoa. O gelo congela e deixa o alvo lento. Cada nível aumenta o efeito.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Revólver Seis Penas",
+     "rows": [
+      {
+       "icon": "revolver",
+       "label": "Arma",
+       "value": "Revólver Seis Penas",
+       "desc": "Revólver mágico de seis tiros que flutua ao lado da asa. As balas são seis penas, uma em cada câmara.",
+       "weak": false
+      },
+      {
+       "icon": "feather-gaviao-evocador",
+       "label": "Especial",
+       "value": "Seis Penas",
+       "desc": "Vermelha perfura armadura e barreira. Azul persegue o alvo. Branca é silenciosa e sem brilho. Preta ricocheteia até três vezes. Dourada marca o alvo para os aliados. Fantasma atravessa o corpo e fere a energia.",
+       "weak": false
+      },
+      {
+       "icon": "cycle",
+       "label": "Especial",
+       "value": "Penas de Volta",
+       "desc": "As penas disparadas voltam ao tambor depois de alguns segundos, se não forem destruídas. Ele nunca precisa comprar munição.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Domínio",
+     "rows": [
+      {
+       "icon": "rings",
+       "label": "Domínio de expansão",
+       "value": "Modo Cerco",
+       "desc": "A vítima é levada a um cenário enorme, como uma zona de guerra urbana, onde todas as evocações do Gavião estão ao mesmo tempo, sem ele gastar energia para mantê-las ativas. O Modo Cerco acaba quando a vítima mata todos os inimigos ou quando passam 10 minutos.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "meter",
+       "label": "Limitação",
+       "value": "Asas e Garras Cobram",
+       "desc": "Usar os dois pares ao mesmo tempo gasta muita energia, e ele fica sem fôlego rápido.",
+       "weak": true
+      },
+      {
+       "icon": "flock",
+       "label": "Limitação",
+       "value": "Criaturas Gastam Energia",
+       "desc": "Cada criatura evocada gasta energia enquanto está em campo. Quanto maior a ave, mais caro.",
+       "weak": true
+      },
+      {
+       "icon": "swap-gaviao-evocador",
+       "label": "Limitação",
+       "value": "Troca Zera a Carga",
+       "desc": "Trocar de elemento, ou voltar à Crua, zera os níveis da espada. Ele tem que carregar de novo desde o começo.",
+       "weak": true
+      },
+      {
+       "icon": "swap-gaviao-evocador",
+       "label": "Limitação",
+       "value": "Crua ou Encantada",
+       "desc": "Encantar a espada tira o bônus de dano puro. Ele escolhe entre dano puro e magia.",
+       "weak": true
+      },
+      {
+       "icon": "decoy",
+       "label": "Limitação",
+       "value": "Clone Só Repete",
+       "desc": "O clone só faz movimentos que o Gavião já fez. Contra um golpe novo, ele não sabe o que fazer.",
+       "weak": true
+      },
+      {
+       "icon": "alert",
+       "label": "Limitação",
+       "value": "Besta Incontrolável",
+       "desc": "A Besta do Vórtice não obedece a ninguém e pode atacar quem estiver perto, aliados incluídos.",
+       "weak": true
+      },
+      {
+       "icon": "link",
+       "label": "Limitação",
+       "value": "Dano Compartilhado",
+       "desc": "O que atinge as Asas ou as Garras Fantasmas também machuca ele.",
+       "weak": true
+      },
+      {
+       "icon": "fail",
+       "label": "Fraqueza",
+       "value": "Sem o Corpo do Pai",
+       "desc": "Herdou a mira, mas não as resistências do Falcão. Fogo, raio, gelo e veneno o ferem normalmente.",
+       "weak": true
+      }
+     ]
+    }
+   ],
+   "audio": "",
+   "logo": "midia/gaviao-evocador/logo.jpg",
+   "logoAlt": "Gavião de lenço framboesa com asas e garras fantasmas, espada flutuando e um revólver de seis tiros",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "forms": [
+    {
+     "chip": "Normal",
+     "name": "Normal",
+     "values": [
+      3,
+      4,
+      3,
+      3,
+      4,
+      3,
+      5
+     ]
+    },
+    {
+     "chip": "Espada Crua",
+     "name": "Espada Crua",
+     "values": [
+      4,
+      4,
+      3,
+      3,
+      4,
+      4,
+      5
+     ]
+    },
+    {
+     "chip": "Encantada",
+     "name": "Espada Encantada",
+     "values": [
+      3,
+      4,
+      3,
+      3,
+      3,
+      5,
+      5
+     ]
+    },
+    {
+     "chip": "Asas e Garras",
+     "name": "Asas e Garras",
+     "values": [
+      4,
+      5,
+      3,
+      3,
+      2,
+      4,
+      5
      ]
     }
    ],

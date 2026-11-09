@@ -1,6 +1,6 @@
 # Conselho dos Pássaros
 
-19 fichas.
+20 fichas.
 
 ## Heróis (8)
 
@@ -35,8 +35,9 @@
 | [Morcego Barão](morcego-barao.md) | Herdeiro da Mineração, Fanático por Sangue Puro | Grau 1 |
 | [Urubu Coveiro](urubu-coveiro.md) | Coveiro Amaldiçoado de Grau 1 | Grau 1 |
 
-## Sem lado definido (1)
+## Sem lado definido (2)
 
 | Personagem | Subtítulo | Classificação |
 |---|---|---|
 | [Andorrinhão-Conto](andorrinhao-conto.md) | Especialista Sonolento por Tempo Limitado | Grau 2 |
+| [Gavião Evocador](gaviao-evocador.md) | Filho do Falcão, Recruta da Águia | Grau 2 |
