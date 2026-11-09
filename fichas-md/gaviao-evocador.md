@@ -2,7 +2,7 @@
 
 **Filho do Falcão, Recruta da Águia**
 
-![Gavião de lenço framboesa com asas e garras fantasmas, espada flutuando e um revólver de seis tiros](../midia/gaviao-evocador/logo.jpg)
+![Foto de Gavião Evocador](../midia/gaviao-evocador/foto.jpg) ![Gavião de lenço framboesa com asas e garras fantasmas, espada flutuando e um revólver de seis tiros](../midia/gaviao-evocador/logo.jpg)
 
 > “Eu nunca luto sozinho. Eles sempre atendem.”
 

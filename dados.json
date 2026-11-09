@@ -4674,10 +4674,10 @@
    "gradeNote": "Espada encantada: Grau 1",
    "role": "Herói · Recruta da Águia",
    "series": "Temporada 1",
-   "photo": "",
-   "photoAlt": "",
+   "photo": "midia/gaviao-evocador/foto.jpg",
+   "photoAlt": "Foto de Gavião Evocador",
    "photoFit": "cover",
-   "photoPos": "50% 0%",
+   "photoPos": "50% 18%",
    "photoPad": "",
    "theme": {
     "canvas": "#0e060f",
