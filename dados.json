@@ -153,7 +153,13 @@
   "moon-garca-entregadora": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>",
   "dive-garca-entregadora": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
   "claw-garca-entregadora": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
-  "door": "<path d=\"M6 21V4h12v17M3 21h18\"/><circle cx=\"15\" cy=\"13\" r=\"1\"/>"
+  "door": "<path d=\"M6 21V4h12v17M3 21h18\"/><circle cx=\"15\" cy=\"13\" r=\"1\"/>",
+  "moon-andorrinhao-conto": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>",
+  "book": "<path d=\"M3 5.5Q7.5 4 12 6.5 16.5 4 21 5.5V19Q16.5 17.5 12 20 7.5 17.5 3 19z\"/><path d=\"M12 6.5V20\"/>",
+  "eye-andorrinhao-conto": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>",
+  "zz": "<path d=\"M4 5h7L4 12h7M13 13h6l-6 6h6\"/>",
+  "dive-andorrinhao-conto": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
+  "claw-andorrinhao-conto": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>"
  },
  "characters": [
   {
@@ -4354,6 +4360,300 @@
    ],
    "startForm": 0,
    "side": "neutro"
+  },
+  {
+   "id": "andorrinhao-conto",
+   "name": "Andorrinhão-Conto",
+   "subtitle": "Especialista Sonolento por Tempo Limitado",
+   "quote": "Só mais cinco minutinhos. Depois eu aprendo tudo.",
+   "grade": 3,
+   "gradeNote": "No assunto: Grau 1",
+   "role": "Consultor · Lado a definir",
+   "series": "Temporada 1",
+   "photo": "midia/andorrinhao-conto/foto.jpg",
+   "photoAlt": "Foto de Andorrinhão-Conto",
+   "photoFit": "cover",
+   "photoPos": "50% 18%",
+   "photoPad": "",
+   "theme": {
+    "canvas": "#080a14",
+    "surface": "#0e1220",
+    "raised": "#151b2d",
+    "line": "rgba(122, 162, 255, 0.13)",
+    "lineStrong": "rgba(122, 162, 255, 0.24)",
+    "accent": "#7aa2ff",
+    "warn": "#f2b632",
+    "ink": "#f3ecfa",
+    "muted": "#a597b8",
+    "photoBg": "#0a0d18"
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Quem ele é",
+     "rows": [
+      {
+       "icon": "sedate",
+       "label": "Inata",
+       "value": "Dorminhoco",
+       "desc": "Adora dormir. Prefere uma cama, uma rede ou uma nuvem macia a qualquer luta.",
+       "weak": false
+      },
+      {
+       "icon": "fly",
+       "label": "Inata",
+       "value": "Sono Planador",
+       "desc": "Dorme em pleno voo, planando sem cair, como um andorinhão de verdade. Quase nunca pousa.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Acordado",
+     "rows": [
+      {
+       "icon": "spark",
+       "label": "Inata",
+       "value": "Mente Afiada",
+       "desc": "Acordado, ele é inteligente: pensa rápido, aprende rápido e enxerga o que os outros não veem.",
+       "weak": false
+      },
+      {
+       "icon": "mind",
+       "label": "Técnica",
+       "value": "Hiperfoco",
+       "desc": "Escolhe um assunto e vira especialista nele por tempo limitado. A inteligência dispara e ele domina tudo daquele assunto. Nos assuntos que ele não gosta, o Hiperfoco é uma reserva de tempo que se gasta.",
+       "weak": false
+      },
+      {
+       "icon": "scroll",
+       "label": "Técnica",
+       "value": "Biblioteca da Mente",
+       "desc": "Escolhe, na própria mente, um assunto que já conhece e ativa o Hiperfoco sobre ele na hora, sem estudar de novo. Só vale para o que ele ainda guarda: os assuntos de que gosta e o assunto ativo.",
+       "weak": false
+      },
+      {
+       "icon": "give",
+       "label": "Técnica",
+       "value": "Gostos Não Gastam",
+       "desc": "Nos assuntos de que ele gosta, o Hiperfoco é natural: está sempre ativo, não gasta e o conhecimento nunca se perde. Para os assuntos de que não gosta, tem que gastar Hiperfoco.",
+       "weak": false
+      },
+      {
+       "icon": "rings",
+       "label": "Domínio · Acordado",
+       "value": "Sobrecarga de Hiperfoco",
+       "desc": "Expansão de domínio: a vítima fica sobrecarregada com Hiperfoco em TUDO ao mesmo tempo. Não aguenta tanta informação e fica paralisada por muito tempo.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Dormindo",
+     "rows": [
+      {
+       "icon": "force",
+       "label": "Técnica",
+       "value": "Lutador Adormecido",
+       "desc": "Dormindo, ele luta por instinto: fica rápido e forte. A resistência não aumenta.",
+       "weak": false
+      },
+      {
+       "icon": "moon-andorrinhao-conto",
+       "label": "Domínio · Dormindo",
+       "value": "Conto de Ninar",
+       "desc": "Expansão de domínio: a vítima fica com tanto sono e cansaço que dorme por muito tempo.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Mais técnicas",
+     "rows": [
+      {
+       "icon": "mark",
+       "label": "Técnica",
+       "value": "Um Assunto por Vez",
+       "desc": "Só um assunto de que ele não gosta fica ativo no Hiperfoco. Trocar por outro faz ele perder o conhecimento do anterior. Os assuntos de que gosta continuam com ele.",
+       "weak": false
+      },
+      {
+       "icon": "book",
+       "label": "Técnica",
+       "value": "Especialista por Encomenda",
+       "desc": "Os aliados dão o assunto: uma técnica inimiga, um idioma, um mapa, uma fechadura, um motor, uma anatomia. A Garça Entregadora leva os livros e os materiais.",
+       "weak": false
+      },
+      {
+       "icon": "speak",
+       "label": "Técnica",
+       "value": "Conto do Especialista",
+       "desc": "Quando termina, conta o que aprendeu e explica de forma simples aos aliados, passando o essencial.",
+       "weak": false
+      },
+      {
+       "icon": "eye-andorrinhao-conto",
+       "label": "Técnica",
+       "value": "Hiperfoco em Combate",
+       "desc": "Escolhe a técnica do inimigo como assunto, descobre como ela funciona e acha a brecha.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Técnica",
+       "value": "Voo Sem Pouso",
+       "desc": "Voa muito rápido e por muito tempo sem pousar. Entrega recados e chega antes de quase todo mundo.",
+       "weak": false
+      },
+      {
+       "icon": "wind",
+       "label": "Técnica",
+       "value": "Asa Foice",
+       "desc": "As asas longas em foice cortam o ar em passagens rápidas, acordado ou dormindo.",
+       "weak": false
+      },
+      {
+       "icon": "zz",
+       "label": "Técnica",
+       "value": "Dormir de Propósito",
+       "desc": "Pode adormecer quando quer, para entrar no modo Dormindo. Dormir também apaga todos os efeitos negativos que ele acumulou.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "zz",
+       "label": "Fraqueza",
+       "value": "Dorme Demais",
+       "desc": "Dorme a qualquer hora e em qualquer lugar, até no meio de uma conversa ou de uma luta. O sono é pesado e difícil de interromper.",
+       "weak": true
+      },
+      {
+       "icon": "sedate",
+       "label": "Fraqueza",
+       "value": "Adora Dormir",
+       "desc": "Prefere dormir a agir. Recusa missão que o acorde cedo e aceita pagamento em soneca.",
+       "weak": true
+      },
+      {
+       "icon": "fail",
+       "label": "Fraqueza",
+       "value": "Forte, Mas Frágil",
+       "desc": "Dormindo, a resistência continua a mesma de acordado. Ele luta só por instinto, sem Hiperfoco e sem a Biblioteca da Mente.",
+       "weak": true
+      },
+      {
+       "icon": "pause",
+       "label": "Consequência",
+       "value": "Sono Obrigatório",
+       "desc": "Quando gasta o Hiperfoco, ele tem que dormir. Pode adiar, mas a cada minuto a inteligência, a concentração, a energia e o resto vão caindo. Ao dormir, esses efeitos negativos somem.",
+       "weak": true
+      },
+      {
+       "icon": "time",
+       "label": "Limitação",
+       "value": "Hiperfoco Acaba",
+       "desc": "O tempo é limitado. Ao fim, volta ao normal e perde o conhecimento dos assuntos de que não gosta. Só os de que gosta ficam.",
+       "weak": true
+      },
+      {
+       "icon": "jump",
+       "label": "Fraqueza",
+       "value": "Perdido no Chão",
+       "desc": "Tem as pernas curtas e decola mal do chão. Precisa de queda ou de vento para voar, e no chão é lento e desajeitado.",
+       "weak": true
+      }
+     ]
+    }
+   ],
+   "audio": "",
+   "logo": "midia/andorrinhao-conto/logo.jpg",
+   "logoAlt": "Andorinhão-preto de gorro de dormir, olhos sonolentos e asas em foice, com um livro aberto brilhando no peito, sob a lua",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "forms": [
+    {
+     "chip": "Acordado",
+     "name": "Acordado",
+     "values": [
+      2,
+      4,
+      4,
+      2,
+      3,
+      2,
+      4
+     ]
+    },
+    {
+     "chip": "Hiperfoco",
+     "name": "Hiperfoco",
+     "values": [
+      2,
+      4,
+      5,
+      2,
+      4,
+      3,
+      4
+     ]
+    },
+    {
+     "chip": "Dormindo",
+     "name": "Dormindo",
+     "values": [
+      4,
+      5,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    }
+   ],
+   "startForm": 0,
+   "side": ""
   }
  ]
 }
