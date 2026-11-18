@@ -169,7 +169,10 @@
   "swap-gaviao-evocador": "<path d=\"M4 8h13M14 4.5L17.5 8 14 11.5M20 16H7M10 12.5L6.5 16 10 19.5\"/>",
   "moon-gaviao-evocador": "<path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z\"/>",
   "dive-gaviao-evocador": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
-  "claw-gaviao-evocador": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>"
+  "claw-gaviao-evocador": "<path d=\"M5 20c1-6 3-10 7-16M10 20c1-5 3-8 7-12M15 20c.7-3.5 2.2-5.8 5-8\"/>",
+  "swap-cuco-intruso": "<path d=\"M4 8h13M14 4.5L17.5 8 14 11.5M20 16H7M10 12.5L6.5 16 10 19.5\"/>",
+  "dive-cuco-intruso": "<path d=\"M12 3v15M6.5 12.5L12 18l5.5-5.5M5 21h14\"/>",
+  "eye-cuco-intruso": "<path d=\"M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/>"
  },
  "characters": [
   {
@@ -5030,6 +5033,585 @@
    ],
    "startForm": 0,
    "side": ""
+  },
+  {
+   "id": "cuco-intruso",
+   "name": "Cuco Intruso",
+   "subtitle": "Infiltração · Corpo Poroso",
+   "quote": "A parede é só uma sugestão.",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 18%",
+   "photoPad": "",
+   "logo": "midia/cuco-intruso/logo.jpg",
+   "logoAlt": "Cuco cinza saindo de uma parede de tijolos, com um gêmeo fantasma oco ao lado",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 3,
+   "gradeNote": "Dentro da parede: Grau 1",
+   "role": "Infiltrado · Lado a definir",
+   "series": "Temporada 1",
+   "side": "",
+   "theme": {
+    "accent": "#b6f24a",
+    "photoBg": ""
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 4,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Quem ele é",
+     "rows": [
+      {
+       "icon": "door",
+       "label": "Inata",
+       "value": "Parasita de Ninhos",
+       "desc": "Vive entrando onde não foi chamado. Cresceu enganando ninhos alheios, e hoje o Conselho o usa para entrar onde ninguém consegue.",
+       "weak": false
+      },
+      {
+       "icon": "scan",
+       "label": "Inata",
+       "value": "Olho de Cuco",
+       "desc": "Guarda a planta de cada lugar por onde passou: portas, vigias, vãos e rotas de fuga. Quase nunca se perde.",
+       "weak": false
+      },
+      {
+       "icon": "mute",
+       "label": "Técnica",
+       "value": "Passo Leve",
+       "desc": "Pousa e anda sem fazer barulho, sem arrastar pena no chão.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Corpo Poroso",
+     "rows": [
+      {
+       "icon": "ghostwing",
+       "label": "Técnica",
+       "value": "Corpo Poroso",
+       "desc": "Deixa o corpo atravessar sólidos: paredes, portas, chão e teto. Enquanto está poroso, nada o toca, mas ele também não toca em nada.",
+       "weak": false
+      },
+      {
+       "icon": "dash",
+       "label": "Técnica",
+       "value": "Atravessar Pássaros",
+       "desc": "Passa por dentro do corpo de outros pássaros, como quem atravessa uma cortina fria. Quem é atravessado sente um arrepio e perde o fôlego por um instante, mas não se fere.",
+       "weak": false
+      },
+      {
+       "icon": "swap-cuco-intruso",
+       "label": "Técnica",
+       "value": "Fase Parcial",
+       "desc": "Deixa só uma asa ou um pé porosos, para pegar o que está dentro de um cofre ou de uma parede sem atravessar o corpo todo.",
+       "weak": false
+      },
+      {
+       "icon": "dive-cuco-intruso",
+       "label": "Técnica",
+       "value": "Mergulho",
+       "desc": "Afunda no chão ou na parede como na água, e anda lá dentro na velocidade de uma caminhada. Só consegue ver e ouvir bem de perto.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Stand: Cuco Oco",
+     "rows": [
+      {
+       "icon": "decoy",
+       "label": "Técnica",
+       "value": "Cuco Oco",
+       "desc": "Um gêmeo fantasma e oco, com um buraco redondo no peito. Entra em parede, chão e pássaro, e vê o que ele vê. Alcance curto.",
+       "weak": false
+      },
+      {
+       "icon": "eye-cuco-intruso",
+       "label": "Técnica",
+       "value": "Olhos Dentro da Parede",
+       "desc": "Manda o Oco na frente enquanto o corpo fica parado do lado de fora. Dá para olhar uma sala inteira sem entrar nela.",
+       "weak": false
+      },
+      {
+       "icon": "give",
+       "label": "Técnica",
+       "value": "Esconderijo Interno",
+       "desc": "O Oco guarda objetos dentro de paredes, do chão ou de um pássaro, sem machucar. O item fica preso ali até ele puxar de volta.",
+       "weak": false
+      },
+      {
+       "icon": "mark",
+       "label": "Técnica",
+       "value": "Marca por Dentro",
+       "desc": "Planta uma etiqueta pequena dentro do corpo de um pássaro. Ele sente onde a etiqueta está, até de longe, até ser tirada.",
+       "weak": false
+      },
+      {
+       "icon": "fist",
+       "label": "Técnica",
+       "value": "Asa que Entra",
+       "desc": "A asa do Oco entra no corpo do alvo e aperta uma junta por dentro. A asa ou a perna do alvo fica dormente por alguns segundos.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "fail",
+       "label": "Fraqueza",
+       "value": "Frágil Quando Sólido",
+       "desc": "Fora da fase, ele tem quase nenhuma resistência. Um golpe direto o derruba.",
+       "weak": true
+      },
+      {
+       "icon": "alert",
+       "label": "Fraqueza",
+       "value": "Preso na Parede",
+       "desc": "Se for interrompido ou ficar sem energia no meio de um sólido, ele volta sólido lá dentro e se fere muito. É o maior risco dele.",
+       "weak": true
+      },
+      {
+       "icon": "crack",
+       "label": "Limitação",
+       "value": "Energia Barra o Caminho",
+       "desc": "Não atravessa barreiras de energia nem pássaros com muito mais energia que ele. Domínios o prendem.",
+       "weak": true
+      },
+      {
+       "icon": "echo",
+       "label": "Limitação",
+       "value": "Eco Denuncia",
+       "desc": "Quem usa ecolocalização, como o Morcego e o Escutador, sente a massa dele dentro da parede.",
+       "weak": true
+      },
+      {
+       "icon": "weight",
+       "label": "Limitação",
+       "value": "Pouca Carga",
+       "desc": "Só leva consigo o que cabe no bico ou na bolsa do corpo, e nada grande. O resto fica para trás.",
+       "weak": true
+      },
+      {
+       "icon": "swap-cuco-intruso",
+       "label": "Limitação",
+       "value": "Poroso Não Ataca",
+       "desc": "Para golpear, ele precisa ficar sólido, e fica exposto nesse instante. Atravessar é rápido, mas lutar é arriscado.",
+       "weak": true
+      },
+      {
+       "icon": "drain",
+       "label": "Limitação",
+       "value": "Atravessar Cansa",
+       "desc": "Quanto mais grosso o sólido e quanto mais tempo poroso, mais energia gasta.",
+       "weak": true
+      },
+      {
+       "icon": "link",
+       "label": "Limitação",
+       "value": "Dano Compartilhado",
+       "desc": "O que atinge o Oco também o machuca. Dentro de um pássaro, o Oco fica vulnerável a ele.",
+       "weak": true
+      }
+     ]
+    }
+   ],
+   "forms": [
+    {
+     "chip": "Sólido",
+     "name": "Sólido",
+     "values": [
+      2,
+      4,
+      4,
+      1,
+      3,
+      2,
+      4
+     ]
+    },
+    {
+     "chip": "Poroso",
+     "name": "Poroso",
+     "values": [
+      1,
+      4,
+      4,
+      5,
+      3,
+      1,
+      4
+     ]
+    },
+    {
+     "chip": "Mergulhado",
+     "name": "Mergulhado",
+     "values": [
+      1,
+      3,
+      5,
+      4,
+      3,
+      1,
+      4
+     ]
+    },
+    {
+     "chip": "Com o Oco",
+     "name": "Com o Oco",
+     "values": [
+      3,
+      4,
+      4,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "startForm": 0
+  },
+  {
+   "id": "pelicano-contensor",
+   "name": "Pelicano Contensor",
+   "subtitle": "Controle de Multidão",
+   "quote": "Todo mundo atrás de mim. Hoje ninguém se machuca.",
+   "audio": "",
+   "photo": "",
+   "photoAlt": "",
+   "photoFit": "cover",
+   "photoPos": "50% 18%",
+   "photoPad": "",
+   "logo": "midia/pelicano-contensor/logo.jpg",
+   "logoAlt": "Pelicano de apito dourado com as asas abertas como muralha, protegendo dois passarinhos",
+   "logoFit": "cover",
+   "logoPos": "50% 0%",
+   "grade": 3,
+   "gradeNote": "Com multidão por perto: Grau 1",
+   "role": "Herói · Enviado do Conselho",
+   "series": "Temporada 1",
+   "side": "",
+   "theme": {
+    "accent": "#ffc83d",
+    "photoBg": ""
+   },
+   "stats": [
+    {
+     "label": "Força",
+     "value": 3,
+     "base": null
+    },
+    {
+     "label": "Velocidade",
+     "value": 2,
+     "base": null
+    },
+    {
+     "label": "Inteligência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Resistência",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Energia",
+     "value": 4,
+     "base": null
+    },
+    {
+     "label": "Destruição",
+     "value": 1,
+     "base": null
+    },
+    {
+     "label": "Potencial",
+     "value": 3,
+     "base": null
+    }
+   ],
+   "legend": null,
+   "groups": [
+    {
+     "title": "Quem ele é",
+     "rows": [
+      {
+       "icon": "scroll",
+       "label": "Inata",
+       "value": "Enviado do Conselho",
+       "desc": "O Conselho dos Pássaros o manda quando um vilão aparece em lugar público, cercado de outros pássaros. A missão dele é prender o vilão sem machucar quem está em volta.",
+       "weak": false
+      },
+      {
+       "icon": "crumbs",
+       "label": "Inata",
+       "value": "Bico-Bolsa",
+       "desc": "A bolsa do bico estica muito e guarda água, objetos e até um passarinho inteiro. É a base de quase todas as técnicas dele.",
+       "weak": false
+      },
+      {
+       "icon": "shieldp",
+       "label": "Técnica",
+       "value": "Contenção Branda",
+       "desc": "A energia dele empurra, prende, molha e cansa, mas quase nunca corta ou explode. O dano em prédios e em inocentes fica perto de zero.",
+       "weak": false
+      },
+      {
+       "icon": "give",
+       "label": "Técnica",
+       "value": "Proteger Dá Força",
+       "desc": "Quanto mais inocentes ele protege ao mesmo tempo, mais energia ganha. Por isso rende mais no meio da multidão.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Controle de multidão",
+     "rows": [
+      {
+       "icon": "flock",
+       "label": "Técnica",
+       "value": "Contagem de Cabeças",
+       "desc": "Sente todos os pássaros em volta e sabe quem é inocente e quem é inimigo. Um vilão misturado à multidão não se esconde dele.",
+       "weak": false
+      },
+      {
+       "icon": "loud",
+       "label": "Técnica",
+       "value": "Chamado de Evacuação",
+       "desc": "Um som grave do bico que acalma o pânico e faz os pássaros saírem em fila pelas saídas. Só guia e acalma, não controla a mente de ninguém.",
+       "weak": false
+      },
+      {
+       "icon": "wind",
+       "label": "Técnica",
+       "value": "Varredura Suave",
+       "desc": "Passa a asa por perto e leva os inocentes para trás dele num instante, sem machucar. Alcance curto.",
+       "weak": false
+      },
+      {
+       "icon": "wall",
+       "label": "Técnica",
+       "value": "Asas Escudo",
+       "desc": "Abre as asas como uma muralha larga e segura os golpes que iam atingir a multidão. Fica parado enquanto segura.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Captura",
+     "rows": [
+      {
+       "icon": "egg",
+       "label": "Técnica",
+       "value": "Bolsa de Contenção",
+       "desc": "Recolhe o vilão na bolsa. Lá dentro ele não consegue ferir ninguém de fora. Cabe um vilão forte ou vários fracos, e o tempo depende da energia dele.",
+       "weak": false
+      },
+      {
+       "icon": "drop",
+       "label": "Técnica",
+       "value": "Maré Mansa",
+       "desc": "Cospe uma onda de água que empurra o vilão e a multidão para longe do perigo, apaga fogo e amortece quedas. A água não machuca.",
+       "weak": false
+      },
+      {
+       "icon": "drop",
+       "label": "Técnica",
+       "value": "Água do Bico",
+       "desc": "Enche a bolsa com a água que houver por perto: fonte, chuva, rio ou cano estourado. Sem isso, usa só a reserva que carrega.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Domínio",
+     "rows": [
+      {
+       "icon": "plate",
+       "label": "Domínio de expansão",
+       "value": "Praça Vazia",
+       "desc": "Leva o vilão para uma cópia do lugar sem nenhum inocente. Ele só sai quando desiste, desmaia ou o Pelicano fica sem energia.",
+       "weak": false
+      },
+      {
+       "icon": "pause",
+       "label": "Domínio",
+       "value": "Tudo Vira Cansaço",
+       "desc": "Lá dentro, os golpes do Pelicano não ferem de verdade: viram cansaço. Ele vence esgotando o vilão, não derrubando.",
+       "weak": false
+      },
+      {
+       "icon": "cycle",
+       "label": "Domínio",
+       "value": "Tudo se Refaz",
+       "desc": "O que for quebrado dentro da Praça Vazia volta ao normal quando ela acaba. O lugar de verdade nem chega a ser tocado.",
+       "weak": false
+      }
+     ]
+    },
+    {
+     "title": "Pontos fracos",
+     "rows": [
+      {
+       "icon": "drain",
+       "label": "Limitação",
+       "value": "Pouco Dano",
+       "desc": "Quase não tem destruição. Um vilão muito resistente ao cansaço demora a cair.",
+       "weak": true
+      },
+      {
+       "icon": "weight",
+       "label": "Fraqueza",
+       "value": "Lento e Pesado",
+       "desc": "Voa devagar, e pior ainda com a bolsa cheia. Um vilão veloz escapa dele.",
+       "weak": true
+      },
+      {
+       "icon": "alert",
+       "label": "Limitação",
+       "value": "Cobre os Outros",
+       "desc": "Quando o vilão mira os inocentes, ele toma os golpes no lugar. Gasta Resistência e energia rápido.",
+       "weak": true
+      },
+      {
+       "icon": "eyeoff",
+       "label": "Limitação",
+       "value": "Contagem Cega",
+       "desc": "Quem esconde a própria energia some da contagem. Ele sente que falta uma cabeça, mas não sabe onde.",
+       "weak": true
+      },
+      {
+       "icon": "mute",
+       "label": "Limitação",
+       "value": "Pânico Quebra o Chamado",
+       "desc": "Se o medo da multidão for maior que a calma do Chamado, ninguém o ouve. Um vilão que assusta mais que ele anula a técnica.",
+       "weak": true
+      },
+      {
+       "icon": "drop",
+       "label": "Limitação",
+       "value": "Água Necessária",
+       "desc": "Sem água por perto, a Maré Mansa e a Bolsa de Contenção ficam fracas.",
+       "weak": true
+      },
+      {
+       "icon": "crumbs",
+       "label": "Limitação",
+       "value": "Bolsa Tem Limite",
+       "desc": "Um vilão forte pode rasgar a bolsa por dentro, e a dor volta para o Pelicano.",
+       "weak": true
+      },
+      {
+       "icon": "fail",
+       "label": "Fraqueza",
+       "value": "Sem Plateia, Sem Força",
+       "desc": "Sozinho, num lugar vazio, ele é só Grau 2 e perde o ganho de Proteger Dá Força. A Praça Vazia gasta toda a energia que juntou.",
+       "weak": true
+      }
+     ]
+    }
+   ],
+   "forms": [
+    {
+     "chip": "Patrulha",
+     "name": "Patrulha",
+     "values": [
+      3,
+      2,
+      4,
+      4,
+      4,
+      1,
+      3
+     ]
+    },
+    {
+     "chip": "Escudo Alado",
+     "name": "Escudo Alado",
+     "values": [
+      2,
+      1,
+      4,
+      5,
+      4,
+      1,
+      3
+     ]
+    },
+    {
+     "chip": "Maré Mansa",
+     "name": "Maré Mansa",
+     "values": [
+      3,
+      2,
+      4,
+      3,
+      5,
+      2,
+      3
+     ]
+    },
+    {
+     "chip": "Bolsa Cheia",
+     "name": "Bolsa Cheia",
+     "values": [
+      3,
+      1,
+      4,
+      5,
+      3,
+      1,
+      3
+     ]
+    }
+   ],
+   "startForm": 0
   }
  ]
 }
