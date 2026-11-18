@@ -2,7 +2,7 @@
 
 **Infiltração · Corpo Poroso**
 
-![Cuco cinza saindo de uma parede de tijolos, com um gêmeo fantasma oco ao lado](../midia/cuco-intruso/logo.jpg)
+![Foto de Cuco Intruso](../midia/cuco-intruso/foto.jpg) ![Cuco cinza saindo de uma parede de tijolos, com um gêmeo fantasma oco ao lado](../midia/cuco-intruso/logo.jpg)
 
 > “A parede é só uma sugestão.”
 
